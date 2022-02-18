@@ -1,3 +1,3 @@
-• Para l alectura de Json descargamos una librería 
+• Para l alectura de Json descargamos una librería json-simple-1.1 (creo que es de google)
     link vídeo -> https://www.youtube.com/watch?v=fzEpRFcshc0
     link descarga -> http://www.java2s.com/Code/Jar/j/Downloadjsonsimple11jar.htm
