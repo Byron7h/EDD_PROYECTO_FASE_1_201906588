@@ -15,7 +15,11 @@ public class Proyecto_1_Estructuras {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        nodo n1 = new nodo("n1","n1",1,1);
+        
+
+        
+        
+        /*nodo n1 = new nodo("n1","n1",1,1);
         nodo n2 = new nodo("n2","n2",1,1);
         nodo n3 = new nodo("n3","n3",1,1);
         nodo n4 = new nodo("n4","n4",1,1);
@@ -43,7 +47,8 @@ public class Proyecto_1_Estructuras {
         System.out.println("avanzar"+varu.get_id());
         varu = Cola_1.avanzar();
         System.out.println("avanzar"+varu.get_id());
-        Cola_1.imprimir();
+        Cola_1.imprimir();*/
+        
     }
     
 }
