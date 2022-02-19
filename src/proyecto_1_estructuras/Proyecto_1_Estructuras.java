@@ -28,14 +28,42 @@ public class Proyecto_1_Estructuras {
      */
     public static void main(String[] args) {
         
+        // •Prueba funcionamiento Cola-JSON
+        /*
         String ruta = "C:\\Users\\usuario\\Documents\\Byron\\7mo semestre\\Estructuras\\EDD_PROYECTO_FASE_1_201906588\\Entrada.json";
         int tamano = 50;  
         
         Lector lectura = new Lector(ruta, tamano);
         Cola colita = lectura.Lectura();
         colita.imprimir();
+        */
+        
+        // •Prueba funcionamiento lista
+        /*
+        Lista lista = new Lista();
+        nodo n1 = new nodo(1,"w",1,1);
+        nodo n2 = new nodo(2,"w",2,2);
+        nodo n3 = new nodo(3,"w",1,1);
+        nodo n4 = new nodo(4,"w",1,1);
+        nodo n5 = new nodo(5,"w",1,1);
+        System.out.println("Tamaño "+ lista.tamano());
+        
+        lista.Anadir(n1);
+        lista.Anadir(n2);
+        lista.Anadir(n3);
+        System.out.println("Tamaño "+ lista.tamano());
+        lista.Anadir(n4);
+        lista.Anadir(n5);
+        lista.imprimir();
+        int num = lista.tamano();
+        lista.Eliminar(num-2);
+        lista.imprimir();
+        System.out.println("Tamaño "+ lista.tamano());
 
         
+        //lista.Eliminar(0);
+        //lista.imprimir();
+        */
 
     }
     

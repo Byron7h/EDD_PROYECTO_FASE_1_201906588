@@ -53,7 +53,7 @@ public class Lista {
         return tamano;
     }
     
-    // Eliminando
+    // Eliminando, recordemos que inciamos desde 0
     public void Eliminar(int index){
         
         int contador = 0;       
@@ -68,7 +68,8 @@ public class Lista {
                 contador ++;        
             }
             //sale del while, acá lo eliminamos
-            anterior.set_siguiente(actual.get_siguiente());           
+            anterior.set_siguiente(actual.get_siguiente()); 
+            tamano --;
         }  
     }
      
