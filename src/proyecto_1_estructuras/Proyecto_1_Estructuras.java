@@ -9,6 +9,18 @@ package proyecto_1_estructuras;
  *
  * @author usuario
  */
+
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.Iterator;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+
+
 public class Proyecto_1_Estructuras {
 
     /**
@@ -16,39 +28,15 @@ public class Proyecto_1_Estructuras {
      */
     public static void main(String[] args) {
         
+        String ruta = "C:\\Users\\usuario\\Documents\\Byron\\7mo semestre\\Estructuras\\EDD_PROYECTO_FASE_1_201906588\\Entrada.json";
+        int tamano = 50;  
+        
+        Lector lectura = new Lector(ruta, tamano);
+        Cola colita = lectura.Lectura();
+        colita.imprimir();
 
         
-        
-        /*nodo n1 = new nodo("n1","n1",1,1);
-        nodo n2 = new nodo("n2","n2",1,1);
-        nodo n3 = new nodo("n3","n3",1,1);
-        nodo n4 = new nodo("n4","n4",1,1);
-        nodo n5 = new nodo("n5","n5",1,1);
-        Cola Cola_1 = new Cola();
-        Cola_1.insertar(n1);
-        Cola_1.insertar(n2);
-        Cola_1.insertar(n3);
-        Cola_1.insertar(n4);
-        Cola_1.insertar(n5);
-        Cola_1.imprimir();
-        nodo varu = Cola_1.avanzar();
-        System.out.println("avanzar"+varu.get_id());
-        Cola_1.imprimir();
-        varu = Cola_1.avanzar();
-        System.out.println("avanzar"+varu.get_id());
-        Cola_1.imprimir();
-        nodo n6 = new nodo("n6","n6",1,1);
-        Cola_1.insertar(n6);
-        varu = Cola_1.avanzar();
-        System.out.println("avanzar"+varu.get_id());
-        varu = Cola_1.avanzar();
-        System.out.println("avanzar"+varu.get_id());
-        varu = Cola_1.avanzar();
-        System.out.println("avanzar"+varu.get_id());
-        varu = Cola_1.avanzar();
-        System.out.println("avanzar"+varu.get_id());
-        Cola_1.imprimir();*/
-        
+
     }
     
 }
