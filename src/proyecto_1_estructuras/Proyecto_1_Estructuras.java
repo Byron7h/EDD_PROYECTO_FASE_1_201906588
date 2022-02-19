@@ -28,6 +28,11 @@ public class Proyecto_1_Estructuras {
      */
     public static void main(String[] args) {
         
+        Menu menu = new Menu();
+        menu.LlamarMenu();
+        
+        
+        
         // Prueba Pila e imagen
         //imagenes tipo(bn->1 c->2)
         // tipo id_propietario num_de_impresion
