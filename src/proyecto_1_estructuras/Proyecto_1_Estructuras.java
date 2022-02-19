@@ -28,6 +28,31 @@ public class Proyecto_1_Estructuras {
      */
     public static void main(String[] args) {
         
+        // Prueba Pila e imagen
+        //imagenes tipo(bn->1 c->2)
+        // tipo id_propietario num_de_impresion
+        /*
+        img uno = new img(1,2,3);
+        img dos = new img(2,2,3);
+        img tres = new img(3,2,3);
+        
+        Pila pila = new Pila();
+        pila.insertar(uno);
+        pila.imprimir();
+        pila.insertar(dos);
+        pila.imprimir();
+        pila.insertar(tres);
+        pila.imprimir();
+        pila.avanzar();
+        pila.imprimir();
+        pila.avanzar();
+        pila.imprimir();
+        
+        */
+        
+             
+        // • Prueba funcionamiento ventanilla
+        /*
         ventanilla uno = new ventanilla(1);
         System.out.println(uno.disponible());
         
@@ -39,17 +64,12 @@ public class Proyecto_1_Estructuras {
             
             uno.recibir_img(n1);
             var = uno.disponible();
-
-       
+   
         }
 
+       */ 
         
-        
-        
-        
-        
-        
-        
+
         
         // •Prueba funcionamiento Cola-JSON
         /*
