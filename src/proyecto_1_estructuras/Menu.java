@@ -40,15 +40,17 @@ public class Menu {
     
      
      do{
-        System.out.println("•••         UDrawing Paper          •••");
-        System.out.println("1. Carga masiva de clientes");
-        System.out.println("2. Número de ventanillas");
-        System.out.println("3. Ejecutar Paso");
-        System.out.println("4. Estado de memoria de las estructuras");
-        System.out.println("5. Reportes");
-        System.out.println("6. Acerca de");
-        System.out.println("7. Salir");
-        opcion = sc.nextInt();
+         System.out.println("•••         UDrawing Paper          •••");
+         System.out.println("1. Carga masiva de clientes");
+         System.out.println("2. Número de ventanillas");
+         System.out.println("3. Ejecutar Paso");
+         System.out.println("4. Estado de memoria de las estructuras");
+         System.out.println("5. Reportes");
+         System.out.println("6. Acerca de");
+         System.out.println("7. Salir");
+         opcion = sc.nextInt();
+         System.out.println("");
+         
             
             
             
@@ -56,10 +58,12 @@ public class Menu {
             switch(opcion){
                 case 1:                 
                     System.out.print("Ingrese la dirección del archivo");
+                    System.out.println("");
                     String ruta ;
                     ruta = cadenas.nextLine();
                     
                     System.out.print("Ingrese la cantidad de Clientes");
+                    System.out.println("");
                     int cantidad;
                     cantidad = sc.nextInt();
                     Cola_recepcion = lectura_Json(ruta, cantidad);

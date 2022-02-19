@@ -33,7 +33,7 @@ public class Lector {
             
             Object obj = parser.parse(new FileReader(ruta));
             JSONObject jsonObject = (JSONObject) obj; //Convertimos el archivo a objeto JSON
-            System.out.println("JSON LEIDO: " + jsonObject);
+            //System.out.println("JSON LEIDO: " + jsonObject);
             
             
             for(int i = 1 ; i < tamano+1 ; i++) {
@@ -48,7 +48,7 @@ public class Lector {
                 
                 nodo nuevo = new nodo(id, nombre, img_c, img_bn);
                 Cola_inicial.insertar(nuevo);
-                System.out.println(i);
+                
                 
                 
                 
@@ -62,7 +62,7 @@ public class Lector {
         catch (ParseException e){e.printStackTrace();}
         catch (Exception e){e.printStackTrace();}
         
-        
+        System.out.println("Se ha realizado la carga masiva");
         return Cola_inicial;
         
     }

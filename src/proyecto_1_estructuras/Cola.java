@@ -62,6 +62,7 @@ public class Cola {
         nodo actual = cabecera;       
         while( actual != null){
             System.out.print(actual.get_id());
+            System.out.println("");
             actual = actual.get_siguiente();
             }
         System.out.println("");
