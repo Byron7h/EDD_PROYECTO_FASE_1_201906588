@@ -24,16 +24,17 @@ public class ventanilla {
         return disponible;
     }
     
-    public boolean recibir_img (nodo evaluado){ // debolberá true cuando deje la ventanilla vacia, es la señal para pasar al siguiente nodo
+    public void recibir_img (nodo evaluado){ // debolberá true cuando deje la ventanilla vacia, es la señal para pasar al siguiente nodo
+     
+        int nc = evaluado.get_img_c();
+        int nbn = evaluado.get_img_bn();
+
+        // Valuando primero las de color 
         if (disponible){
             disponible = false;
+            System.out.println("El cliente " + evaluado.get_nombre()+ "ingresa a la ventanilla");
         }
-        int nc = evaluado.get_img_c();
-        int nbn = evaluado.get_img_c();
-
-        
-        // Valuando primero las de color
-        if ( img_c != nc){
+        else if ( img_c != nc){
             img_c ++;
             System.out.println("se agregó una a color a la ventanilla" + id);               
         }else if(img_bn != nbn){
@@ -43,9 +44,7 @@ public class ventanilla {
             System.out.println("El cliente " + evaluado.get_nombre()+ "avanza a la listra de espera");
             disponible = true;
                     
-        }
-        return disponible;
-        
+        }  
        
         // desde acá creo que vamos a imprimir, antes de colocarle que la caja ahora está disponible
         

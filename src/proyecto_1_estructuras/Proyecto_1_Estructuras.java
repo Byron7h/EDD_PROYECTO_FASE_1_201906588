@@ -31,14 +31,18 @@ public class Proyecto_1_Estructuras {
         ventanilla uno = new ventanilla(1);
         System.out.println(uno.disponible());
         
-        nodo n1 = new nodo(1,"w",3,1);
+        nodo n1 = new nodo(1,"w",0,9);
         
-        uno.recibir_img(n1);
-        uno.recibir_img(n1);
-        uno.recibir_img(n1);
-        uno.recibir_img(n1);
-        uno.recibir_img(n1);
-        
+        uno.recibir_img(n1);      
+        boolean var = false;
+        while(var != true){
+            
+            uno.recibir_img(n1);
+            var = uno.disponible();
+
+       
+        }
+
         
         
         
