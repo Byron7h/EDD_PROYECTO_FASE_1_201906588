@@ -28,6 +28,25 @@ public class Proyecto_1_Estructuras {
      */
     public static void main(String[] args) {
         
+        ventanilla uno = new ventanilla(1);
+        System.out.println(uno.disponible());
+        
+        nodo n1 = new nodo(1,"w",3,1);
+        
+        uno.recibir_img(n1);
+        uno.recibir_img(n1);
+        uno.recibir_img(n1);
+        uno.recibir_img(n1);
+        uno.recibir_img(n1);
+        
+        
+        
+        
+        
+        
+        
+        
+        
         // •Prueba funcionamiento Cola-JSON
         /*
         String ruta = "C:\\Users\\usuario\\Documents\\Byron\\7mo semestre\\Estructuras\\EDD_PROYECTO_FASE_1_201906588\\Entrada.json";

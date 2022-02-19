@@ -20,6 +20,10 @@ public class ventanilla {
         this.id = num;
     }
     
+    public boolean disponible(){
+        return disponible;
+    }
+    
     public boolean recibir_img (nodo evaluado){ // debolberá true cuando deje la ventanilla vacia, es la señal para pasar al siguiente nodo
         if (disponible){
             disponible = false;
