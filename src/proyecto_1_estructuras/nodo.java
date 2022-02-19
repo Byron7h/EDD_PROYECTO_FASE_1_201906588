@@ -12,7 +12,7 @@ package proyecto_1_estructuras;
 public class nodo {
             
     //  • ETRIBUTOS
-    String id;
+    int id;
     String nombre;
     int img_c;
     int img_bn;
@@ -20,14 +20,15 @@ public class nodo {
     int ventanilla;
     nodo siguiente = null; //puntero de tipo nodo
     
-    // • CONSTRUCTOR
-    public nodo (String id, String nombre, int img_c, int img_bn){
+    // • CONSTRUCTOR 1 
+    public nodo (int id, String nombre, int img_c, int img_bn){
         this.id = id;
         this.nombre = nombre;
         this.img_c = img_c;
         this.img_bn = img_bn;       
     }
-
+   
+    
     // • METODOS 
     
     public void paso(){ //aumenta en 1 el # de paso
@@ -45,7 +46,7 @@ public class nodo {
     
     // •FUNCIONES
 
-    public String get_id(){
+    public int get_id(){
         return id;
     }
     

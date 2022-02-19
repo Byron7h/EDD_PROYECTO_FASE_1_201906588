@@ -13,6 +13,7 @@ public class Cola {
     
     //• ATRIBUTOS    
     nodo cabecera ;
+    int contador = 0; // este es para los ids
     
     // • CONSTRUCTOR
     public Cola (){
@@ -35,7 +36,7 @@ public class Cola {
                     actual = actual.get_siguiente();
                 }               
             }        
-        }
+        } contador ++;
     }
     
     public boolean vacia(){   
@@ -64,6 +65,11 @@ public class Cola {
             actual = actual.get_siguiente();
             }
         System.out.println("");
+    }
+    
+    public int id_actual(){
+        contador ++;
+        return contador;
     }
 
     
