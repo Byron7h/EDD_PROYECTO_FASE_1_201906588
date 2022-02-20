@@ -22,7 +22,7 @@ public class Menu {
     //  ESTRUCTURAS
     
     public static Cola Cola_recepcion = new Cola();
-    public static Lista Lista_ventanillas  = new Lista();
+    public static Lista_Ventanillas Lista_ventanillas  = new Lista_Ventanillas();
     
     
     
@@ -74,7 +74,17 @@ public class Menu {
                 
                     break;
                 case 2:
-                    System.out.println("METODO DESCIFRADO");
+                    System.out.println("Ingrese la cantidad de ventanillas");
+                    int cantidad_v;
+                    cantidad_v = sc.nextInt();
+                    for (int i = 0; i< cantidad_v; i++){
+                        int num = i+1;
+                        ventanilla nueva = new ventanilla(num); 
+                        Lista_ventanillas.Anadir(nueva);
+                    }
+                    Lista_ventanillas.imprimir();
+          
+                    
                     break;
                 case 3:
                     break;

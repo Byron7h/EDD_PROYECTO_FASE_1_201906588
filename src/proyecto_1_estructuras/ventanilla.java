@@ -15,6 +15,7 @@ public class ventanilla {
     boolean disponible = true; // a la hora de su creación todas están disponibles
     int img_c = 0;
     int img_bn = 0;
+    ventanilla siguiente = null;
     
     public ventanilla(int num){
         this.id = num;
@@ -22,6 +23,18 @@ public class ventanilla {
     
     public boolean disponible(){
         return disponible;
+    }
+    
+    public ventanilla get_siguiente(){
+        return siguiente;
+    }
+    
+    public int get_id(){
+        return id;
+    }
+    
+    public void set_siguiente(ventanilla nueva){
+        this.siguiente = nueva;
     }
     
     public void recibir_img (nodo evaluado){ // debolberá true cuando deje la ventanilla vacia, es la señal para pasar al siguiente nodo
