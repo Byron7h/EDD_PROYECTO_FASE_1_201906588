@@ -16,6 +16,7 @@ public class img {
     int id_propietario; //para ubicar a que propietario sacar de la lista de espera
     int numero; // para identificar cuando se hayan terminado las imagenes del cliente
                 // como son para una pila, cuando salga el último con numero 0 esa será la señal
+                //• Este atributo no nos sirvió porque al estar las imgs en 2 colas no llevan una secuencia        
     
     public img(int num, int id, int numero){
         this.tipo = num; 

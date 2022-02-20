@@ -27,6 +27,7 @@ public class Menu {
     public static Impresora Imp_bn = new Impresora();
     public static int contador = 0;
     public static int contador_2 = 0; // contador para la imresora a color
+    public static boolean accede = false; // bool para activar las impresoras
     public static Lista Lista_espera = new Lista();
     public static Lista temporal = new Lista();
     
@@ -199,7 +200,55 @@ public class Menu {
          //Imp_bn.imprimir();
      }
      
-     public void Paso_impresoras(){
+     
+    public void Paso_impresoras(){
+         boolean i_c = Imp_c.vacia();
+         boolean i_bn = Imp_bn.vacia();
+         
+         
+  
+ 
+         if (i_c != true || i_bn != true){     
+             if (accede == true){
+                 
+                 
+                if (i_c != true){
+                    if (contador_2 == 1){
+                        img auxiliar = Imp_c.avanzar();
+                        System.out.println("        Impresión COLOR");
+                        impresion_realizada(auxiliar.get_id());
+                        contador_2 = 0;
+                    }else{
+                        contador_2++;
+                    }
+                    
+                             }    
+                if (i_bn != true){
+                     img auxiliar = Imp_bn.avanzar();
+                    System.out.println("        Impresión B/N");  
+                    impresion_realizada(auxiliar.get_id());
+                }
+                    
+            }else{
+                 accede = true;         
+            }  
+
+                 
+        } 
+
+   }
+         
+
+     
+     
+     
+     
+     
+     
+     
+     
+     
+     public void Paso_impresoras1(){
          boolean i_c = Imp_c.vacia();
          boolean i_bn = Imp_bn.vacia();
          if (i_c != true || i_bn != true){
@@ -207,15 +256,18 @@ public class Menu {
          }
          if (i_c != true){
              if (contador_2 == 1){
-                Imp_c.avanzar();
+                img auxiliar = Imp_c.avanzar();
                 System.out.println("        Impresión COLOR");
+                impresion_realizada(auxiliar.get_id());
                 contador_2 = 0;
              }else{
                  contador_2++;
              }
          }    
          if (i_bn != true){
-             System.out.println("        Impresión B/N");
+             img auxiliar = Imp_bn.avanzar();
+             System.out.println("        Impresión B/N");  
+             impresion_realizada(auxiliar.get_id());
          }
      }
      
@@ -244,6 +296,21 @@ public class Menu {
          }
 
      }
- 
+     
+     
+     public void impresion_realizada(int id){ //vamos a recibir el id del cliente propietario de la impresion
+                                              // lo buscamos en el la lista de espera, y le restamos 1 a su atributo impresiones
+  
+        nodo actual = Lista_espera.get_cabecera();
+        if (actual != null){
+            while( actual.get_id() != id){
+                actual = actual.get_siguiente();
+            }
+            actual.impresion();
+            System.out.println("Se le resto una impresion a "+ actual.get_nombre());
+        }
+        
+     
+     }
 }
      

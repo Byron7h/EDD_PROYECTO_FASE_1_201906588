@@ -19,13 +19,15 @@ public class nodo {
     int pasos = 0; //Cantidad de pasos que tarda en imprimirse las imagenes, inicando en 0
     int ventanilla;
     nodo siguiente = null; //puntero de tipo nodo
+    int impresiones;
     
     // • CONSTRUCTOR 1 
     public nodo (int id, String nombre, int img_c, int img_bn){
         this.id = id;
         this.nombre = nombre;
         this.img_c = img_c;
-        this.img_bn = img_bn;       
+        this.img_bn = img_bn;
+        this.impresiones = img_c + img_bn;
     }
    
     
@@ -72,6 +74,14 @@ public class nodo {
 
     public nodo get_siguiente(){
         return siguiente;
+    }
+    
+    public void impresion(){
+        impresiones --;
+    }
+    
+    public int get_impresiones(){
+        return impresiones;
     }
 }
     

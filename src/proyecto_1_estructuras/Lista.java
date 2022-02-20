@@ -53,6 +53,10 @@ public class Lista {
         return tamano;
     }
     
+    public nodo get_cabecera(){
+        return cabecera;
+    }
+    
     // Eliminando, recordemos que inciamos desde 0
     public void Eliminar(int index){
         
