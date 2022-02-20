@@ -71,7 +71,7 @@ public class ventanilla {
             contador++;
             pila.insertar(nueva_img);
             
-            System.out.println("    Ventanilla " + id+" recibe una imagen COLOR");   
+            System.out.println("        Ventanilla " + id+" recibe una imagen COLOR");   
 
         }else if(img_bn != nbn){// imagenes a blanco y negro
             img_bn ++;
@@ -79,10 +79,11 @@ public class ventanilla {
             img nueva_img = new img(1, n_evaluado.get_id(), contador);
             contador++;
             pila.insertar(nueva_img);
-            System.out.println("    Ventanilla " + id+" recibe una imagen B/N");  
+            System.out.println("        Ventanilla " + id+" recibe una imagen B/N");  
             
         }else{
-            System.out.println("    El cliente " + n_evaluado.get_nombre()+ " avanza a la listra de espera");
+            System.out.println("        El cliente " + n_evaluado.get_nombre()+ " avanza a la listra de espera");
+            System.out.println("        Sus imágenes se han trasladado a las impresoras");
             
             //volviendo a las condiciones iniciales
             disponible = true;

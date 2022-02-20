@@ -25,6 +25,8 @@ public class Menu {
     public static Lista_Ventanillas Lista_ventanillas  = new Lista_Ventanillas();
     public static Impresora Imp_c = new Impresora();
     public static Impresora Imp_bn = new Impresora();
+    public static int contador = 0;
+    public static int contador_2 = 0; // contador para la imresora a color
     
     
     
@@ -82,16 +84,20 @@ public class Menu {
                         ventanilla nueva = new ventanilla(num); 
                         Lista_ventanillas.Anadir(nueva);
                     }
-                    Lista_ventanillas.imprimir();                  
+                    //Lista_ventanillas.imprimir();
+                    System.out.println("Se han creado "+cantidad_v+" ventanillas");
+                    System.out.println("");
                     break;
                     
                 case 3:
-                    
-                    System.out.println("Se dió un paso");
+                    contador++;
+                    System.out.println("PASO" + contador);
                     Paso_cola_recepcion();
                     Paso_lista_ventanillas();
+                    Paso_impresoras();
                     System.out.println("");
                     System.out.println("");
+                    
                     
                     
                     break;
@@ -131,7 +137,7 @@ public class Menu {
      public void Paso_lista_ventanillas(){
          //Recorremos todas las ventanillas y vemos en que estado estan
          // si estan desocupadas verificamos que haya elemtos en la cola, si hay procedemos a introducirlo
-         
+         System.out.println("   VENTANILLAS");
          int num_vent = Lista_ventanillas.tamano();
          if (num_vent < 1){
              System.out.println("Aún no se han creado ventanillas");
@@ -150,7 +156,6 @@ public class Menu {
                          if (top_cola != null){
                              aux.set_nodo_evaluado(top_cola); //introducimos el nodo a la ventaniñña                    
                             }
-
                          }
                          
                  }else{ // ventanila ocupada, operamos lo de adentro
@@ -168,41 +173,50 @@ public class Menu {
      
      public void encolar_img (Pila pilar){
          
-
-          
-        pilar.imprimir();
          int tamano = pilar.tamano();
-         System.out.println("tamaño pila"+tamano);
-     
          for (int m = 0; m < tamano; m++){
              img img_agregar = pilar.avanzar();
              int tipo = img_agregar.get_tipo();
              int id_cliente = img_agregar.get_id();
-             int numero = img_agregar.get_num();
-             
-             img uno = new img(tipo, id_cliente, numero);
-             
-            
+             int numero = img_agregar.get_num(); 
+             img uno = new img(tipo, id_cliente, numero);         
             switch(tipo){
                 case 1: 
                     Imp_bn.insertar(uno);
-                    break;
-                    
+                    break;           
                 case 2:   
                     Imp_c.insertar(uno);
                     break;
-      
-            } 
-         
+            }        
+         }
+         //System.out.println("Cola color");
+         //Imp_c.imprimir();
+         //System.out.println("Cola bn");
+         //Imp_bn.imprimir();
+     }
+     
+     public void Paso_impresoras(){
+         boolean i_c = Imp_c.vacia();
+         boolean i_bn = Imp_bn.vacia();
+         if (i_c != true || i_bn != true){
+             System.out.println("   IMPRESORAS");
+         }
+         if (i_c != true){
+             if (contador_2 == 1){
+                Imp_c.avanzar();
+                System.out.println("        Impresión COLOR");
+                contador_2 = 0;
+             }else{
+                 contador_2++;
+             }
+
+         }    
+         if (i_bn != true){
+             System.out.println("       Impresión B/N");
          }
          
-         System.out.println("Cola color");
-         Imp_c.imprimir();
-         System.out.println("Cola bn");
-         Imp_bn.imprimir();
-
-     
-     }  
+         
+     }
  
 }
      
