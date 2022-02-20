@@ -68,7 +68,7 @@ public class Cola {
         System.out.println("");
     }
     
-    public int id_actual(){
+    public int id_actual(){ //este nos servirá para bomrar a los nodos que creemos
         contador ++;
         return contador;
     }

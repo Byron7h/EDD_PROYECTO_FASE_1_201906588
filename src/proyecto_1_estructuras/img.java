@@ -11,7 +11,7 @@ package proyecto_1_estructuras;
  */
 public class img {
     
-    int tipo;
+    int tipo; // 1->bn 2->color
     img siguiente;
     int id_propietario; //para ubicar a que propietario sacar de la lista de espera
     int numero; // para identificar cuando se hayan terminado las imagenes del cliente

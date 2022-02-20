@@ -17,7 +17,8 @@ public class ventanilla {
     int img_bn = 0;
     ventanilla siguiente = null;
     nodo n_evaluado = null;
-    Pila pila = new Pila();
+    Pila pila = new Pila(); // pila que contendra todas las imágenes
+    int contador = 0;
     
     public ventanilla(int num){
         this.id = num;
@@ -49,62 +50,55 @@ public class ventanilla {
         System.out.println("El cliente " + evaluado.get_nombre()+ "ingresa a la ventanilla" + id);
     }
     
-    public void tratar_img (){ // debolberá true cuando deje la ventanilla vacia, es la señal para pasar al siguiente nodo
+    
+    //idea hacer este metodo con un return pila, para que cuando sea null no pase nada
+    //y cuando envie una pila el menú la agregue a la cola de las impresoras
+    
+    
+    
+    public Pila tratar_img (){ // metodo interno para trabajar la pila  de imágenes tipo bn->1 color ->2
      
         int nc = n_evaluado.get_img_c();
         int nbn = n_evaluado.get_img_bn();
+        Pila pila_imagenes = null;
 
-        // Valuando primero las de color 
-        if (disponible){
-            disponible = false;
-            System.out.println("El cliente " + evaluado.get_nombre()+ "ingresa a la ventanilla");
-        }
-        else if ( img_c != nc){
+         
+        if ( img_c != nc){ //imagenes a color
             img_c ++;
-            System.out.println("se agregó una a color a la ventanilla" + id);               
-        }else if(img_bn != nbn){
+            
+            // int tipo, int id, int numero
+            img nueva_img = new img(2, n_evaluado.get_id(), contador);
+            contador++;
+            pila.insertar(nueva_img);
+            
+            System.out.println("Ventanilla " + id+" recibe una imagen COLOR");   
+
+        }else if(img_bn != nbn){// imagenes a blanco y negro
             img_bn ++;
+            
+            img nueva_img = new img(1, n_evaluado.get_id(), contador);
+            contador++;
+            pila.insertar(nueva_img);
+            System.out.println("Ventanilla " + id+" recibe una imagen B/N");  
+            
             System.out.println("se agregó una a blanco y negro a la ventanilla" + id); 
+            
         }else{
-            System.out.println("El cliente " + evaluado.get_nombre()+ "avanza a la listra de espera");
+            System.out.println("El cliente " + n_evaluado.get_nombre()+ "avanza a la listra de espera");
+            
+            //volviendo a las condiciones iniciales
             disponible = true;
-                    
-        }  
-       
-        // desde acá creo que vamos a imprimir, antes de colocarle que la caja ahora está disponible
-        
+            pila_imagenes = pila;
+            pila = new Pila();
+            img_c = 0;
+            img_bn = 0;
+            n_evaluado = null;
+            contador = 0;                  
+        }       
+        return pila_imagenes;    
     }
     
-    
-    public void recibir_img (nodo evaluado){ // debolberá true cuando deje la ventanilla vacia, es la señal para pasar al siguiente nodo
-     
-        int nc = evaluado.get_img_c();
-        int nbn = evaluado.get_img_bn();
 
-        // Valuando primero las de color 
-        if (disponible){
-            disponible = false;
-            System.out.println("El cliente " + evaluado.get_nombre()+ "ingresa a la ventanilla");
-        }
-        else if ( img_c != nc){
-            img_c ++;
-            System.out.println("se agregó una a color a la ventanilla" + id);               
-        }else if(img_bn != nbn){
-            img_bn ++;
-            System.out.println("se agregó una a blanco y negro a la ventanilla" + id); 
-        }else{
-            System.out.println("El cliente " + evaluado.get_nombre()+ "avanza a la listra de espera");
-            disponible = true;
-                    
-        }  
-       
-        // desde acá creo que vamos a imprimir, antes de colocarle que la caja ahora está disponible
-        
-    }
-    
-    
-    // hasta que la respuesta sea un true va a seguir itrando 
-    // manda como parámetro un nodo
     
     
     

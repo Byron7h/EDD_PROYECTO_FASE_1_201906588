@@ -69,9 +69,7 @@ public class Menu {
                     Cola_recepcion = lectura_Json(ruta, cantidad);
                     Cola_recepcion.imprimir();
 
-
-                    
-                
+              
                     break;
                 case 2:
                     System.out.println("Ingrese la cantidad de ventanillas");
@@ -82,11 +80,16 @@ public class Menu {
                         ventanilla nueva = new ventanilla(num); 
                         Lista_ventanillas.Anadir(nueva);
                     }
-                    Lista_ventanillas.imprimir();
-          
-                    
+                    Lista_ventanillas.imprimir();                  
                     break;
+                    
                 case 3:
+                    
+                    System.out.println("Se dió un paso");
+                    Paso_cola_recepcion();
+                    Paso_lista_ventanillas();
+                    
+                    
                     break;
                 case 4:
                     break;
@@ -114,6 +117,51 @@ public class Menu {
         Cola colita = lectura.Lectura();
         return colita;
      
+     }
+     
+     public void Paso_cola_recepcion(){
+         //Aca dejaremos el espacio para agregar los randomicer (While hasta que a + b >0)
+     }
+     
+     public void Paso_lista_ventanillas(){
+         //Recorremos todas las ventanillas y vemos en que estado estan
+         // si estan desocupadas verificamos que haya elemtos en la cola, si hay procedemos a introducirlo
+         
+         int num_vent = Lista_ventanillas.tamano();
+         if (num_vent < 1){
+             System.out.println("Aún no se han creado ventanillas");
+         }else{
+             for (int j=0; j<num_vent; j++){
+                 ventanilla aux = Lista_ventanillas.Obtener(j);
+                 
+                 if(aux.disponible){ // ventanilla disponible, metemos nodo
+                     
+                     //metemos el top de la cola de los usuarios en la ventanilla y lo sacamos de la cola
+                     //pero primero debemos ver si está vacía
+                     
+                     if(Cola_recepcion.vacia() == false){// cola con elementos
+                         
+                         nodo top_cola = Cola_recepcion.avanzar(); //extraemos de la cola
+                         if (top_cola != null){
+                             aux.set_nodo_evaluado(top_cola); //introducimos el nodo a la ventaniñña                    
+                            }
+
+                         }
+                         
+                 }else{ // ventanila ocupada, operamos lo de adentro
+                     
+                     Pila pila_respuesta = aux.tratar_img();
+                     if (pila_respuesta != null){
+                         pila_respuesta.imprimir();                 
+                     } 
+                 }
+                 
+                 
+             }
+             
+         
+         }
+         
      }
      
      
