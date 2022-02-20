@@ -23,6 +23,8 @@ public class Menu {
     
     public static Cola Cola_recepcion = new Cola();
     public static Lista_Ventanillas Lista_ventanillas  = new Lista_Ventanillas();
+    public static Impresora Imp_c = new Impresora();
+    public static Impresora Imp_bn = new Impresora();
     
     
     
@@ -94,6 +96,7 @@ public class Menu {
                     
                     break;
                 case 4:
+                    Imp_c.imprimir();
                     break;
                 case 5:
                     break;
@@ -154,16 +157,36 @@ public class Menu {
                      
                      Pila pila_respuesta = aux.tratar_img();
                      if (pila_respuesta != null){
-                         pila_respuesta.imprimir();                 
+                         //pila_respuesta.imprimir();
+                         encolar_img(pila_respuesta);
                      } 
-                 }
-                 
-                 
+                 }            
              }
-             
+         }    
+     }
+     
+     public void encolar_img (Pila pila){
          
-         }
+         pila.imprimir();
          
+               
+        while( pila.vacia() != false){
+            img aux = pila.avanzar();
+            System.out.println(aux.get_tipo());
+            //System.out.println(aux.);
+                if (aux.get_tipo() == 2){ //color
+                    Imp_c.insertar(aux);                  
+                }else{  //blanco y negro
+                    Imp_bn.insertar(aux);
+                }
+            }
+        
+        
+        System.out.println("Impresora c");
+        Imp_c.imprimir();
+        System.out.println("Impresora bn");
+        Imp_bn.imprimir();
+        */
      }
      
      
