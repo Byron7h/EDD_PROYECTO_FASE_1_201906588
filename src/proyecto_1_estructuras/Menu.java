@@ -88,6 +88,8 @@ public class Menu {
                     System.out.println("Se dió un paso");
                     Paso_cola_recepcion();
                     Paso_lista_ventanillas();
+                    System.out.println("");
+                    System.out.println("");
                     
                     
                     break;

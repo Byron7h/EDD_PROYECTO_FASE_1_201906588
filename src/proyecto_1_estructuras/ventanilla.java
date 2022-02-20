@@ -47,7 +47,7 @@ public class ventanilla {
     public void set_nodo_evaluado(nodo evaluado){ // //ingresa un nodo a la ventanilla
         this.n_evaluado = evaluado;
         disponible = false;
-        System.out.println("El cliente " + evaluado.get_nombre()+ "ingresa a la ventanilla" + id);
+        System.out.println("    El cliente " + evaluado.get_nombre()+ " ingresa a la ventanilla " + id);
     }
     
     
@@ -71,7 +71,7 @@ public class ventanilla {
             contador++;
             pila.insertar(nueva_img);
             
-            System.out.println("Ventanilla " + id+" recibe una imagen COLOR");   
+            System.out.println("    Ventanilla " + id+" recibe una imagen COLOR");   
 
         }else if(img_bn != nbn){// imagenes a blanco y negro
             img_bn ++;
@@ -79,12 +79,10 @@ public class ventanilla {
             img nueva_img = new img(1, n_evaluado.get_id(), contador);
             contador++;
             pila.insertar(nueva_img);
-            System.out.println("Ventanilla " + id+" recibe una imagen B/N");  
-            
-            System.out.println("se agregó una a blanco y negro a la ventanilla" + id); 
+            System.out.println("    Ventanilla " + id+" recibe una imagen B/N");  
             
         }else{
-            System.out.println("El cliente " + n_evaluado.get_nombre()+ "avanza a la listra de espera");
+            System.out.println("    El cliente " + n_evaluado.get_nombre()+ " avanza a la listra de espera");
             
             //volviendo a las condiciones iniciales
             disponible = true;
