@@ -49,7 +49,7 @@ public class Pila { // Ultimo que entre Primero que sale
         }else{
             devolver = cabecera;                 // si fuera el último guardará null
             cabecera = devolver.get_siguiente(); // volvería a su estado inicial  
-            contador --;
+            //contador --;
         }
         
         return devolver;       

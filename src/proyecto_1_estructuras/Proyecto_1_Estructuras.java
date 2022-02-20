@@ -28,8 +28,34 @@ public class Proyecto_1_Estructuras {
      */
     public static void main(String[] args) {
         
+        
+        
         Menu menu = new Menu();
         menu.LlamarMenu();
+        
+        
+        //•Prueba impresora
+        /*
+        img uno = new img(1,2,3);
+        img dos = new img(1,2,3);
+        img tres = new img(2,2,3);
+        img cuatro = new img(2,2,3);
+        Impresora im = new Impresora();
+        im.insertar(uno);
+        im.insertar(dos);
+        im.insertar(tres);
+        im.insertar(cuatro);
+        im.imprimir();
+        im.avanzar();
+        im.imprimir();
+                im.avanzar();
+        im.imprimir();
+                im.avanzar();
+        im.imprimir();
+                im.avanzar();
+        im.imprimir();
+        
+        */
         
         
         

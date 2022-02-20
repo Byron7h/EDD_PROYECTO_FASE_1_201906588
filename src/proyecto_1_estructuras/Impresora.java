@@ -27,11 +27,13 @@ public class Impresora { //cola impresora
     public void insertar(img  nuevo){ // inserta un nodo a la cola  al final de la cola  
         if (cabecera == null){ // insertamos el nodo como cabecera
             cabecera = nuevo;
+            //System.out.println("Se ha agregado un nodo a la impreosara");
         }else{                     
             img actual = cabecera;
             while( actual != null){                        
                 if(actual.get_siguiente() == null){ // es que llegamos al último
-                    actual.set_siguiente(nuevo);               
+                    actual.set_siguiente(nuevo);
+                    //System.out.println("Se ha agregado un nodo a la impreosara");
                     break;
                 }else{
                     actual = actual.get_siguiente();
@@ -63,7 +65,7 @@ public class Impresora { //cola impresora
         img actual = cabecera;       
         while( actual != null){
             System.out.print(actual.get_tipo());
-            System.out.println("");
+            System.out.print(" - ");
             actual = actual.get_siguiente();
             }
         System.out.println("");

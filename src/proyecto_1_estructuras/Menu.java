@@ -159,37 +159,50 @@ public class Menu {
                      if (pila_respuesta != null){
                          //pila_respuesta.imprimir();
                          encolar_img(pila_respuesta);
+                        
                      } 
                  }            
              }
          }    
      }
      
-     public void encolar_img (Pila pila){
+     public void encolar_img (Pila pilar){
          
-         pila.imprimir();
+
+          
+        pilar.imprimir();
+         int tamano = pilar.tamano();
+         System.out.println("tamaño pila"+tamano);
+     
+         for (int m = 0; m < tamano; m++){
+             img img_agregar = pilar.avanzar();
+             int tipo = img_agregar.get_tipo();
+             int id_cliente = img_agregar.get_id();
+             int numero = img_agregar.get_num();
+             
+             img uno = new img(tipo, id_cliente, numero);
+             
+            
+            switch(tipo){
+                case 1: 
+                    Imp_bn.insertar(uno);
+                    break;
+                    
+                case 2:   
+                    Imp_c.insertar(uno);
+                    break;
+      
+            } 
          
-               
-        while( pila.vacia() != false){
-            img aux = pila.avanzar();
-            System.out.println(aux.get_tipo());
-            //System.out.println(aux.);
-                if (aux.get_tipo() == 2){ //color
-                    Imp_c.insertar(aux);                  
-                }else{  //blanco y negro
-                    Imp_bn.insertar(aux);
-                }
-            }
-        
-        
-        System.out.println("Impresora c");
-        Imp_c.imprimir();
-        System.out.println("Impresora bn");
-        Imp_bn.imprimir();
-        */
-     }
+         }
+         
+         System.out.println("Cola color");
+         Imp_c.imprimir();
+         System.out.println("Cola bn");
+         Imp_bn.imprimir();
+
      
-     
+     }  
  
-     
 }
+     
