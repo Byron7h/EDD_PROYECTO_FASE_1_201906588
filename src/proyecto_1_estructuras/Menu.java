@@ -30,6 +30,7 @@ public class Menu {
     public static boolean accede = false; // bool para activar las impresoras
     public static Lista Lista_espera = new Lista();
     public static Lista temporal = new Lista();
+    public static Lista Atendidos = new Lista();
     
     
     
@@ -99,6 +100,7 @@ public class Menu {
                     Paso_lista_ventanillas();
                     Paso_impresoras();
                     Paso_lista_espera();
+                    Pasos_lista_espera_2();
                     System.out.println("");
                     System.out.println("");
                     
@@ -106,7 +108,7 @@ public class Menu {
                     
                     break;
                 case 4:
-                    Imp_c.imprimir();
+                    Pasos_lista_espera_2();
                     break;
                 case 5:
                     break;
@@ -204,14 +206,11 @@ public class Menu {
     public void Paso_impresoras(){
          boolean i_c = Imp_c.vacia();
          boolean i_bn = Imp_bn.vacia();
-         
-         
-  
- 
+
          if (i_c != true || i_bn != true){     
              if (accede == true){
                  
-                 
+                System.out.println("    IMPRESORAS");
                 if (i_c != true){
                     if (contador_2 == 1){
                         img auxiliar = Imp_c.avanzar();
@@ -220,57 +219,20 @@ public class Menu {
                         contador_2 = 0;
                     }else{
                         contador_2++;
-                    }
-                    
-                             }    
+                    }                
+                }    
                 if (i_bn != true){
                      img auxiliar = Imp_bn.avanzar();
                     System.out.println("        Impresión B/N");  
                     impresion_realizada(auxiliar.get_id());
-                }
-                    
+                }                   
             }else{
                  accede = true;         
-            }  
-
-                 
+            }         
         } 
-
    }
          
 
-     
-     
-     
-     
-     
-     
-     
-     
-     
-     public void Paso_impresoras1(){
-         boolean i_c = Imp_c.vacia();
-         boolean i_bn = Imp_bn.vacia();
-         if (i_c != true || i_bn != true){
-             System.out.println("   IMPRESORAS");
-         }
-         if (i_c != true){
-             if (contador_2 == 1){
-                img auxiliar = Imp_c.avanzar();
-                System.out.println("        Impresión COLOR");
-                impresion_realizada(auxiliar.get_id());
-                contador_2 = 0;
-             }else{
-                 contador_2++;
-             }
-         }    
-         if (i_bn != true){
-             img auxiliar = Imp_bn.avanzar();
-             System.out.println("        Impresión B/N");  
-             impresion_realizada(auxiliar.get_id());
-         }
-     }
-     
      public void Paso_lista_espera(){
          
          if(temporal.EstaVacia()!= true){
@@ -290,11 +252,34 @@ public class Menu {
               
             }
             temporal = new Lista();
-            
-            
-            
          }
 
+     }
+     
+     public void Pasos_lista_espera_2(){
+         
+         
+         
+         
+        int num = Lista_espera.tamano();
+        if (num > 0){
+           for (int j=0; j<num; j++){     
+               if (Lista_espera.Obtener(j).get_impresiones() == 0){ //si ya no le quedan impresiones
+                    //int id = Lista_espera.Obtener(j).get_id();
+                    String nombre = Lista_espera.Obtener(j).get_nombre();
+                    //int img_c = Lista_espera.Obtener(j).get_img_c();
+                    //int img_bn = Lista_espera.Obtener(j).get_img_bn();               
+                    //nodo nuevo = new nodo(id, nombre, img_c, img_bn);
+                    //Atendidos.Anadir(nuevo);
+                    System.out.println("       Se atenció al cliente "+ nombre);
+                    
+                    //Lista_espera.Eliminar(j);   
+                }
+            }
+        }   
+        
+        
+        
      }
      
      
