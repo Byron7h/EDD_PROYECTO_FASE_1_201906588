@@ -38,7 +38,7 @@ public class Lista_Ventanillas {
         tamano++;
     }
 
-    // Obteniendo sin sacar
+    // Obteniendo sin sacar, recordemos que iniciamos desde 0
     public ventanilla Obtener(int index){
         
         int contador = 0;
