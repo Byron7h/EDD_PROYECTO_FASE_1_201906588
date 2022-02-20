@@ -27,6 +27,8 @@ public class Menu {
     public static Impresora Imp_bn = new Impresora();
     public static int contador = 0;
     public static int contador_2 = 0; // contador para la imresora a color
+    public static Lista Lista_espera = new Lista();
+    public static Lista temporal = new Lista();
     
     
     
@@ -95,6 +97,7 @@ public class Menu {
                     Paso_cola_recepcion();
                     Paso_lista_ventanillas();
                     Paso_impresoras();
+                    Paso_lista_espera();
                     System.out.println("");
                     System.out.println("");
                     
@@ -160,11 +163,12 @@ public class Menu {
                          
                  }else{ // ventanila ocupada, operamos lo de adentro
                      
+                     nodo nodo_lista_espera = aux.get_nodo_evaluado();    
                      Pila pila_respuesta = aux.tratar_img();
                      if (pila_respuesta != null){
                          //pila_respuesta.imprimir();
+                         temporal.Anadir(nodo_lista_espera);
                          encolar_img(pila_respuesta);
-                        
                      } 
                  }            
              }
@@ -209,13 +213,36 @@ public class Menu {
              }else{
                  contador_2++;
              }
-
          }    
          if (i_bn != true){
-             System.out.println("       Impresión B/N");
+             System.out.println("        Impresión B/N");
          }
+     }
+     
+     public void Paso_lista_espera(){
          
-         
+         if(temporal.EstaVacia()!= true){
+            System.out.println("    LISTA ESPERA");    
+            int num = temporal.tamano();
+            for (int j=0; j<num; j++){
+                
+                int id = temporal.Obtener(j).get_id();
+                String nombre = temporal.Obtener(j).get_nombre();
+                int img_c = temporal.Obtener(j).get_img_c();
+                int img_bn = temporal.Obtener(j).get_img_bn();               
+                nodo nuevo = new nodo(id, nombre, img_c, img_bn);
+        
+                
+                 Lista_espera.Anadir(nuevo);
+                 System.out.println("       Se añadióa l cliente "+ nombre);
+              
+            }
+            temporal = new Lista();
+            
+            
+            
+         }
+
      }
  
 }
