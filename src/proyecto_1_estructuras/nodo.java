@@ -83,5 +83,9 @@ public class nodo {
     public int get_impresiones(){
         return impresiones;
     }
+    public void set_impresiones(int imp){
+        this.impresiones= imp;
+        
+    }
 }
     
