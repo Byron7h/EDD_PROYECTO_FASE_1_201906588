@@ -107,9 +107,14 @@ public class Menu {
                     break;
                 case 4:
                     System.out.println("No se llegó hasta esta funcion");
+                    System.out.println("Pero acá están los clientes atendidos");
+                    Atendidos.imprimir();
                     break;
                 case 5:
-                    Atendidos.imprimir();
+                    Reportes();
+                    
+                    
+                    
                     break;
                 case 6:
                     break;
@@ -306,6 +311,35 @@ public class Menu {
             actual.impresion();
             //System.out.println("Se le resto una impresion a "+ actual.get_nombre());
         }
+     }
+     
+     public void Reportes(){
+         
+        int num = Atendidos.tamano();
+        Lista_ordenada repo1 = new Lista_ordenada();
+        Lista_ordenada_2 repo2 = new Lista_ordenada_2();
+        
+        
+        for (int j=0; j<num; j++){
+
+            String nombre = Atendidos.Obtener(j).get_nombre();
+            int img_c = Atendidos.Obtener(j).get_img_c();
+            int img_bn = Atendidos.Obtener(j).get_img_bn();    
+            
+            repo1.insertar(nombre, img_bn);
+            repo2.insertar(nombre, img_c);
+              
+       }
+        
+         System.out.println(" REPORTES");
+       
+         repo1.ordernarById();
+         repo2.ordernarById();
+
+         repo1.reporte_bn();
+         System.out.println("");
+         repo2.reporte_c();
+
      }
 }
      

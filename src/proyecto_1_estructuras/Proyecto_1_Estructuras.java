@@ -33,6 +33,27 @@ public class Proyecto_1_Estructuras {
         Menu menu = new Menu();
         menu.LlamarMenu();
         
+        //• prueba lista_ordenada
+        /*
+        Lista_ordenada_2 lista =new Lista_ordenada_2();
+        
+        lista.insertar("f", 100);
+        lista.insertar("f", 6);
+        lista.insertar("d", 4);
+        lista.insertar("e", 5);
+        lista.insertar("a", 1);
+        lista.insertar("c", 3);
+        lista.insertar("b", 2);
+        lista.insertar("b", 0);
+        lista.insertar("b", 10);
+        lista.insertar("b", 2);
+        lista.insertar("b", 12);
+        
+        lista.imprimir();
+        lista.ordernarById();
+        lista.imprimir();
+        lista.reporte_c();
+        */
         
         //•Prueba impresora
         /*
