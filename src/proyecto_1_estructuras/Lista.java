@@ -81,7 +81,7 @@ public class Lista {
     public void imprimir(){
         nodo actual = cabecera;       
         while( actual != null){
-            System.out.print(actual.get_id());
+            System.out.print(actual.get_nombre());
             actual = actual.get_siguiente();
             }
         System.out.println("");

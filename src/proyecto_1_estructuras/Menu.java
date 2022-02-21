@@ -48,7 +48,7 @@ public class Menu {
     
      
      do{
-         System.out.println("•••         UDrawing Paper          •••");
+         System.out.println("----------- UDrawing Paper -----------");
          System.out.println("1. Carga masiva de clientes");
          System.out.println("2. Número de ventanillas");
          System.out.println("3. Ejecutar Paso");
@@ -104,13 +104,12 @@ public class Menu {
                     System.out.println("");
                     System.out.println("");
                     
-                    
-                    
                     break;
                 case 4:
-                    Pasos_lista_espera_2();
+                    System.out.println("No se llegó hasta esta funcion");
                     break;
                 case 5:
+                    Atendidos.imprimir();
                     break;
                 case 6:
                     break;
@@ -196,10 +195,6 @@ public class Menu {
                     break;
             }        
          }
-         //System.out.println("Cola color");
-         //Imp_c.imprimir();
-         //System.out.println("Cola bn");
-         //Imp_bn.imprimir();
      }
      
      
@@ -248,7 +243,7 @@ public class Menu {
         
                 
                  Lista_espera.Anadir(nuevo);
-                 System.out.println("       Se añadióa l cliente "+ nombre);
+                 System.out.println("       Se añadió al cliente "+ nombre);
               
             }
             temporal = new Lista();
@@ -256,9 +251,9 @@ public class Menu {
 
      }
      
+     
      public void Pasos_lista_espera_2(){
-         
-         
+               
         boolean existe = false;
         int num = Lista_espera.tamano();
         if (num > 0){
@@ -286,7 +281,7 @@ public class Menu {
 
                     
                     if (Lista_espera.Obtener(j).get_impresiones() == 0){
-                        System.out.println("       Se atenció al cliente "+ nombre);
+                        System.out.println("       • Se atenció al cliente "+ nombre);
                         Atendidos.Anadir(nuevo);
                                                
                     }else{     
@@ -298,44 +293,7 @@ public class Menu {
            }
         }  
      }
-     
-     
-     
-     /*     public void Pasos_lista_espera_2(){
-         
-         
-         
-        int cont= 0;
-        int num = Lista_espera.tamano();
-        if (num > 0){
-           for (int j=0; j<num; j++){    // obtenemos la cantidad 
-               if (Lista_espera.Obtener(j).get_impresiones() == 0){ //si ya no le quedan impresiones                  
-                   cont++; 
-                }
-            }
-           
-            for (int m= 0; m<cont; m++){
-                num = Lista_espera.tamano();
-                for (int j=0; j<num; j++){     
-                    if (Lista_espera.Obtener(j).get_impresiones() == 0){ //si ya no le quedan impresiones
-                        //int id = Lista_espera.Obtener(j).get_id();
-                        String nombre = Lista_espera.Obtener(j).get_nombre();
-                        //int img_c = Lista_espera.Obtener(j).get_img_c();
-                        //int img_bn = Lista_espera.Obtener(j).get_img_bn();               
-                        //nodo nuevo = new nodo(id, nombre, img_c, img_bn);
-                        //Atendidos.Anadir(nuevo);
-                        System.out.println("       Se atenció al cliente "+ nombre);
-                        
-                    
-                        Lista_espera.Eliminar(j);   
-                        break;
-                    }
-                }
-            }   
-        } 
-        
-        
-     }*/
+
      
      public void impresion_realizada(int id){ //vamos a recibir el id del cliente propietario de la impresion
                                               // lo buscamos en el la lista de espera, y le restamos 1 a su atributo impresiones
@@ -346,10 +304,8 @@ public class Menu {
                 actual = actual.get_siguiente();
             }
             actual.impresion();
-            System.out.println("Se le resto una impresion a "+ actual.get_nombre());
+            //System.out.println("Se le resto una impresion a "+ actual.get_nombre());
         }
-        
-     
      }
 }
      
