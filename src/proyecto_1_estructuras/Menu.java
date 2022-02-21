@@ -31,6 +31,7 @@ public class Menu {
     public static Lista Lista_espera = new Lista();
     public static Lista temporal = new Lista();
     public static Lista Atendidos = new Lista();
+    public static int contador_general = 1;
     
     
     
@@ -75,7 +76,7 @@ public class Menu {
                     int cantidad;
                     cantidad = sc.nextInt();
                     Cola_recepcion = lectura_Json(ruta, cantidad);
-                    Cola_recepcion.imprimir();
+                    //Cola_recepcion.imprimir();
 
               
                     break;
@@ -103,6 +104,7 @@ public class Menu {
                     Pasos_lista_espera_2();
                     System.out.println("");
                     System.out.println("");
+                    contador_general++;
                     
                     break;
                 case 4:
@@ -111,10 +113,31 @@ public class Menu {
                     Atendidos.imprimir();
                     break;
                 case 5:
-                    Reportes();
                     
+                    System.out.println("Selecione una opción");
+                    System.out.println("    1. Clientes TOP");
+                    System.out.println("    2. Usuario con más pasos en el sistema");
+                    System.out.println("    3. Buscar cliente por su Id");
+                    opcion = sc.nextInt();
                     
+                    switch(opcion){
                     
+                    case 1: 
+                        Reportes();
+                        break;
+                    case 2:
+                        camiandor();
+                        break;
+                    case 3: 
+                        System.out.println("Buscar Cliente");
+                        System.out.println("    Ingrese Id");
+                        int op = sc.nextInt();
+                        datos_cliente(op);
+                        
+                        break;
+                    
+                    }
+
                     break;
                 case 6:
                     break;
@@ -287,6 +310,7 @@ public class Menu {
                     
                     if (Lista_espera.Obtener(j).get_impresiones() == 0){
                         System.out.println("       • Se atenció al cliente "+ nombre);
+                        nuevo.set_pasos(contador_general);
                         Atendidos.Anadir(nuevo);
                                                
                     }else{     
@@ -341,5 +365,52 @@ public class Menu {
          repo2.reporte_c();
 
      }
+     
+     public void datos_cliente(int id){          
+         int tamano = Atendidos.tamano();
+         //Atendidos.imprimir();
+         boolean encontrado = false;
+         for (int j = 0; j < tamano; j++){
+             
+            if (Atendidos.Obtener(j).get_id() == id){ // encontrado
+                
+                encontrado = true;
+                
+                String nombre = Atendidos.Obtener(j).get_nombre();
+                int img_c = Atendidos.Obtener(j).get_img_c();
+                int img_bn = Atendidos.Obtener(j).get_img_bn();
+                int pasos = Atendidos.Obtener(j).get_pasos();
+                
+                
+                System.out.println("    Nombre: "+ nombre);
+                System.out.println("    ID: "+ id);
+                System.out.println("    Cantidad de impresiones a Color: "+ img_c);
+                System.out.println("    Cantidad de impresiones a Color: "+ img_bn);
+                System.out.println("    Cantidad de pasos dentro del sistema: "+ pasos);
+                System.out.println("");
+             } 
+            break;     
+         }
+         if (encontrado =! true){
+             System.out.println("no se encontró el nodo");}
+     }
+     
+     public void camiandor(){
+         int tamano = Atendidos.tamano();
+         int pasos_mayor = Atendidos.Obtener(0).get_pasos();
+         int id = 0;
+         for (int j = 0; j < tamano; j++){
+             if(Atendidos.Obtener(j).get_pasos()>pasos_mayor){
+                 id = Atendidos.Obtener(j).get_id();
+              
+ 
+             }     
+         } 
+         System.out.println("id " +id);
+         System.out.println("Cliente con mayor cantidad de pasos dentro del sistema");
+         datos_cliente(id);
+         System.out.println("");
+         
+     } 
 }
      
