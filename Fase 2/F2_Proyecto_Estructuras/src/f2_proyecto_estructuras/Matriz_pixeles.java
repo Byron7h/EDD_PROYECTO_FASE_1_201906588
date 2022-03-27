@@ -283,11 +283,11 @@ public class Matriz_pixeles {
         Nodo_matriz NodoFila = buscar_fila(y);
         
         // dimesiones de la matriz
-        if (ancho<y){
-            ancho = y;
+        if (ancho<x){
+            ancho = x;
         }
-        if(alto<x){
-            alto = x;
+        if(alto<y){
+            alto = y;
         }
         
         

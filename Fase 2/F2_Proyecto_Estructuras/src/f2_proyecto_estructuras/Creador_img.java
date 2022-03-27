@@ -31,27 +31,67 @@ public class Creador_img {
         Nodo_matriz nodo_actual = matriz.cabecera;
         Nodo_matriz fila_actual = matriz.cabecera.abajo;
         
+        
+        
+        int contador2 = 0;
         while (fila_actual != null){ // recorriendo filas
             grafo += "<tr>\n";
+
+            if(fila_actual.y == contador2){
+                nodo_actual = fila_actual.siguiente;
+                int contador = 0;
+                while (nodo_actual != null){
+                    if (nodo_actual.x == contador){
+                        // agregamos el pixel, y avanzamos al siguiente
+                        grafo += "  <td bgcolor=\""+nodo_actual.dato+"\" width=\"1\" height=\"1\"></td>\n";
+                        nodo_actual = nodo_actual.siguiente;      
+                    
+                
+                }else{
+                    // agregamos nodos en blanco 
+                    grafo += "  <td bgcolor=\"white\" width=\"1\" height=\"1\"></td>\n";
+                }
+                contador++;
+                }
+                grafo += "</tr>\n";
+                fila_actual = fila_actual.abajo;
+            
+            
+            
+            }else{ 
+                for (int i= 0; i<matriz.ancho ;i++){
+                    // agregamos nodos en blanco 
+                    grafo += "  <td bgcolor=\"white\" width=\"1\" height=\"1\"></td>\n";
+                }
+                grafo += "</tr>\n";
+            
+            }
+            contador2++;
+            
+            
+            /*
+            
+            
             nodo_actual = fila_actual.siguiente;
             int contador = 0;
-            
             while (nodo_actual != null){
                 if (nodo_actual.x == contador){
                     // agregamos el pixel, y avanzamos al siguiente
                     grafo += "  <td bgcolor=\""+nodo_actual.dato+"\" width=\"1\" height=\"1\"></td>\n";
                     nodo_actual = nodo_actual.siguiente;      
-                    contador++;
+                    
                 
                 }else{
                     // agregamos nodos en blanco 
                     grafo += "  <td bgcolor=\"white\" width=\"1\" height=\"1\"></td>\n";
-                    contador++;
-                
                 }
+                contador++;
             }
             grafo += "</tr>\n";
             fila_actual = fila_actual.abajo;
+            
+            
+            */
         }
         
         grafo +=    "</table>>\n" +
