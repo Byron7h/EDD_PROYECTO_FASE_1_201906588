@@ -23,7 +23,7 @@ public class ABB {
             insertar(dato, raiz);
                 
         }       
-        
+
     }
 
     public void insertar(int dato, Nodo_ABB padre){
@@ -70,9 +70,7 @@ public class ABB {
                  "     "+actual.hijo_izquierda.hashCode()+" ->"+actual.hijo_derecha.hashCode()+";\n" +
                  "     } ";
         }
-        
-        
-        
+
     }
     
     public void imprimir(){

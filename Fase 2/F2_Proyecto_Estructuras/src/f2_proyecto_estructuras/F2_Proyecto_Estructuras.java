@@ -42,6 +42,8 @@ public class F2_Proyecto_Estructuras {
         System.out.println("----------------------------");
         */
         
+        
+        /*
         ABB arbol = new ABB();
         arbol.insertar(9);
         arbol.insertar(3);
@@ -63,6 +65,16 @@ public class F2_Proyecto_Estructuras {
         //System.out.println(arbol.raiz.hijo_izquierda.valor);
         arbol.crear_grafo(arbol.raiz);
         arbol.imprimir();
+        
+        */
+        
+        
+        
+        
+        Lector_capas lector = new Lector_capas("C:\\Users\\usuario\\Documents\\Byron\\7mo semestre\\Estructuras\\Lab\\Ejemplos aux\\EDD_1S_2022-main\\EntradasFase2\\ImagenSonic\\ImagenSonic.json");
+        lector.Lectura();
+    
+        
         
         
         
