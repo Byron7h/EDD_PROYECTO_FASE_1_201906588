@@ -20,7 +20,7 @@ public class Nodo_matriz {
     
     // información del nodo
     String dato;
-        int x;
+    int x;
     int y;
     //constructor
     public Nodo_matriz(int x,int y, String dato){

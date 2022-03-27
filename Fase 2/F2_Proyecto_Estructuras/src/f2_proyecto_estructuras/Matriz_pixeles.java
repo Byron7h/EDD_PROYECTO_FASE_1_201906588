@@ -40,6 +40,8 @@ public class Matriz_pixeles {
     
     
     Nodo_matriz cabecera;
+    int alto = 0;
+    int ancho = 0;
     public Matriz_pixeles(){
         this.cabecera = new Nodo_matriz(-1,-1,"Raiz");
     }
@@ -279,6 +281,16 @@ public class Matriz_pixeles {
         Nodo_matriz nuevo = new Nodo_matriz(x, y, dato);
         Nodo_matriz NodoColumna = buscar_columna(x);
         Nodo_matriz NodoFila = buscar_fila(y);
+        
+        // dimesiones de la matriz
+        if (ancho<y){
+            ancho = y;
+        }
+        if(alto<x){
+            alto = x;
+        }
+        
+        
         
         // caso 1 -> no existe fila ni columna
         if (NodoFila == null && NodoColumna == null){

@@ -28,6 +28,7 @@ public class Lector_capas {
             System.out.println(jsonArray);
             System.out.println(jsonArray.size());
             
+            // ahora vamos capa por capa
             for(int i = 0 ; i < jsonArray.size() ; i++) {  
                 
                 JSONObject objectx = (JSONObject) jsonArray.get(i);
@@ -36,21 +37,33 @@ public class Lector_capas {
                 //System.out.println(objectx.get("pixeles"));
                 JSONArray arra = (JSONArray) objectx.get("pixeles");
                 
+                Matriz_pixeles matriz = new Matriz_pixeles();
+                
+                // ahora vamos pixel por pixel
                 for(int w = 0 ; w < arra.size() ; w++) {  
                     System.out.println(arra.get(w));
+                    
+                    
                     JSONObject pixel = (JSONObject) arra.get(w);
                     System.out.println("    Columna" + pixel.get("columna"));
                     System.out.println("    Fila" + pixel.get("fila"));
                     System.out.println("    Color" + pixel.get("color"));
                     System.out.println("");
-                
+                    
+ 
+                    int Columna = Integer.parseInt(""+pixel.get("columna"));
+                    int Fila = Integer.parseInt(""+pixel.get("fila"));
+                    String Color = (String)pixel.get("color");
+                    
+                    // Colocando los pixeles en la matriz
+                    matriz.insertarNodo( Columna, Fila, Color); 
                 }
-                //System.out.println(arra);
-
+                
+                // creamos el objeto matriz, acá ya solo nos faltaría agregarlo al árbol binario 
+                System.out.println("**********Alto "+matriz.ancho+" Ancho"+matriz.alto);
+                Capa_img nueva_capa = new Capa_img(Integer.parseInt(""+objectx.get("id_capa")), matriz);      
+                Creador_img crea = new Creador_img(matriz);
             }
-            
-            
-
 
         }
         catch(FileNotFoundException e){e.printStackTrace();}
