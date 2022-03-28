@@ -6,6 +6,7 @@ public class Nodo_ABB {
     Nodo_ABB hijo_derecha = null;
     Nodo_ABB hijo_izquierda = null;
     int valor;
+    int altura;
 
     
     public Nodo_ABB(int valor){

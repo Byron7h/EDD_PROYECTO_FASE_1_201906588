@@ -75,7 +75,9 @@ public class F2_Proyecto_Estructuras {
         arbol.recorrido_Inorden();
         System.out.println("Postorden");
         arbol.recorrido_Postorden();
-        
+        System.out.println("Amplitud");
+        arbol.recorrido_Amplitud();
+
         /*
         
         Lector_capas lector = new Lector_capas("C:\\Users\\usuario\\Documents\\Byron\\7mo semestre\\Estructuras\\Lab\\Ejemplos aux\\EDD_1S_2022-main\\EntradasFase2\\ImagenMario\\ImagenMario.json");
