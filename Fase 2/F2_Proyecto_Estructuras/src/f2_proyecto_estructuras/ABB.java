@@ -3,6 +3,7 @@ package f2_proyecto_estructuras;
 public class ABB {
 
     Nodo_ABB raiz;
+    String auxiliar;
     String grafo = "digraph finite_state_machine {\n" +
 "	fontname=\"Helvetica,Arial,sans-serif\"\n" +
 "	node [fontname=\"Helvetica,Arial,sans-serif\"]\n" +
@@ -78,4 +79,76 @@ public class ABB {
         System.out.println(grafo);
     }
   
+    
+    public boolean buscar(Nodo_ABB nodo, int dato){
+        
+        if(nodo == null){ // no lo encontró
+            return false;
+        }
+        
+        if(dato == nodo.valor){ // lo encontramos
+            return true;
+        }else if(dato < nodo.valor){
+            return buscar(nodo.hijo_izquierda, dato);
+        }else{
+            return buscar(nodo.hijo_derecha, dato);
+        }
+        
+    }
+
+    public boolean buscar( int dato){
+        return buscar(raiz, dato);
+    }
+    
+    // recorridos
+    
+    public void recorrido_Preorden(){
+        recorrido_Preorden(raiz);
+        System.out.println("");
+    }
+    
+    public void recorrido_Preorden(Nodo_ABB nodo){
+        if (nodo == null){
+            return;
+        }
+        System.out.print(nodo.valor+" ");
+        recorrido_Preorden(nodo.hijo_izquierda);
+        recorrido_Preorden(nodo.hijo_derecha);
+
+    }
+    
+    
+    public void recorrido_Inorden(){
+        
+        recorrido_Inorden(raiz);
+        System.out.println("");
+    }
+    
+    public void recorrido_Inorden(Nodo_ABB nodo){
+        if (nodo == null){
+            return;
+        }
+        recorrido_Inorden(nodo.hijo_izquierda);
+        System.out.print(nodo.valor+" ");
+        recorrido_Inorden(nodo.hijo_derecha);
+
+    }
+    
+    
+    
+    public void recorrido_Postorden(){
+        recorrido_Postorden(raiz);
+        System.out.println("");
+        
+    }
+    
+    public void recorrido_Postorden(Nodo_ABB nodo){
+        if (nodo == null){
+            return;
+        }     
+        recorrido_Postorden(nodo.hijo_izquierda);
+        recorrido_Postorden(nodo.hijo_derecha);
+        System.out.print(nodo.valor+" ");
+    }
+    
 }
