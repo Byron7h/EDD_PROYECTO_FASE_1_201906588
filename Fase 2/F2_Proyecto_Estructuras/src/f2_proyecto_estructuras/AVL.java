@@ -3,21 +3,21 @@ package f2_proyecto_estructuras;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class ABB {
+public class AVL {
 
-    Nodo_ABB raiz;
+    Nodo_AVL raiz;
     String auxiliar;
     int altura = 0;
     
     // Lista_cola auxiliar para el recorrido en amplitud
-    LinkedList<Nodo_ABB> cola = new LinkedList<>();
+    LinkedList<Nodo_AVL> cola = new LinkedList<>();
     
     // Arraylist auxiliar para el metodo sucesor inorden, para la eliminacion de nodos con 2 hijos
-    ArrayList<Nodo_ABB> array = new ArrayList<>();
+    ArrayList<Nodo_AVL> array = new ArrayList<>();
     String grafo = "";
     int contador = 0;
     
-    public ABB(){
+    public AVL(){
         this.raiz = null;
     }
     
@@ -31,7 +31,7 @@ public class ABB {
      
     public void insertar(int dato){
         if (this.raiz == null){
-            Nodo_ABB nuevo = new Nodo_ABB(dato);
+            Nodo_AVL nuevo = new Nodo_AVL(dato);
             nuevo.altura = 0;
             this.raiz = nuevo;
             
@@ -42,12 +42,12 @@ public class ABB {
     }
 
 
-    public void insertar(int dato, Nodo_ABB padre){
+    public void insertar(int dato, Nodo_AVL padre){
    
         // lado izquierdo, menores
         if (dato<padre.valor){
             if (padre.hijo_izquierda == null){
-                Nodo_ABB nuevo = new Nodo_ABB(dato);
+                Nodo_AVL nuevo = new Nodo_AVL(dato);
                 nuevo.padre = padre; 
                 nuevo.altura = padre.altura +1;
                 altura(padre.altura +1);
@@ -61,7 +61,7 @@ public class ABB {
         // lado derecho, mayores o iguales
         else {
             if (padre.hijo_derecha == null){
-                Nodo_ABB nuevo = new Nodo_ABB(dato);
+                Nodo_AVL nuevo = new Nodo_AVL(dato);
                 nuevo.padre = padre; 
                 nuevo.altura = padre.altura + 1;
                 altura(padre.altura +1);
@@ -72,7 +72,7 @@ public class ABB {
         }
     }
     
-    public void crear_grafo( Nodo_ABB actual){
+    public void crear_grafo( Nodo_AVL actual){
 
         
         if (actual.hijo_derecha != null){ 
@@ -118,7 +118,7 @@ public class ABB {
   
     
     // modificamos el método buscar para que nos devuelva el nodo, si lo encuentra, o null si no
-    public Nodo_ABB buscar(Nodo_ABB nodo, int dato){
+    public Nodo_AVL buscar(Nodo_AVL nodo, int dato){
         
         if(nodo == null){ // no lo encontró
             return null;
@@ -134,7 +134,7 @@ public class ABB {
         
     }
 
-    public Nodo_ABB buscar( int dato){
+    public Nodo_AVL buscar( int dato){
         return buscar(raiz, dato);
     }
     
@@ -145,7 +145,7 @@ public class ABB {
         System.out.println("");
     }
     
-    public void recorrido_Preorden(Nodo_ABB nodo){
+    public void recorrido_Preorden(Nodo_AVL nodo){
         if (nodo == null){
             return;
         }
@@ -162,7 +162,7 @@ public class ABB {
         System.out.println("");
     }
     
-    public void recorrido_Inorden(Nodo_ABB nodo){
+    public void recorrido_Inorden(Nodo_AVL nodo){
         if (nodo == null){
             return;
         }
@@ -180,7 +180,7 @@ public class ABB {
         
     }
     
-    public void recorrido_Postorden(Nodo_ABB nodo){
+    public void recorrido_Postorden(Nodo_AVL nodo){
         if (nodo == null){
             return;
         }     
@@ -227,7 +227,7 @@ public class ABB {
             return;
         } 
         
-        Nodo_ABB actual = cola.removeLast();
+        Nodo_AVL actual = cola.removeLast();
         //se muestra
         
         System.out.print(actual.valor+" ");
@@ -246,7 +246,7 @@ public class ABB {
     // método para eliminar un nodo en un árbol
     public void eliminar(int valor){
         // primero vemos si existe
-        Nodo_ABB nodo = buscar(valor);
+        Nodo_AVL nodo = buscar(valor);
         if ( nodo != null){
         
         // procedemos según la cantidad de hijos que tenga
@@ -293,7 +293,7 @@ public class ABB {
             // solo tiene hijo a la izquierda
             }else if(nodo.hijo_derecha == null && nodo.hijo_izquierda != null){
                 
-                Nodo_ABB hijo = nodo.hijo_izquierda;
+                Nodo_AVL hijo = nodo.hijo_izquierda;
                 if(nodo.valor< nodo.padre.valor){ // es el hijo de la izquierda 
                     
                     // acomodando apuntadores
@@ -310,7 +310,7 @@ public class ABB {
             }else{
                 
                 // encontrando sucesor inorden
-                Nodo_ABB sucesor = srecorrido_Inorden(nodo.valor);
+                Nodo_AVL sucesor = srecorrido_Inorden(nodo.valor);
                 if (sucesor != null){
                     
                     // eliminar el sucesor del árbol
@@ -342,7 +342,7 @@ public class ABB {
     }
     
     
-    public Nodo_ABB srecorrido_Inorden( int buscado){
+    public Nodo_AVL srecorrido_Inorden( int buscado){
         array = new ArrayList<>();
         srecorrido_Inorden(raiz);
         //System.out.println(array);
@@ -356,7 +356,7 @@ public class ABB {
         return null;
     }
     
-    public void srecorrido_Inorden(Nodo_ABB nodo){
+    public void srecorrido_Inorden(Nodo_AVL nodo){
         if (nodo == null){
             return;
         }
@@ -367,7 +367,6 @@ public class ABB {
         srecorrido_Inorden(nodo.hijo_derecha);
 
     }
-    
     
     
     

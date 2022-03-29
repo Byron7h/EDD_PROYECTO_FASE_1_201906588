@@ -80,7 +80,7 @@ public class F2_Proyecto_Estructuras {
         
         //arbol.srecorrido_Inorden(15);
         
-        arbol.eliminar(6);
+        arbol.eliminar(3);
         arbol.crear_grafo(arbol.raiz);
         arbol.imprimir();
         /*
