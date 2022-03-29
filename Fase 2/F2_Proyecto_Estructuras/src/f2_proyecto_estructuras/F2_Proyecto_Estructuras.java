@@ -56,7 +56,7 @@ public class F2_Proyecto_Estructuras {
         arbol.insertar(8);
         arbol.insertar(7);
         arbol.insertar(15);
-        //arbol.insertar(10);
+        arbol.insertar(10);
         arbol.insertar(12);
         arbol.insertar(11);
         
@@ -77,7 +77,12 @@ public class F2_Proyecto_Estructuras {
         arbol.recorrido_Postorden();
         System.out.println("Amplitud");
         arbol.recorrido_Amplitud();
-
+        
+        //arbol.srecorrido_Inorden(15);
+        
+        arbol.eliminar(6);
+        arbol.crear_grafo(arbol.raiz);
+        arbol.imprimir();
         /*
         
         Lector_capas lector = new Lector_capas("C:\\Users\\usuario\\Documents\\Byron\\7mo semestre\\Estructuras\\Lab\\Ejemplos aux\\EDD_1S_2022-main\\EntradasFase2\\ImagenMario\\ImagenMario.json");
