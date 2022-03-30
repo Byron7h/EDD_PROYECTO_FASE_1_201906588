@@ -44,27 +44,60 @@ public class F2_Proyecto_Estructuras {
         
         
         
-        ABB arbol = new ABB();
-        arbol.insertar(9);
-        arbol.insertar(3);
-        arbol.insertar(1);
-        arbol.insertar(0);
-        arbol.insertar(2);
-        arbol.insertar(6);
-        arbol.insertar(4);
-        arbol.insertar(5);
-        arbol.insertar(8);
-        arbol.insertar(7);
-        arbol.insertar(15);
-        arbol.insertar(10);
-        arbol.insertar(12);
-        arbol.insertar(11);
+        AVL arbol = new AVL();
+        arbol.insertarAVL(9);
+        arbol.crear_grafo(arbol.raiz);
+        arbol.imprimir();
+        arbol.insertarAVL(3);
+        arbol.crear_grafo(arbol.raiz);
+        arbol.imprimir();
+        arbol.insertarAVL(1);
+        arbol.crear_grafo(arbol.raiz);
+        arbol.imprimir();
+        arbol.insertarAVL(0);
+        arbol.crear_grafo(arbol.raiz);
+        arbol.imprimir();
+        arbol.insertarAVL(2);
+        arbol.crear_grafo(arbol.raiz);
+        arbol.imprimir();
+        arbol.insertarAVL(6);
+        arbol.crear_grafo(arbol.raiz);
+        arbol.imprimir();
+        arbol.insertarAVL(4);
+        arbol.crear_grafo(arbol.raiz);
+        arbol.imprimir();
+        arbol.insertarAVL(5);
+        arbol.crear_grafo(arbol.raiz);
+        arbol.imprimir();
+        arbol.insertarAVL(8);
+        arbol.crear_grafo(arbol.raiz);
+        arbol.imprimir();
+        arbol.insertarAVL(7);
+        arbol.crear_grafo(arbol.raiz);
+        arbol.imprimir();
+        arbol.insertarAVL(15);
+        arbol.crear_grafo(arbol.raiz);
+        arbol.imprimir();
+        arbol.insertarAVL(10);
+        arbol.crear_grafo(arbol.raiz);
+        arbol.imprimir();
+        arbol.insertarAVL(12);
+        arbol.crear_grafo(arbol.raiz);
+        arbol.imprimir();
+        arbol.insertarAVL(11);
         
-        System.out.println(arbol.raiz.valor);
+        
+        //arbol.recorrido_Inorden();
+        
+        //arbol.inOrden(arbol.raiz);
+        
+        //System.out.println(arbol.raiz.valor);
         //System.out.println(arbol.raiz.hijo_derecha.valor);
         //System.out.println(arbol.raiz.hijo_izquierda.valor);
         arbol.crear_grafo(arbol.raiz);
         arbol.imprimir();
+        
+       /*
         System.out.println("Existe 8 " + arbol.buscar(8));
         
         System.out.println("------- recorridos--------");
@@ -78,6 +111,8 @@ public class F2_Proyecto_Estructuras {
         System.out.println("Amplitud");
         arbol.recorrido_Amplitud();
         
+        */
+         /*
         //arbol.srecorrido_Inorden(15);
         
         arbol.eliminar(3);

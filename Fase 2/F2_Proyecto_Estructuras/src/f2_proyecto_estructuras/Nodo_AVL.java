@@ -6,12 +6,12 @@ public class Nodo_AVL {
     Nodo_AVL padre = null;
     Nodo_AVL hijo_derecha = null;
     Nodo_AVL hijo_izquierda = null;
-    int valor;
-    int altura;
+    int valor, altura, fe;
 
     
     public Nodo_AVL(int valor){
         this.valor = valor;
+        this.fe = 0;
     }
     
     

@@ -12,8 +12,4 @@ public class Nodo_ABB {
     public Nodo_ABB(int valor){
         this.valor = valor;
     }
-    
-    
-    
-    
 }

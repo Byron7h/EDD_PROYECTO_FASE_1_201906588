@@ -6,7 +6,7 @@ import java.util.LinkedList;
 public class AVL {
 
     Nodo_AVL raiz;
-    String auxiliar;
+    //String auxiliar;
     int altura = 0;
     
     // Lista_cola auxiliar para el recorrido en amplitud
@@ -21,14 +21,15 @@ public class AVL {
         this.raiz = null;
     }
     
+    /*
     public void altura(int nivel){
         if (nivel > altura){
             altura = nivel;
         }
     }
+    */
     
-
-     
+    /*
     public void insertar(int dato){
         if (this.raiz == null){
             Nodo_AVL nuevo = new Nodo_AVL(dato);
@@ -41,7 +42,9 @@ public class AVL {
         }       
     }
 
-
+    */
+    
+    /*
     public void insertar(int dato, Nodo_AVL padre){
    
         // lado izquierdo, menores
@@ -71,6 +74,55 @@ public class AVL {
             }
         }
     }
+    
+    */
+    
+    // obtener el factor de equilibrio
+    public int obtenerFE(Nodo_AVL nodo){
+        if( nodo == null){
+            return -1;
+        }else{
+            return nodo.fe;
+        }
+    }
+    
+    public Nodo_AVL Rotacion_Izquierda_Simple(Nodo_AVL nodo){
+        Nodo_AVL auxiliar = nodo.hijo_izquierda;
+        nodo.hijo_izquierda = auxiliar.hijo_derecha;
+        auxiliar.hijo_derecha = nodo;
+        // altura
+        nodo.fe= Math.max(obtenerFE(nodo.hijo_izquierda), obtenerFE(nodo.hijo_derecha)) +1 ;
+        auxiliar.fe = Math.max(obtenerFE(auxiliar.hijo_izquierda), obtenerFE(auxiliar.hijo_derecha)) +1 ;
+        return auxiliar;
+    }
+    
+    
+    public Nodo_AVL Rotacion_Derecha_Simple(Nodo_AVL nodo){
+        Nodo_AVL auxiliar = nodo.hijo_derecha;
+        nodo.hijo_derecha = auxiliar.hijo_izquierda;
+        auxiliar.hijo_izquierda = nodo;
+        // altura
+        nodo.fe= Math.max(obtenerFE(nodo.hijo_izquierda), obtenerFE(nodo.hijo_derecha)) +1 ;
+        auxiliar.fe = Math.max(obtenerFE(auxiliar.hijo_izquierda), obtenerFE(auxiliar.hijo_derecha)) +1 ;
+        return auxiliar;
+    }
+    
+    public Nodo_AVL Rotacion_Izquierda_Doble(Nodo_AVL nodo){
+        Nodo_AVL auxiliar;
+        nodo.hijo_izquierda = Rotacion_Derecha_Simple(nodo.hijo_izquierda);
+        auxiliar = Rotacion_Izquierda_Simple(nodo);
+        return auxiliar;
+    }
+    
+    public Nodo_AVL Rotacion_Derecha_Doble(Nodo_AVL nodo){
+        Nodo_AVL auxiliar;
+        nodo.hijo_derecha = Rotacion_Izquierda_Simple(nodo.hijo_derecha);
+        auxiliar = Rotacion_Derecha_Simple(nodo);
+        return auxiliar;
+    }
+    
+    
+    
     
     public void crear_grafo( Nodo_AVL actual){
 
@@ -115,7 +167,6 @@ public class AVL {
         // volviendo al estado original
         grafo = "";
     }
-  
     
     // modificamos el método buscar para que nos devuelva el nodo, si lo encuentra, o null si no
     public Nodo_AVL buscar(Nodo_AVL nodo, int dato){
@@ -123,8 +174,7 @@ public class AVL {
         if(nodo == null){ // no lo encontró
             return null;
         }
-        
-        if(dato == nodo.valor){ // lo encontramos
+        else if(dato == nodo.valor){ // lo encontramos
             return nodo;
         }else if(dato < nodo.valor){
             return buscar(nodo.hijo_izquierda, dato);
@@ -139,7 +189,6 @@ public class AVL {
     }
     
     // recorridos
-    
     public void recorrido_Preorden(){
         recorrido_Preorden(raiz);
         System.out.println("");
@@ -154,8 +203,7 @@ public class AVL {
         recorrido_Preorden(nodo.hijo_derecha);
 
     }
-    
-    
+
     public void recorrido_Inorden(){
         
         recorrido_Inorden(raiz);
@@ -171,8 +219,6 @@ public class AVL {
         recorrido_Inorden(nodo.hijo_derecha);
 
     }
-    
-    
     
     public void recorrido_Postorden(){
         recorrido_Postorden(raiz);
@@ -241,6 +287,23 @@ public class AVL {
         }
         recorrido_Amplitud_2();
     }
+    
+    public void corregir_alturas(Nodo_AVL nodo){
+
+        if (nodo == null){
+            return;
+        }
+        if (nodo == raiz){
+            nodo.altura =0;
+            recorrido_Inorden(nodo.hijo_izquierda);
+            recorrido_Inorden(nodo.hijo_derecha);
+        }else{
+            nodo.altura = nodo.padre.altura+1;
+            recorrido_Inorden(nodo.hijo_izquierda);
+            recorrido_Inorden(nodo.hijo_derecha); 
+        }
+    }
+    
     
     
     // método para eliminar un nodo en un árbol
@@ -340,8 +403,7 @@ public class AVL {
             }
         }
     }
-    
-    
+     
     public Nodo_AVL srecorrido_Inorden( int buscado){
         array = new ArrayList<>();
         srecorrido_Inorden(raiz);
@@ -360,14 +422,72 @@ public class AVL {
         if (nodo == null){
             return;
         }
-
-        
         srecorrido_Inorden(nodo.hijo_izquierda);
         array.add(nodo);
         srecorrido_Inorden(nodo.hijo_derecha);
-
     }
     
     
+
+    
+    
+    
+    
+    public Nodo_AVL insertarAVL(Nodo_AVL nuevo, Nodo_AVL sub_arbol){
+        Nodo_AVL nuevo_padre = sub_arbol;
+        if (nuevo.valor<sub_arbol.valor){
+            if(sub_arbol.hijo_izquierda == null){
+                sub_arbol.hijo_izquierda = nuevo;
+                System.out.println("HIJO Izquierda");
+                //System.out.println("entro");
+            }else{
+                sub_arbol.hijo_izquierda = insertarAVL(nuevo, sub_arbol.hijo_izquierda);
+                if ((obtenerFE(sub_arbol.hijo_izquierda) - obtenerFE(sub_arbol.hijo_derecha))==2 ){
+                    if(nuevo.valor<sub_arbol.hijo_izquierda.valor){
+                        nuevo_padre = Rotacion_Izquierda_Simple(sub_arbol);
+                    }else{
+                        nuevo_padre = Rotacion_Izquierda_Doble(sub_arbol);
+                    }
+                }
+            }
+        }else if (nuevo.valor>sub_arbol.valor){
+            System.out.println("estro al 2");
+            if(sub_arbol.hijo_derecha == null){
+                sub_arbol.hijo_derecha = nuevo; 
+                System.out.println("HIJO DEREDGA");
+            }else{
+                sub_arbol.hijo_derecha  = insertarAVL(nuevo, sub_arbol.hijo_derecha);
+                if ((obtenerFE(sub_arbol.hijo_derecha) - obtenerFE(sub_arbol.hijo_izquierda) == 2 )){
+                    if(nuevo.valor>sub_arbol.hijo_derecha.valor){
+                        nuevo_padre = Rotacion_Derecha_Simple(sub_arbol);
+                    }else{
+                        nuevo_padre = Rotacion_Derecha_Doble(sub_arbol);
+                    }
+                }
+            }
+        }else{ // nodo dublicado
+            System.out.println("nodo duplicado");
+        }
+        // actualizando el fe
+        if(sub_arbol.hijo_izquierda == null && sub_arbol.hijo_derecha != null ){
+            sub_arbol.fe = sub_arbol.hijo_derecha.fe +1 ;   
+        }else if(sub_arbol.hijo_derecha == null && sub_arbol.hijo_izquierda != null){
+            sub_arbol.fe = sub_arbol.hijo_izquierda.fe +1 ; 
+        }else{
+            sub_arbol.fe= Math.max(obtenerFE(sub_arbol.hijo_izquierda),obtenerFE(sub_arbol.hijo_derecha))+1;
+        }
+        
+        return nuevo_padre;
+    }
+    
+    public void insertarAVL(int dato){
+        Nodo_AVL nuevo = new Nodo_AVL(dato); 
+        if(raiz == null){
+            raiz= nuevo;
+        }else{
+            raiz = insertarAVL(nuevo, raiz);
+        }
+        
+    }
     
 }
