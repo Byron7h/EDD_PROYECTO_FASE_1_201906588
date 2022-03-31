@@ -5,6 +5,8 @@
  */
 package f2_proyecto_estructuras;
 
+import java.util.LinkedList;
+
 /**
  *
  * @author usuario
@@ -15,6 +17,29 @@ public class F2_Proyecto_Estructuras {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        
+        
+        
+        
+        // lISTA DE USUARIOS
+        LinkedList<Usuario> usuarios = new LinkedList<>();
+        
+        
+        
+        
+        
+        
+        // interfaz grafica
+        /*
+        Pantalla_login login = new Pantalla_login();
+        login.setVisible(true);
+        login.setLocationRelativeTo(null); // Acá le decimos que nos la coloque en el centro
+        */
+        
+        
+
+        
+        
         
         
         
@@ -42,7 +67,7 @@ public class F2_Proyecto_Estructuras {
         System.out.println("----------------------------");
         */
         
-        
+        /*
         
         AVL arbol = new AVL();
         arbol.insertarAVL(9);
@@ -87,6 +112,8 @@ public class F2_Proyecto_Estructuras {
         arbol.insertarAVL(11);
         
         
+        */
+        
         //arbol.recorrido_Inorden();
         
         //arbol.inOrden(arbol.raiz);
@@ -94,8 +121,8 @@ public class F2_Proyecto_Estructuras {
         //System.out.println(arbol.raiz.valor);
         //System.out.println(arbol.raiz.hijo_derecha.valor);
         //System.out.println(arbol.raiz.hijo_izquierda.valor);
-        arbol.crear_grafo(arbol.raiz);
-        arbol.imprimir();
+        //arbol.crear_grafo(arbol.raiz);
+        //arbol.imprimir();
         
        /*
         System.out.println("Existe 8 " + arbol.buscar(8));

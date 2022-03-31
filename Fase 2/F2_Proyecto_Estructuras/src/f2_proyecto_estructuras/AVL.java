@@ -1,3 +1,5 @@
+// Nos apoyamos en este tutorial https://www.youtube.com/watch?v=_z4xMj6C2yw&list=PLCLpAU8VN0j4RGemFfybZrWoSX57NbEq9&index=49
+// ver las 3 clases anteriores y la posterior para entender que está pasando
 package f2_proyecto_estructuras;
 
 import java.util.ArrayList;
