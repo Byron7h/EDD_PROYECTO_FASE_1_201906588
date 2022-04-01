@@ -5,11 +5,17 @@
  */
 package f2_proyecto_estructuras;
 
+import javax.swing.ButtonGroup;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author usuario
  */
 public class Pantalla_Cliente extends javax.swing.JFrame {
+    
+    int opcion = -1;
+    String tipo_recorrido = "";
 
     /**
      * Creates new form Pantalla_Cliente
@@ -29,7 +35,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
+        Botones_grupo = new javax.swing.ButtonGroup();
         Panel_superior = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Boton_capas = new javax.swing.JButton();
@@ -41,10 +47,10 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         Panel_visualizacion = new javax.swing.JPanel();
         Panel_generar_img = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jButton5 = new javax.swing.JButton();
+        boton_por_imagen = new javax.swing.JRadioButton();
+        Boton_por_capa = new javax.swing.JRadioButton();
+        boton_ecorrido = new javax.swing.JRadioButton();
+        Boton_generar = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         Tipo_recorrido = new javax.swing.JComboBox<>();
@@ -139,27 +145,57 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
         jLabel3.setText("Generar Imagenes");
 
-        jRadioButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jRadioButton1.setText("Por Árbol de Imágenes");
-
-        jRadioButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jRadioButton2.setText("Por capa");
-
-        jRadioButton3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jRadioButton3.setText(" Por recorrido limitado");
-        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton3ActionPerformed(evt);
+        Botones_grupo.add(boton_por_imagen);
+        boton_por_imagen.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        boton_por_imagen.setText("Por imagen");
+        boton_por_imagen.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_por_imagenMouseClicked(evt);
             }
         });
 
-        jButton5.setText("Generar");
+        Botones_grupo.add(Boton_por_capa);
+        Boton_por_capa.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Boton_por_capa.setText("Por capa");
+        Boton_por_capa.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Boton_por_capaMouseClicked(evt);
+            }
+        });
+
+        Botones_grupo.add(boton_ecorrido);
+        boton_ecorrido.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        boton_ecorrido.setText(" Por recorrido limitado");
+        boton_ecorrido.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                boton_ecorridoMouseClicked(evt);
+            }
+        });
+        boton_ecorrido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_ecorridoActionPerformed(evt);
+            }
+        });
+
+        Boton_generar.setText("Generar");
+        Boton_generar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Boton_generarActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Tipo de recorrido");
 
         jLabel5.setText("Cantidad de capas");
 
-        Tipo_recorrido.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Tipo_recorrido.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "PreOrden", "InOrden", "PostOrden" }));
+        Tipo_recorrido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Tipo_recorridoActionPerformed(evt);
+            }
+        });
+
+        cantidad_text.setText("0");
 
         jLabel6.setText("Imagen a graficar");
 
@@ -177,15 +213,15 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                     .addGroup(Panel_generar_imgLayout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(Panel_generar_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton1)
-                            .addComponent(jRadioButton3)
-                            .addComponent(jRadioButton2)
+                            .addComponent(boton_por_imagen)
+                            .addComponent(boton_ecorrido)
+                            .addComponent(Boton_por_capa)
                             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(Panel_generar_imgLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addGroup(Panel_generar_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(Boton_generar, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(Panel_generar_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Panel_generar_imgLayout.createSequentialGroup()
                                     .addComponent(jLabel6)
@@ -210,7 +246,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
             .addGroup(Panel_generar_imgLayout.createSequentialGroup()
                 .addComponent(jLabel3)
                 .addGap(36, 36, 36)
-                .addComponent(jRadioButton3)
+                .addComponent(boton_ecorrido)
                 .addGap(18, 18, 18)
                 .addGroup(Panel_generar_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -222,7 +258,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(20, 20, 20)
-                .addComponent(jRadioButton1)
+                .addComponent(boton_por_imagen)
                 .addGap(18, 18, 18)
                 .addGroup(Panel_generar_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
@@ -230,13 +266,13 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(5, 5, 5)
-                .addComponent(jRadioButton2)
+                .addComponent(Boton_por_capa)
                 .addGap(18, 18, 18)
                 .addGroup(Panel_generar_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Boton_generar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
         );
 
@@ -269,17 +305,17 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+    private void boton_ecorridoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_ecorridoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButton3ActionPerformed
+    }//GEN-LAST:event_boton_ecorridoActionPerformed
 
     private void Boton_capasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_capasActionPerformed
         // CARGA MASIVA CAPAS
-        Lector_capas lector = new Lector_capas("C:\\Users\\usuario\\Documents\\Byron\\7mo semestre\\Estructuras\\Lab\\Ejemplos aux\\EDD_1S_2022-main\\EntradasFase2\\ImagenMario\\ImagenMario.json");
+        Lector_capas lector = new Lector_capas("C:\\Users\\usuario\\Documents\\Byron\\7mo semestre\\Estructuras\\Lab\\Ejemplos aux\\EDD_1S_2022-main\\EntradasFase2\\ImagenSonic\\ImagenSonic.json");
         lector.Lectura(usuario);
         usuario.capas.crear_grafo(usuario.capas.raiz);
         usuario.capas.imprimir();
-        Matriz_pixeles d = usuario.capas.recorrido_Preorden(13);
+        Matriz_pixeles d = usuario.capas.recorrido_Preorden(2);
         Creador_img f = new Creador_img(d);
         
         
@@ -290,25 +326,115 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         //arbol.imprimir();
     }//GEN-LAST:event_Boton_capasActionPerformed
 
+    private void boton_ecorridoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_ecorridoMouseClicked
+        //Código del radio button
+        opcion = 1;
+    }//GEN-LAST:event_boton_ecorridoMouseClicked
+
+    private void boton_por_imagenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_por_imagenMouseClicked
+        // TODO del por imagen
+        opcion = 2;
+    }//GEN-LAST:event_boton_por_imagenMouseClicked
+
+    private void Boton_por_capaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Boton_por_capaMouseClicked
+        // TODO add your handling code here:
+        opcion = 3;
+    }//GEN-LAST:event_Boton_por_capaMouseClicked
+
+    private void Boton_generarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_generarActionPerformed
+        Tipo_recorridoActionPerformed(evt);
+        System.out.println(tipo_recorrido);
+        System.out.println(opcion);
+        
+        if (opcion == -1){
+            JOptionPane.showMessageDialog(this, "Seleccione una opción");
+        }else{
+            
+            switch(opcion){
+                
+                
+                case 1: // Recorrido por límite
+                    int cantidad = Integer.parseInt(cantidad_text.getText());
+                    System.out.println("vvv"+cantidad);
+                    System.out.println(usuario.capas.num_nodos);
+                    if (cantidad <= usuario.capas.num_nodos){ 
+                        
+                    switch (tipo_recorrido) {
+                        case "PreOrden":
+                            Matriz_pixeles d = usuario.capas.recorrido_Preorden(cantidad);
+                            Creador_img f = new Creador_img(d);
+                            break;
+                        case "InOrden":
+                        
+                            Matriz_pixeles e = usuario.capas.recorrido_Inorden(cantidad);
+                            Creador_img g = new Creador_img(e);
+                        
+                        
+                            break;
+                        case "PostOrden":
+                            Matriz_pixeles l = usuario.capas.recorrido_Postorden(cantidad);
+                            Creador_img h = new Creador_img(l);
+                        
+                        
+                            break;
+                        
+                        
+                        default:
+                            break;
+                }
+                        
+                        
+                        
+                        
+                    
+                    }else{
+                       JOptionPane.showMessageDialog(this, "El número de capas excede a las capas registradas");      
+                    }
+                    
+                    
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                    
+            }
+        
+        }
+        
+        
+    }//GEN-LAST:event_Boton_generarActionPerformed
+
+    private void Tipo_recorridoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tipo_recorridoActionPerformed
+        // para poder sacar lo del combo box
+        tipo_recorrido = Tipo_recorrido.getSelectedItem().toString();  
+        //System.out.println(tipo_recorrido);
+    }//GEN-LAST:event_Tipo_recorridoActionPerformed
+
     /**
      * @param args the command line arguments
      */
+    
+ 
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Boton_album;
     private javax.swing.JButton Boton_capas;
+    private javax.swing.JButton Boton_generar;
     private javax.swing.JButton Boton_imgs;
+    private javax.swing.JRadioButton Boton_por_capa;
+    public javax.swing.ButtonGroup Botones_grupo;
     private javax.swing.JPanel Panel_generar_img;
     private javax.swing.JPanel Panel_superior;
     private javax.swing.JPanel Panel_visualizacion;
     private javax.swing.JComboBox<String> Tipo_recorrido;
-    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JRadioButton boton_ecorrido;
+    private javax.swing.JRadioButton boton_por_imagen;
     private javax.swing.JTextField cantidad_text;
     private javax.swing.JTextField imagen_id_text;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -316,11 +442,11 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
+
+    
+
 }
