@@ -8,6 +8,7 @@ public class ABB {
     Nodo_ABB raiz;
     String auxiliar;
     int altura = 0;
+    int num_nodos = 0;
     int contador_unir_imgs = 0; 
     Matriz_pixeles matri_auxiliar = new Matriz_pixeles();
     Matriz_pixeles matri_aux = new Matriz_pixeles();
@@ -34,11 +35,13 @@ public class ABB {
         if (this.raiz == null){
             Nodo_ABB nuevo = new Nodo_ABB(capa);
             nuevo.altura = 0;
+            num_nodos++;
             this.raiz = nuevo;
             
         
         }else{
-            insertar(capa, raiz);     
+            insertar(capa, raiz);    
+            num_nodos++;
         }       
     }
 
@@ -214,37 +217,69 @@ public class ABB {
     }
     
     
-    public void recorrido_Inorden(){
+    public Matriz_pixeles recorrido_Inorden(int max){
         
-        recorrido_Inorden(raiz);
-        System.out.println("");
-    }
-    
-    public void recorrido_Inorden(Nodo_ABB nodo){
-        if (nodo == null){
-            return;
-        }
-        recorrido_Inorden(nodo.hijo_izquierda);
-        System.out.print(nodo.valor+" ");
-        recorrido_Inorden(nodo.hijo_derecha);
+        recorrido_Inorden(raiz, max);
+        Matriz_pixeles aux = matri_aux;
+        matri_aux = new Matriz_pixeles();
+        contador_unir_imgs = 0; 
+        return aux;
 
     }
     
+    public void recorrido_Inorden(Nodo_ABB nodo, int max){
+        if (nodo == null){
+            return;
+        }
+        
+        if( contador_unir_imgs <  max){
+
+            recorrido_Inorden(nodo.hijo_izquierda,max);
+            
+            
+            if( contador_unir_imgs <  max){
+                matri_aux = unir_matrices(matri_aux, nodo.valor.matriz);
+                System.out.println(nodo.id);
+                contador_unir_imgs ++;
+            }
+            
+            recorrido_Inorden(nodo.hijo_derecha,max);
+        }
+    }
     
     
-    public void recorrido_Postorden(){
-        recorrido_Postorden(raiz);
-        System.out.println("");
+    
+    public Matriz_pixeles recorrido_Postorden(int max){
+        
+        
+        recorrido_Postorden(raiz, max);
+        Matriz_pixeles aux = matri_aux;
+        matri_aux = new Matriz_pixeles();
+        contador_unir_imgs = 0; 
+        return aux;
+
         
     }
     
-    public void recorrido_Postorden(Nodo_ABB nodo){
+    public void recorrido_Postorden(Nodo_ABB nodo, int max){
         if (nodo == null){
             return;
-        }     
-        recorrido_Postorden(nodo.hijo_izquierda);
-        recorrido_Postorden(nodo.hijo_derecha);
-        System.out.print(nodo.valor+" ");
+        } 
+        
+        
+        if( contador_unir_imgs <  max){
+
+            recorrido_Postorden(nodo.hijo_izquierda,max);
+            recorrido_Postorden(nodo.hijo_derecha,max);
+            
+            if( contador_unir_imgs <  max){ //agregamos esta validación para que no se nos pase de largo
+            
+                System.out.print(nodo.id);
+                matri_aux = unir_matrices(matri_aux, nodo.valor.matriz);
+                //System.out.println(nodo.id);
+                contador_unir_imgs ++;      
+            }
+        }
     }
     
     
