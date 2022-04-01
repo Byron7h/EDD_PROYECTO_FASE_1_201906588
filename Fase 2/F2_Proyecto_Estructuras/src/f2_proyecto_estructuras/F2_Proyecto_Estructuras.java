@@ -30,11 +30,11 @@ public class F2_Proyecto_Estructuras {
         
         
         // interfaz grafica
-        /*
-        Pantalla_login login = new Pantalla_login();
+        
+        Pantalla_login login = new Pantalla_login(usuarios);
         login.setVisible(true);
         login.setLocationRelativeTo(null); // Acá le decimos que nos la coloque en el centro
-        */
+        
         
         
 

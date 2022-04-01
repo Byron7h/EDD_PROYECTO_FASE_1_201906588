@@ -6,6 +6,7 @@
 package f2_proyecto_estructuras;
 
 import java.util.LinkedList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -51,7 +52,7 @@ public class Pantalla_login extends javax.swing.JFrame {
         jLabel3.setText("Password");
 
         jLabel4.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        jLabel4.setText("DPI");
+        jLabel4.setText("Usuario");
 
         Entrada_password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -73,6 +74,11 @@ public class Pantalla_login extends javax.swing.JFrame {
         });
 
         Boton_ingresar.setText("Ingresar");
+        Boton_ingresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Boton_ingresarActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("¿Aún no se ha registrado?");
 
@@ -144,11 +150,14 @@ public class Pantalla_login extends javax.swing.JFrame {
 
         String DPI = Entrada_DPI.getText();
         String PASSWORD = Entrada_password.getText();
+        
+        //Usuario actual = 
+        
 
-        Entrada_DPI.setText(PASSWORD);
-        Entrada_password.setText(DPI);
+        //Entrada_DPI.setText(PASSWORD);
+        //Entrada_password.setText(DPI);
 
-        Pantalla_registrarse registro = new Pantalla_registrarse();
+        Pantalla_registrarse registro = new Pantalla_registrarse(usuarios);
         registro.setVisible(true);
         registro.setLocationRelativeTo(null); // Acá le decimos que nos la coloque en el centro
     }//GEN-LAST:event_Boton_crearActionPerformed
@@ -161,9 +170,71 @@ public class Pantalla_login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_Entrada_passwordActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    private void Boton_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_ingresarActionPerformed
+       
+        String Nombre = Entrada_DPI.getText();
+        String PASSWORD = Entrada_password.getText();
+        Usuario actual = existe(Nombre);
+        
+        
+        if( !"".equals(Nombre) && !"".equals(PASSWORD)){ 
+            
+            if ("admin".equals(Nombre) && "EDD2022".equals(PASSWORD)){
+                JOptionPane.showMessageDialog(this, "Bienvenido ADMIN");
+                this.dispose();
+            
+            }else{
+
+                if (actual != null){ //quiere decir que existe
+                    if ( actual.contrasena.equals(PASSWORD)){
+                        JOptionPane.showMessageDialog(this, "Bienvenido " + actual.get_nombre());
+                        this.dispose();
+                    }else{
+                        JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos");
+                        //Entrada_DPI.setText("");
+                        //Entrada_password.setText("");   
+                    }
+                }else{
+                    JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos");
+                    //Entrada_DPI.setText("");
+                    //Entrada_password.setText("");
+                }
+            }
+        }else{
+            JOptionPane.showMessageDialog(this, "Por favor llene todos los campos");
+        }
+        
+        
+    }//GEN-LAST:event_Boton_ingresarActionPerformed
+
+   
+    // Busca el usuario con el dpi que recibe en el linked list, si lo encuentra lo devuelse
+    // si no devuelve null
+    
+    private Usuario existe(String Nombre){
+        
+        for (Usuario actual : usuarios){
+            if (actual.nombre.equals(Nombre)){
+                return actual;
+            }
+        }
+        return null;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
