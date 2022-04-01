@@ -8,6 +8,9 @@ public class ABB {
     Nodo_ABB raiz;
     String auxiliar;
     int altura = 0;
+    int contador_unir_imgs = 0; 
+    Matriz_pixeles matri_auxiliar = new Matriz_pixeles();
+    Matriz_pixeles matri_aux = new Matriz_pixeles();
     
     // Lista_cola auxiliar para el recorrido en amplitud
     LinkedList<Nodo_ABB> cola = new LinkedList<>();
@@ -25,9 +28,7 @@ public class ABB {
         if (nivel > altura){
             altura = nivel;
         }
-    }
-    
-
+    }   
      
     public void insertar(Capa_img capa){
         if (this.raiz == null){
@@ -40,7 +41,6 @@ public class ABB {
             insertar(capa, raiz);     
         }       
     }
-
 
     public void insertar(Capa_img capa, Nodo_ABB padre){
    
@@ -116,19 +116,67 @@ public class ABB {
         grafo = "";
     }
   
+    // Recorrio
+    public Matriz_pixeles Recorrido_lim (int num, int recorrido){
+        // tipo de recorrido: 1-> Preorden 2-> Inorden 3-> Postorden
+    
+        return null;
+    }
+    
+    
+    public Matriz_pixeles unir_matrices (Matriz_pixeles inferior, Matriz_pixeles superior){
+        
+       
+        // Sacamos todos los nodos de la superior y los metemos a la inferior
+        
+        //Recorriendo inferior
+        Matriz_pixeles resultado = inferior;
+        Nodo_matriz nodo_actual = superior.cabecera;
+        Nodo_matriz fila_actual = superior.cabecera.abajo;
+        
+        
+        
+        int contador2 = 0;
+        while (fila_actual != null){ // recorriendo filas
+
+
+            if(fila_actual.y == contador2){
+                nodo_actual = fila_actual.siguiente;
+                int contador = 0;
+                while (nodo_actual != null){
+                    if (nodo_actual.x == contador){
+                        // agregamos el pixel, y avanzamos al siguiente
+                        resultado.insertarNodo(nodo_actual.x, nodo_actual.y, nodo_actual.dato);
+                        //grafo += "  <td bgcolor=\""+nodo_actual.dato+"\" width=\"1\" height=\"1\"></td>\n";
+                        nodo_actual = nodo_actual.siguiente;      
+                }else{
+                    // ignoramos, porquie ya están creados los nodos en blanco
+                }
+                contador++;
+                }
+                fila_actual = fila_actual.abajo;
+
+            }else{      
+            }
+            contador2++;
+
+        }
+
+        return inferior;
+    }
     
     // modificamos el método buscar para que nos devuelva el nodo, si lo encuentra, o null si no
     
-    /*
+    
     public Nodo_ABB buscar(Nodo_ABB nodo, int dato){
         
         if(nodo == null){ // no lo encontró
             return null;
         }
         
-        if(dato == nodo.valor){ // lo encontramos
+        if(dato == nodo.id){ // lo encontramos
             return nodo;
-        }else if(dato < nodo.valor){
+        }else if(dato < nodo.id){
             return buscar(nodo.hijo_izquierda, dato);
         }else{
             return buscar(nodo.hijo_derecha, dato);
@@ -142,19 +190,27 @@ public class ABB {
     
     // recorridos
     
-    public void recorrido_Preorden(){
-        recorrido_Preorden(raiz);
-        System.out.println("");
+    public Matriz_pixeles recorrido_Preorden(int max){
+        recorrido_Preorden(raiz, max);
+        Matriz_pixeles aux = matri_aux;
+        matri_aux = new Matriz_pixeles();
+        contador_unir_imgs = 0; 
+        return aux;
+         
     }
     
-    public void recorrido_Preorden(Nodo_ABB nodo){
+    public void recorrido_Preorden(Nodo_ABB nodo, int max){
         if (nodo == null){
             return;
         }
-        System.out.print(nodo.valor+" ");
-        recorrido_Preorden(nodo.hijo_izquierda);
-        recorrido_Preorden(nodo.hijo_derecha);
-
+        
+        if( contador_unir_imgs <  max){
+            matri_aux = unir_matrices(matri_aux, nodo.valor.matriz);
+            System.out.println(nodo.id);
+            contador_unir_imgs ++;
+            recorrido_Preorden(nodo.hijo_izquierda,max);
+            recorrido_Preorden(nodo.hijo_derecha,max);
+        }
     }
     
     

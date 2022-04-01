@@ -275,10 +275,13 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
 
     private void Boton_capasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_capasActionPerformed
         // CARGA MASIVA CAPAS
-        Lector_capas lector = new Lector_capas("C:\\Users\\usuario\\Documents\\Byron\\7mo semestre\\Estructuras\\Lab\\Ejemplos aux\\EDD_1S_2022-main\\EntradasFase2\\ImagenSonic\\ImagenSonic.json");
+        Lector_capas lector = new Lector_capas("C:\\Users\\usuario\\Documents\\Byron\\7mo semestre\\Estructuras\\Lab\\Ejemplos aux\\EDD_1S_2022-main\\EntradasFase2\\ImagenMario\\ImagenMario.json");
         lector.Lectura(usuario);
         usuario.capas.crear_grafo(usuario.capas.raiz);
         usuario.capas.imprimir();
+        Matriz_pixeles d = usuario.capas.recorrido_Preorden(13);
+        Creador_img f = new Creador_img(d);
+        
         
         
         
