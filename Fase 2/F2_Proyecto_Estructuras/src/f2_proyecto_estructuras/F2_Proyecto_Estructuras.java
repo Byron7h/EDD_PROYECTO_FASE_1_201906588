@@ -23,6 +23,8 @@ public class F2_Proyecto_Estructuras {
         
         // lISTA DE USUARIOS
         LinkedList<Usuario> usuarios = new LinkedList<>();
+        Usuario provisional = new Usuario("x", "x", "x");
+        usuarios.add(provisional);
         
         
         

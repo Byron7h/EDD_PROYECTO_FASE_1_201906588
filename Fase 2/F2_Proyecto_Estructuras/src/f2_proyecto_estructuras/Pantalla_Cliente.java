@@ -14,7 +14,9 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
     /**
      * Creates new form Pantalla_Cliente
      */
-    public Pantalla_Cliente() {
+    Usuario usuario;
+    public Pantalla_Cliente(Usuario usuario) {
+        this.usuario = usuario;
         initComponents();
     }
 
@@ -54,16 +56,23 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
 
-        jLabel1.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
         jLabel1.setText("Carga Masiva");
 
         Boton_capas.setText("Capas");
+        Boton_capas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Boton_capasActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Ver estructuras");
 
         Boton_imgs.setText("Imágenes");
 
-        jLabel2.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
         jLabel2.setText("Estructuras");
 
         Boton_album.setText("Álbumes");
@@ -127,14 +136,22 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jLabel3.setFont(new java.awt.Font("Montserrat", 1, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
         jLabel3.setText("Generar Imagenes");
 
+        jRadioButton1.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jRadioButton1.setText("Por Árbol de Imágenes");
 
+        jRadioButton2.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jRadioButton2.setText("Por capa");
 
+        jRadioButton3.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
         jRadioButton3.setText(" Por recorrido limitado");
+        jRadioButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Generar");
 
@@ -246,11 +263,29 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(Panel_generar_img, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Panel_visualizacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jRadioButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void Boton_capasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_capasActionPerformed
+        // CARGA MASIVA CAPAS
+        Lector_capas lector = new Lector_capas("C:\\Users\\usuario\\Documents\\Byron\\7mo semestre\\Estructuras\\Lab\\Ejemplos aux\\EDD_1S_2022-main\\EntradasFase2\\ImagenSonic\\ImagenSonic.json");
+        lector.Lectura(usuario);
+        usuario.capas.crear_grafo(usuario.capas.raiz);
+        usuario.capas.imprimir();
+        
+        
+        
+        //ABB arbol = usuario.capas;
+        //arbol.crear_grafo(arbol.raiz);
+        //arbol.imprimir();
+    }//GEN-LAST:event_Boton_capasActionPerformed
 
     /**
      * @param args the command line arguments

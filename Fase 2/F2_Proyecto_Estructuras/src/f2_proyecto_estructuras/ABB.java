@@ -29,45 +29,45 @@ public class ABB {
     
 
      
-    public void insertar(int dato){
+    public void insertar(Capa_img capa){
         if (this.raiz == null){
-            Nodo_ABB nuevo = new Nodo_ABB(dato);
+            Nodo_ABB nuevo = new Nodo_ABB(capa);
             nuevo.altura = 0;
             this.raiz = nuevo;
             
         
         }else{
-            insertar(dato, raiz);     
+            insertar(capa, raiz);     
         }       
     }
 
 
-    public void insertar(int dato, Nodo_ABB padre){
+    public void insertar(Capa_img capa, Nodo_ABB padre){
    
         // lado izquierdo, menores
-        if (dato<padre.valor){
+        if (capa.id<padre.id){
             if (padre.hijo_izquierda == null){
-                Nodo_ABB nuevo = new Nodo_ABB(dato);
+                Nodo_ABB nuevo = new Nodo_ABB(capa);
                 nuevo.padre = padre; 
                 nuevo.altura = padre.altura +1;
                 altura(padre.altura +1);
                 padre.hijo_izquierda = nuevo;
                 
             }else{
-                insertar(dato, padre.hijo_izquierda);             
+                insertar(capa, padre.hijo_izquierda);             
             }
         }
         
         // lado derecho, mayores o iguales
         else {
             if (padre.hijo_derecha == null){
-                Nodo_ABB nuevo = new Nodo_ABB(dato);
+                Nodo_ABB nuevo = new Nodo_ABB(capa);
                 nuevo.padre = padre; 
                 nuevo.altura = padre.altura + 1;
                 altura(padre.altura +1);
                 padre.hijo_derecha = nuevo;
             }else{
-                insertar(dato, padre.hijo_derecha);
+                insertar(capa, padre.hijo_derecha);
             }
         }
     }
@@ -77,12 +77,12 @@ public class ABB {
         
         if (actual.hijo_derecha != null){ 
             //creamos el nodo derecha enlazamos e implementamos recursividada
-            grafo +=  "     "+ actual.hijo_derecha.hashCode()+"[label=\""+actual.hijo_derecha.valor+" D"+"\"];\n";
+            grafo +=  "     "+ actual.hijo_derecha.hashCode()+"[label=\""+actual.hijo_derecha.id+" D"+"\"];\n";
             grafo +=  "     "+ actual.hashCode()+ "->"+ actual.hijo_derecha.hashCode()+";\n";
             crear_grafo(actual.hijo_derecha);
         }
         if (actual.hijo_izquierda != null){ 
-            grafo +=  "     "+ actual.hijo_izquierda.hashCode()+"[label=\""+actual.hijo_izquierda.valor+" I"+"\"];\n";
+            grafo +=  "     "+ actual.hijo_izquierda.hashCode()+"[label=\""+actual.hijo_izquierda.id+" I"+"\"];\n";
             grafo +=  "     "+ actual.hashCode()+ "->"+ actual.hijo_izquierda.hashCode()+";\n";
             crear_grafo(actual.hijo_izquierda);
         } 
@@ -104,7 +104,7 @@ public class ABB {
 "	fontname=\"Helvetica,Arial,sans-serif\"\n" +
 "	node [fontname=\"Helvetica,Arial,sans-serif\"]\n" +
 "	node [shape = circle];\n";
-        aux +=  "     "+ raiz.hashCode()+"[label=\""+raiz.valor+"\"];\n";
+        aux +=  "     "+ raiz.hashCode()+"[label=\""+raiz.id+"\"];\n";
         
         // contenido y final del grafo
         grafo += "}";
@@ -118,6 +118,8 @@ public class ABB {
   
     
     // modificamos el método buscar para que nos devuelva el nodo, si lo encuentra, o null si no
+    
+    /*
     public Nodo_ABB buscar(Nodo_ABB nodo, int dato){
         
         if(nodo == null){ // no lo encontró
@@ -242,7 +244,7 @@ public class ABB {
         recorrido_Amplitud_2();
     }
     
-    
+    /*
     // método para eliminar un nodo en un árbol
     public void eliminar(int valor){
         // primero vemos si existe
@@ -368,7 +370,7 @@ public class ABB {
 
     }
     
-    
+    */
     
     
 }

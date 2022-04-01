@@ -4,6 +4,8 @@ package f2_proyecto_estructuras;
 public class Usuario {
     
       String nombre, contrasena, DPI;
+      ABB capas;
+      AVL imagenes;
       
       public Usuario(String nombre, String contrasena,String DPI){
           this.DPI = DPI;
@@ -22,6 +24,14 @@ public class Usuario {
             
       public String get_contrasena(){
           return this.contrasena;
+      }
+      
+      public ABB get_capas(){
+          return this.capas;
+      }   
+      
+      public AVL get_imagenes(){
+          return this.imagenes;
       }
       
       

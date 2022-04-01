@@ -188,7 +188,12 @@ public class Pantalla_login extends javax.swing.JFrame {
                 if (actual != null){ //quiere decir que existe
                     if ( actual.contrasena.equals(PASSWORD)){
                         JOptionPane.showMessageDialog(this, "Bienvenido " + actual.get_nombre());
+                        Pantalla_Cliente pantalla = new Pantalla_Cliente(actual);
                         this.dispose();
+                        pantalla.setVisible(true);
+                        pantalla.setLocationRelativeTo(null); // Acá le decimos que nos la coloque en el centro
+                        
+                        
                     }else{
                         JOptionPane.showMessageDialog(this, "Usuario o contraseña incorrectos");
                         //Entrada_DPI.setText("");
