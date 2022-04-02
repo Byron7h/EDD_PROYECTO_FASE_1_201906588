@@ -31,6 +31,11 @@ public class Creador_img {
         GenerarImagenDTO(t);
     }
     
+    
+    public Creador_img(Lista_doble lista_d){
+        Generar_img3(lista_d);
+    }
+    
     public void Generar_img(){
         
         String grafo = "digraph G {\n" +
@@ -294,7 +299,70 @@ public class Creador_img {
     }
         
         
+        public void Generar_img3(Lista_doble lista_d){
         
+        String grafo = "digraph L{\n" +
+                        "    node[shape=box  style= filled]\n";
+        
+        String aux ="";
+        // extraemos la cabecera
+        
+        
+        Nodo_lista_doble actual = lista_d.cabecera;
+        
+        while(actual!= null){
+            
+            String nombre = actual.album.id;
+            Lista_simple lista_s = actual.album.lista;
+            Nodo_Lista act = lista_s.cabecera;
+            
+            aux += ";"+actual.hashCode();
+            
+            
+            
+            // Agregamos un label principal
+            grafo += "        "+actual.hashCode()+"[label=\""+nombre+"\"];\n";
+            
+            // enlazamos
+            
+            grafo += "";
+            if(actual.anterior!= null){
+                
+                grafo += "        edge[dir=\"rigth\" color=\"blue\"]\n" +
+                         "        "+actual.hashCode()+" -> "+actual.anterior.hashCode()+"\n";
+            }
+            if(actual.siguiente!= null){
+                
+                grafo += "        edge[dir=\"left\" color=\"red\"]\n" +
+                         "        "+actual.hashCode()+" -> "+actual.siguiente.hashCode()+"\n";
+            
+            }
+            
+            boolean primero = true;
+            while(act != null){
+                
+                grafo+="        "+act.hashCode()+"[label="+act.id+"];\n";
+                
+                if(primero){
+                    grafo += "        edge[dir=\"left\" color=\"black\"]\n" +
+                         "        "+actual.hashCode()+" -> "+act.hashCode()+";\n";
+                    primero = false;
+
+                }
+                
+                if(act.siguiente != null){
+                    grafo+=  act.hashCode()+"->"+act.siguiente.hashCode()+";\n";
+                }
+                act = act.siguiente;
+            } 
+            actual = actual.siguiente;
+        }
+        grafo += "        {rank = same"+aux+"}";
+        grafo += "}";
+        
+        System.out.println(grafo);
+        GenerarImagen(grafo);
+    }
         
         
         

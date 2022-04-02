@@ -101,6 +101,11 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         jLabel2.setText("Otras Opciones");
 
         Boton_album.setText("Álbumes");
+        Boton_album.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Boton_albumActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Ver estructuras");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -502,6 +507,17 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         pantalla_e.setVisible(true);
         pantalla_e.setLocationRelativeTo(null); // Acá le decimos que nos la coloque en el centro
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void Boton_albumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_albumActionPerformed
+        
+        Lector_albumes l = new Lector_albumes("C:\\Users\\usuario\\Documents\\Byron\\7mo semestre\\Estructuras\\Lab\\Ejemplos aux\\EDD_1S_2022-main\\EntradasFase2\\Albumes\\album.txt");
+        l.Lectura(usuario);
+
+        JOptionPane.showMessageDialog(this, "Se ha finalizado la carga masiva de albumes");
+        
+        
+        
+    }//GEN-LAST:event_Boton_albumActionPerformed
 
     public void Actualizar_img(JLabel Label_img, String ruta){
         this.imagen = new ImageIcon(ruta);

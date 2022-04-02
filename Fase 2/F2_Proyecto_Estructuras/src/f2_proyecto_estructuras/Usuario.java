@@ -6,6 +6,7 @@ public class Usuario {
       String nombre, contrasena, DPI;
       ABB capas;
       AVL imagenes = new AVL();
+      Lista_doble albumes = new Lista_doble();
       
       public Usuario(String nombre, String contrasena,String DPI){
           this.DPI = DPI;

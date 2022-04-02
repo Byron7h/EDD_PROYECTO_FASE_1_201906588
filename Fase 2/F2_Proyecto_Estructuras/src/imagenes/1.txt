@@ -2,12 +2,21 @@ digraph finite_state_machine {
 	fontname="Helvetica,Arial,sans-serif"
 	node [fontname="Helvetica,Arial,sans-serif"]
 	node [shape = circle];
-     7265575[label="2"];
-     16749389[label="15 D"];
-     7265575->16749389;
-     19140965[label="1 I"];
-     7265575->19140965;
-     {rank=same; 19140965; 16749389;}
+     32699137[label="5"];
+     16182216[label="6 D"];
+     32699137->16182216;
+     25089330[label="9 D"];
+     16182216->25089330;
+     26794353[label="2 I"];
+     32699137->26794353;
+     11651041[label="3 D"];
+     26794353->11651041;
+     9919437[label="1 I"];
+     26794353->9919437;
+     {rank=same; 9919437; 11651041;}
      {edge[style=invis];
-     19140965 ->16749389;
+     9919437 ->11651041;
+     }      {rank=same; 26794353; 16182216;}
+     {edge[style=invis];
+     26794353 ->16182216;
      } }

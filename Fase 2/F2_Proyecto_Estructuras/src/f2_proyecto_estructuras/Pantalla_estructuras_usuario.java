@@ -242,7 +242,7 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
     }//GEN-LAST:event_RB_imagenesActionPerformed
 
     private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        // TODO add your handling code here:
+        opcion = 5;
     }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     private void RB_capasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RB_capasActionPerformed
@@ -335,9 +335,20 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
                             //Actualizar_img(Label_img,"src/imagenes/0.png");
                     }else{
                         JOptionPane.showMessageDialog(this, "Ingrese la imagen a graficar");
-                    }
+                        }
+                    
+                    }  break;
+                    
+                case 5:
+                    
+                    Creador_img w = new Creador_img(usuario.albumes);
+                    
+                    JOptionPane.showMessageDialog(this, "Se generó la imagen");
+                            Actualizar_img(Label_img,"src/imagenes/0.jpg");
+                    
+                    
                     break;
-                    }    
+                    
                     
             }
             
