@@ -66,7 +66,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         imagen_id_text = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        capas_text = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
 
@@ -145,16 +145,16 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         Panel_visualizacionLayout.setHorizontalGroup(
             Panel_visualizacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_visualizacionLayout.createSequentialGroup()
-                .addContainerGap(79, Short.MAX_VALUE)
-                .addComponent(Label_img, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(76, 76, 76))
+                .addContainerGap(33, Short.MAX_VALUE)
+                .addComponent(Label_img, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29))
         );
         Panel_visualizacionLayout.setVerticalGroup(
             Panel_visualizacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_visualizacionLayout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
-                .addComponent(Label_img, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(20, 20, 20))
+                .addContainerGap(49, Short.MAX_VALUE)
+                .addComponent(Label_img, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
         );
 
         jLabel3.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
@@ -253,7 +253,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                                 .addGroup(Panel_generar_imgLayout.createSequentialGroup()
                                     .addComponent(jLabel7)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(capas_text, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         Panel_generar_imgLayout.setVerticalGroup(
@@ -285,7 +285,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(Panel_generar_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(capas_text, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addComponent(Boton_generar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(24, 24, 24))
@@ -397,11 +397,10 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                         default:
                             break;
                         }
-                        
-                    this.Actualizar_img(Label_img,"src/imagenes/0.png");
-                        
-                        
-                        
+                        JOptionPane.showMessageDialog(this, "Se generó la imagen");
+                        Actualizar_img(Label_img,"src/imagenes/0.jpg");
+                        //Actualizar_img(Label_img,"src/imagenes/0.png");
+
                     
                     }else{
                        JOptionPane.showMessageDialog(this, "El número de capas excede a las capas registradas");      
@@ -410,8 +409,26 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                     
                     break;
                 case 2:
+                    
+                    Matriz_pixeles p = usuario.capas.recorrido_Amplitud();
+                    Creador_img q = new Creador_img(p);
+                    JOptionPane.showMessageDialog(this, "Se generó la imagen");
+                    Actualizar_img(Label_img,"src/imagenes/0.jpg");
                     break;
                 case 3:
+                    String conjunto = capas_text.getText();
+                    
+                    
+                    if(!"".equals(conjunto)){
+                        Matriz_pixeles j = usuario.capas.recorrido_capas(conjunto);
+                        Creador_img m = new Creador_img(j);
+                        JOptionPane.showMessageDialog(this, "Se generó la imagen");
+                        Actualizar_img(Label_img,"src/imagenes/0.jpg");
+                    }else{
+                        JOptionPane.showMessageDialog(this, "Ingrese las capas a graficar");
+                    }
+                    
+                    
                     break;
                     
             }
@@ -461,6 +478,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
     private javax.swing.JRadioButton boton_ecorrido;
     private javax.swing.JRadioButton boton_por_imagen;
     private javax.swing.JTextField cantidad_text;
+    private javax.swing.JTextField capas_text;
     private javax.swing.JTextField imagen_id_text;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -473,7 +491,6 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 
     

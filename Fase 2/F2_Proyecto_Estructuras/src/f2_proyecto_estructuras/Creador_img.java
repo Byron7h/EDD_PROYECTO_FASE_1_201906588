@@ -5,6 +5,10 @@
  */
 package f2_proyecto_estructuras;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+
 /**
  *
  * @author usuario
@@ -97,7 +101,51 @@ public class Creador_img {
         grafo +=    "</table>>\n" +
                     "];\n" +
                     "}\n";
-        System.out.println(grafo);
+        //System.out.println(grafo);
+        GenerarImagen( grafo);
+    }
+    
+    
+       public static void GenerarImagen(String txtDTO) {
+        try {
+            // creamos un nuevo archivo txt
+            String contenido = txtDTO;
+            File file = new File("src/imagenes/0.txt");
+
+            if (!file.exists()) {
+                file.createNewFile();
+            }
+            
+            // Le escribimos nuestro codigo dto
+            FileWriter fw = new FileWriter(file);
+            BufferedWriter bw = new BufferedWriter(fw);
+            bw.write(contenido);
+            bw.close();
+
+            //---------Compilar el dto
+            
+            // ruta de dot.exe, mi equipo -> archivos del programa -> graphviz -> bin ->dot
+
+            String dotPath = "C:\\Program Files\\Graphviz\\bin\\dot.exe";
+            String fileIn = file.getCanonicalPath(); //esto es para obtener la ruta
+            String fileOU = fileIn.replace(".txt", ".jpg"); // salida de imagen
+            String tParam = "-Tjpg";
+            String tOparam = "-o";
+
+            String[] cmd = new String[5]; // cadena de cadenas 
+            cmd[0] = dotPath;
+            cmd[1] = tParam;
+            cmd[2] = fileIn;
+            cmd[3] = tOparam;
+            cmd[4] = fileOU;
+
+            Runtime rt = Runtime.getRuntime(); //herramienta para ejecutar comandos
+            rt.exec(cmd);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
     }
     
 }

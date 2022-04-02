@@ -176,7 +176,6 @@ public class ABB {
         if(nodo == null){ // no lo encontró
             return null;
         }
-        
         if(dato == nodo.id){ // lo encontramos
             return nodo;
         }else if(dato < nodo.id){
@@ -309,9 +308,18 @@ public class ABB {
     
     */
     
-    public void recorrido_Amplitud(){
+    public Matriz_pixeles recorrido_Amplitud(){ // aca nos falta vefificar en el array que le pasemos
+        
+        //recorrido_Postorden(raiz, max);
         cola.addFirst(raiz);
         recorrido_Amplitud_2();
+        
+        Matriz_pixeles aux = matri_aux;
+        matri_aux = new Matriz_pixeles();
+        //contador_unir_imgs = 0; 
+        cola = new LinkedList<>();
+        
+        return aux;
     
     }
     
@@ -325,6 +333,9 @@ public class ABB {
         
         System.out.print(actual.valor+" ");
         
+        //agregamos a la matriz
+        matri_aux = unir_matrices(matri_aux, actual.valor.matriz);
+
         // si tiene hijos los agragamos a la cola
         if (actual.hijo_izquierda != null){
             cola.addFirst(actual.hijo_izquierda);    
@@ -334,6 +345,41 @@ public class ABB {
         }
         recorrido_Amplitud_2();
     }
+    
+    
+    public Matriz_pixeles recorrido_capas(String cadena){
+        String[] cadenas = cadena.split(",");
+        
+        int[] array = new int[cadenas.length];
+        for (int i = 0; i < cadenas.length; i++) {
+            array[i] = Integer.parseInt(cadenas[i]);
+        }
+        
+        
+        for (int elemento :array){
+            Nodo_ABB actual = buscar(elemento);
+            
+            if (actual != null){ // si es diferente a null lo agregamos a la matriz
+                matri_aux = unir_matrices(matri_aux, actual.valor.matriz);
+            }
+        }
+        
+        Matriz_pixeles aux = matri_aux;
+        matri_aux = new Matriz_pixeles();
+        return aux;
+
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     /*
     // método para eliminar un nodo en un árbol
