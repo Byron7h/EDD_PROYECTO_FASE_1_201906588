@@ -151,7 +151,7 @@ public class AVL {
 
     }
     
-    public void imprimir(){
+    public String imprimir(){
         
         // encabezado del grafo
         String aux = "digraph finite_state_machine {\n" +
@@ -168,6 +168,7 @@ public class AVL {
         
         // volviendo al estado original
         grafo = "";
+        return aux;
     }
     
     // modificamos el método buscar para que nos devuelva el nodo, si lo encuentra, o null si no

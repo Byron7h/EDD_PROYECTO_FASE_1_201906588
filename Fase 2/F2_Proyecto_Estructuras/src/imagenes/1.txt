@@ -1,0 +1,13 @@
+digraph finite_state_machine {
+	fontname="Helvetica,Arial,sans-serif"
+	node [fontname="Helvetica,Arial,sans-serif"]
+	node [shape = circle];
+     7265575[label="2"];
+     16749389[label="15 D"];
+     7265575->16749389;
+     19140965[label="1 I"];
+     7265575->19140965;
+     {rank=same; 19140965; 16749389;}
+     {edge[style=invis];
+     19140965 ->16749389;
+     } }

@@ -155,17 +155,14 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         Panel_visualizacion.setLayout(Panel_visualizacionLayout);
         Panel_visualizacionLayout.setHorizontalGroup(
             Panel_visualizacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_visualizacionLayout.createSequentialGroup()
-                .addContainerGap(33, Short.MAX_VALUE)
-                .addComponent(Label_img, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29))
+            .addComponent(Label_img, javax.swing.GroupLayout.DEFAULT_SIZE, 513, Short.MAX_VALUE)
         );
         Panel_visualizacionLayout.setVerticalGroup(
             Panel_visualizacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_visualizacionLayout.createSequentialGroup()
-                .addContainerGap(49, Short.MAX_VALUE)
-                .addComponent(Label_img, javax.swing.GroupLayout.PREFERRED_SIZE, 480, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40))
+            .addGroup(Panel_visualizacionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Label_img, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jLabel3.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
@@ -338,7 +335,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Panel_generar_img, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Panel_visualizacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         pack();
@@ -486,11 +483,11 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void Boton_imgsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_imgsActionPerformed
-       // CARGA MASIVA IMAGENES 
+        // CARGA MASIVA IMAGENES
         Lector_capas lector = new Lector_capas("C:\\Users\\usuario\\Documents\\Byron\\7mo semestre\\Estructuras\\Lab\\Ejemplos aux\\EDD_1S_2022-main\\EntradasFase2\\Ejemplo 1\\Cliente-Aux EDD\\Imagenes-AuxEDD.json");
         lector.Lectura_2(usuario);
         JOptionPane.showMessageDialog(this, "Se ha finalizado la carga masiva de imágenes");
-        
+
     }//GEN-LAST:event_Boton_imgsActionPerformed
 
     private void Boton_ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_ActualizarActionPerformed
@@ -500,6 +497,10 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // botón que nos lleva alas estructuras
+        Pantalla_estructuras_usuario pantalla_e = new Pantalla_estructuras_usuario(this.usuario);
+        this.dispose();
+        pantalla_e.setVisible(true);
+        pantalla_e.setLocationRelativeTo(null); // Acá le decimos que nos la coloque en el centro
     }//GEN-LAST:event_jButton3ActionPerformed
 
     public void Actualizar_img(JLabel Label_img, String ruta){

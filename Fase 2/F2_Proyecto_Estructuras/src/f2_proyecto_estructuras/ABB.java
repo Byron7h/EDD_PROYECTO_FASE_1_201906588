@@ -100,7 +100,7 @@ public class ABB {
 
     }
     
-    public void imprimir(){
+    public String imprimir(){
         
         // encabezado del grafo
         String aux = "digraph finite_state_machine {\n" +
@@ -117,6 +117,7 @@ public class ABB {
         
         // volviendo al estado original
         grafo = "";
+        return aux;
     }
   
     // Recorrio
