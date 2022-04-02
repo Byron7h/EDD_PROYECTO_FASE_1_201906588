@@ -5,7 +5,11 @@
  */
 package f2_proyecto_estructuras;
 
+import java.awt.Image;
 import javax.swing.ButtonGroup;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 /**
@@ -13,6 +17,9 @@ import javax.swing.JOptionPane;
  * @author usuario
  */
 public class Pantalla_Cliente extends javax.swing.JFrame {
+    
+    private ImageIcon imagen;
+    private Icon icono;
     
     int opcion = -1;
     String tipo_recorrido = "";
@@ -45,6 +52,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         Boton_album = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         Panel_visualizacion = new javax.swing.JPanel();
+        Label_img = new javax.swing.JLabel();
         Panel_generar_img = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
         boton_por_imagen = new javax.swing.JRadioButton();
@@ -74,12 +82,17 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Ver estructuras");
+        jButton2.setText("Cerrar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         Boton_imgs.setText("Imágenes");
 
         jLabel2.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
-        jLabel2.setText("Estructuras");
+        jLabel2.setText("Otras Opciones");
 
         Boton_album.setText("Álbumes");
 
@@ -92,23 +105,21 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
             .addGroup(Panel_superiorLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(Panel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
                     .addGroup(Panel_superiorLayout.createSequentialGroup()
-                        .addComponent(Boton_capas, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Boton_imgs, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Boton_album, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 239, Short.MAX_VALUE)
+                        .addComponent(Boton_capas, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Boton_imgs, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Boton_album, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel1))
+                .addGap(141, 141, 141)
                 .addGroup(Panel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44))
-            .addGroup(Panel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_superiorLayout.createSequentialGroup()
-                    .addContainerGap(921, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(34, 34, 34)))
+                    .addGroup(Panel_superiorLayout.createSequentialGroup()
+                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
         Panel_superiorLayout.setVerticalGroup(
             Panel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,24 +133,28 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                     .addComponent(Boton_capas)
                     .addComponent(Boton_imgs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Boton_album, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(jButton3))
                 .addContainerGap(14, Short.MAX_VALUE))
-            .addGroup(Panel_superiorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_superiorLayout.createSequentialGroup()
-                    .addContainerGap(52, Short.MAX_VALUE)
-                    .addComponent(jButton3)
-                    .addGap(4, 4, 4)))
         );
+
+        Panel_visualizacion.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         javax.swing.GroupLayout Panel_visualizacionLayout = new javax.swing.GroupLayout(Panel_visualizacion);
         Panel_visualizacion.setLayout(Panel_visualizacionLayout);
         Panel_visualizacionLayout.setHorizontalGroup(
             Panel_visualizacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 674, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_visualizacionLayout.createSequentialGroup()
+                .addContainerGap(79, Short.MAX_VALUE)
+                .addComponent(Label_img, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76))
         );
         Panel_visualizacionLayout.setVerticalGroup(
             Panel_visualizacionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_visualizacionLayout.createSequentialGroup()
+                .addContainerGap(29, Short.MAX_VALUE)
+                .addComponent(Label_img, javax.swing.GroupLayout.PREFERRED_SIZE, 520, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(20, 20, 20))
         );
 
         jLabel3.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
@@ -239,7 +254,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                                     .addComponent(jLabel7)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(38, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         Panel_generar_imgLayout.setVerticalGroup(
             Panel_generar_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,9 +301,9 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                     .addComponent(Panel_superior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Panel_generar_img, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(33, 33, 33)
+                        .addGap(32, 32, 32)
                         .addComponent(Panel_visualizacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -296,10 +311,10 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addComponent(Panel_superior, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Panel_generar_img, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(Panel_visualizacion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(37, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Panel_generar_img, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Panel_visualizacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(67, Short.MAX_VALUE))
         );
 
         pack();
@@ -381,8 +396,9 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                         
                         default:
                             break;
-                }
+                        }
                         
+                    this.Actualizar_img(Label_img,"src/imagenes/0.png");
                         
                         
                         
@@ -411,6 +427,18 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         //System.out.println(tipo_recorrido);
     }//GEN-LAST:event_Tipo_recorridoActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    public void Actualizar_img(JLabel Label_img, String ruta){
+        this.imagen = new ImageIcon(ruta);
+        this.icono = new ImageIcon(this.imagen.getImage().getScaledInstance(Label_img.getWidth(),Label_img.getHeight(),Image.SCALE_DEFAULT));//Convirtiendo la imagen a un icóno para poder ponerlo en el label
+        // alto de la imagen, ancho de la imagen, algoritmo de escalamiento de la imagen
+        Label_img.setIcon(this.icono);
+        this.repaint();
+    }
+   
     /**
      * @param args the command line arguments
      */
@@ -425,6 +453,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
     private javax.swing.JButton Boton_imgs;
     private javax.swing.JRadioButton Boton_por_capa;
     public javax.swing.ButtonGroup Botones_grupo;
+    private javax.swing.JLabel Label_img;
     private javax.swing.JPanel Panel_generar_img;
     private javax.swing.JPanel Panel_superior;
     private javax.swing.JPanel Panel_visualizacion;
