@@ -5,7 +5,7 @@ public class Usuario {
     
       String nombre, contrasena, DPI;
       ABB capas;
-      AVL imagenes;
+      AVL imagenes = new AVL();
       
       public Usuario(String nombre, String contrasena,String DPI){
           this.DPI = DPI;

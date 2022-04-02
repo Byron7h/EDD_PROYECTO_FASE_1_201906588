@@ -182,8 +182,7 @@ public class AVL {
             return buscar(nodo.hijo_izquierda, dato);
         }else{
             return buscar(nodo.hijo_derecha, dato);
-        }
-        
+        } 
     }
 
     public Nodo_AVL buscar( int dato){
@@ -482,8 +481,9 @@ public class AVL {
         return nuevo_padre;
     }
     
-    public void insertarAVL(int dato){
-        Nodo_AVL nuevo = new Nodo_AVL(dato); 
+    public void insertarAVL(Imagen img){
+        Nodo_AVL nuevo = new Nodo_AVL(img); 
+        System.out.println("Inserto   ");
         if(raiz == null){
             raiz= nuevo;
         }else{

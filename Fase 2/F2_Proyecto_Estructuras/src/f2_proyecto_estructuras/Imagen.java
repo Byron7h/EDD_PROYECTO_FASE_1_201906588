@@ -5,10 +5,14 @@
  */
 package f2_proyecto_estructuras;
 
-/**
- *
- * @author usuario
- */
-public class Ventana_login {
+
+public class Imagen {
+    int id;
+    ABB capas;
     
+    public Imagen(int id, ABB capas){
+        this.id = id;  
+        this.capas = capas;
+    }
+
 }

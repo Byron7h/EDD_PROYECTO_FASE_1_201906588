@@ -69,6 +69,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         capas_text = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        Boton_Actualizar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,6 +91,11 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         });
 
         Boton_imgs.setText("Imágenes");
+        Boton_imgs.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Boton_imgsActionPerformed(evt);
+            }
+        });
 
         jLabel2.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
         jLabel2.setText("Otras Opciones");
@@ -97,6 +103,11 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         Boton_album.setText("Álbumes");
 
         jButton3.setText("Ver estructuras");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout Panel_superiorLayout = new javax.swing.GroupLayout(Panel_superior);
         Panel_superior.setLayout(Panel_superiorLayout);
@@ -216,6 +227,13 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
 
         jLabel7.setText("Capas a graficar");
 
+        Boton_Actualizar.setText("Actualizar");
+        Boton_Actualizar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Boton_ActualizarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Panel_generar_imgLayout = new javax.swing.GroupLayout(Panel_generar_img);
         Panel_generar_img.setLayout(Panel_generar_imgLayout);
         Panel_generar_imgLayout.setHorizontalGroup(
@@ -236,13 +254,12 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                         .addGap(21, 21, 21)
                         .addGroup(Panel_generar_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(Boton_generar, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(Panel_generar_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Panel_generar_imgLayout.createSequentialGroup()
+                            .addGroup(Panel_generar_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(Panel_generar_imgLayout.createSequentialGroup()
                                     .addComponent(jLabel6)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(imagen_id_text, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, Panel_generar_imgLayout.createSequentialGroup()
+                                .addGroup(Panel_generar_imgLayout.createSequentialGroup()
                                     .addGroup(Panel_generar_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel5)
                                         .addComponent(jLabel4))
@@ -250,10 +267,15 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                                     .addGroup(Panel_generar_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(cantidad_text, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(Tipo_recorrido, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(Panel_generar_imgLayout.createSequentialGroup()
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_generar_imgLayout.createSequentialGroup()
                                     .addComponent(jLabel7)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(capas_text, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(capas_text, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_generar_imgLayout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(Boton_Actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(Boton_generar, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(35, Short.MAX_VALUE))
         );
         Panel_generar_imgLayout.setVerticalGroup(
@@ -287,7 +309,9 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                     .addComponent(jLabel7)
                     .addComponent(capas_text, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
-                .addComponent(Boton_generar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(Panel_generar_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Boton_generar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Boton_Actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(24, 24, 24))
         );
 
@@ -326,12 +350,14 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
 
     private void Boton_capasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_capasActionPerformed
         // CARGA MASIVA CAPAS
-        Lector_capas lector = new Lector_capas("C:\\Users\\usuario\\Documents\\Byron\\7mo semestre\\Estructuras\\Lab\\Ejemplos aux\\EDD_1S_2022-main\\EntradasFase2\\ImagenSonic\\ImagenSonic.json");
+        Lector_capas lector = new Lector_capas("C:\\Users\\usuario\\Documents\\Byron\\7mo semestre\\Estructuras\\Lab\\Ejemplos aux\\EDD_1S_2022-main\\EntradasFase2\\Ejemplo 1\\Cliente-Aux EDD\\Capas-AuxEDD.json");
         lector.Lectura(usuario);
-        usuario.capas.crear_grafo(usuario.capas.raiz);
-        usuario.capas.imprimir();
-        Matriz_pixeles d = usuario.capas.recorrido_Preorden(2);
-        Creador_img f = new Creador_img(d);
+        JOptionPane.showMessageDialog(this, "Se ha finalizado la carga masiva de capas");
+
+        //usuario.capas.crear_grafo(usuario.capas.raiz);
+        //usuario.capas.imprimir();
+        //Matriz_pixeles d = usuario.capas.recorrido_Preorden(2);
+        //Creador_img f = new Creador_img(d);
         
         
         
@@ -410,10 +436,25 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                     break;
                 case 2:
                     
-                    Matriz_pixeles p = usuario.capas.recorrido_Amplitud();
-                    Creador_img q = new Creador_img(p);
-                    JOptionPane.showMessageDialog(this, "Se generó la imagen");
-                    Actualizar_img(Label_img,"src/imagenes/0.jpg");
+                    
+                    int id = Integer.parseInt(imagen_id_text.getText());
+                    
+                    Nodo_AVL nuevo = usuario.imagenes.buscar(id);
+                    if (nuevo != null){
+                        ABB arbol = nuevo.imagen.capas;
+                        Matriz_pixeles p = arbol.recorrido_Amplitud();
+                        Creador_img q = new Creador_img(p);
+                        JOptionPane.showMessageDialog(this, "Se generó la imagen");
+                        Actualizar_img(Label_img,"src/imagenes/0.jpg");
+                        
+                        
+                        
+                        
+                        //JOptionPane.showMessageDialog(this, "El número de capas excede a las capas registradas");
+                    }else{
+                        JOptionPane.showMessageDialog(this, "No se encontró la imagen");
+                    }
+                    
                     break;
                 case 3:
                     String conjunto = capas_text.getText();
@@ -429,13 +470,9 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                     }
                     
                     
-                    break;
-                    
-            }
-        
+                    break;                   
+            }        
         }
-        
-        
     }//GEN-LAST:event_Boton_generarActionPerformed
 
     private void Tipo_recorridoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Tipo_recorridoActionPerformed
@@ -447,6 +484,23 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void Boton_imgsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_imgsActionPerformed
+       // CARGA MASIVA IMAGENES 
+        Lector_capas lector = new Lector_capas("C:\\Users\\usuario\\Documents\\Byron\\7mo semestre\\Estructuras\\Lab\\Ejemplos aux\\EDD_1S_2022-main\\EntradasFase2\\Ejemplo 1\\Cliente-Aux EDD\\Imagenes-AuxEDD.json");
+        lector.Lectura_2(usuario);
+        JOptionPane.showMessageDialog(this, "Se ha finalizado la carga masiva de imágenes");
+        
+    }//GEN-LAST:event_Boton_imgsActionPerformed
+
+    private void Boton_ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_ActualizarActionPerformed
+        // TODO add your handling code here:
+        Actualizar_img(Label_img,"src/imagenes/0.jpg");
+    }//GEN-LAST:event_Boton_ActualizarActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // botón que nos lleva alas estructuras
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     public void Actualizar_img(JLabel Label_img, String ruta){
         this.imagen = new ImageIcon(ruta);
@@ -464,6 +518,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Boton_Actualizar;
     private javax.swing.JButton Boton_album;
     private javax.swing.JButton Boton_capas;
     private javax.swing.JButton Boton_generar;

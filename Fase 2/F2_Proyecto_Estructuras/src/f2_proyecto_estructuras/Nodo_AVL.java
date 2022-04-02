@@ -7,11 +7,13 @@ public class Nodo_AVL {
     Nodo_AVL hijo_derecha = null;
     Nodo_AVL hijo_izquierda = null;
     int valor, altura, fe;
+    Imagen imagen;
 
     
-    public Nodo_AVL(int valor){
-        this.valor = valor;
+    public Nodo_AVL(Imagen img){
+        this.valor = img.id;
         this.fe = 0;
+        this.imagen = img;
     }
     
     

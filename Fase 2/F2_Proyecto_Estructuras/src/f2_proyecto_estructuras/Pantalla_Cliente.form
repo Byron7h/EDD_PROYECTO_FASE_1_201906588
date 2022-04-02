@@ -140,6 +140,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Im&#xe1;genes"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Boton_imgsActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel2">
           <Properties>
@@ -158,6 +161,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Ver estructuras"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -219,8 +225,7 @@
                           <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jSeparator2" min="-2" pref="382" max="-2" attributes="0"/>
-                              <Component id="Boton_generar" min="-2" pref="218" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="32767" attributes="0"/>
@@ -244,6 +249,12 @@
                                   </Group>
                               </Group>
                           </Group>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="-2" pref="58" max="-2" attributes="0"/>
+                          <Component id="Boton_Actualizar" min="-2" pref="109" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="Boton_generar" min="-2" pref="218" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="35" max="32767" attributes="0"/>
@@ -285,7 +296,10 @@
                       <Component id="capas_text" alignment="3" min="-2" pref="32" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="70" max="32767" attributes="0"/>
-                  <Component id="Boton_generar" min="-2" pref="43" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="Boton_generar" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                      <Component id="Boton_Actualizar" alignment="3" min="-2" pref="43" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -400,6 +414,14 @@
         <Component class="javax.swing.JSeparator" name="jSeparator1">
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator2">
+        </Component>
+        <Component class="javax.swing.JButton" name="Boton_Actualizar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Actualizar"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Boton_ActualizarActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
