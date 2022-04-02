@@ -22,6 +22,11 @@ public class Creador_img {
         Generar_img();
     }
     
+    public Creador_img(String dto){
+        //this.matriz = matriz;
+        GenerarImagen(dto, 1);
+    }
+    
     public void Generar_img(){
         
         String grafo = "digraph G {\n" +
@@ -102,15 +107,15 @@ public class Creador_img {
                     "];\n" +
                     "}\n";
         //System.out.println(grafo);
-        GenerarImagen( grafo);
+        GenerarImagen(grafo,0);
     }
     
     
-       public static void GenerarImagen(String txtDTO) {
+       public static void GenerarImagen(String txtDTO, int num) {
         try {
             // creamos un nuevo archivo txt
             String contenido = txtDTO;
-            File file = new File("src/imagenes/0.txt");
+            File file = new File("src/imagenes/"+num+".txt");
 
             if (!file.exists()) {
                 file.createNewFile();
