@@ -269,7 +269,7 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
                     //String dto = usuario.capas.crear_grafo(usuario.capas.raiz);
                     //Creador_img cre = new Creador_img(dto);
                     JOptionPane.showMessageDialog(this, "Se generó la imagen");
-                    Actualizar_img(Label_img,"src/imagenes/1.jpg");
+                    Actualizar_img(Label_img,"C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\1.jpg");
                     //Actualizar_img(Label_img,"src/imagenes/0.png");
 //
                     break;
@@ -281,7 +281,7 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
                     //String dto = usuario.capas.crear_grafo(usuario.capas.raiz);
                     //Creador_img cre = new Creador_img(dto);
                     JOptionPane.showMessageDialog(this, "Se generó la imagen");
-                    Actualizar_img(Label_img,"src/imagenes/1.jpg");
+                    Actualizar_img(Label_img,"C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\1.jpg");
                     //Actualizar_img(Label_img,"src/imagenes/0.png");
 
                         
@@ -296,7 +296,7 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
                         Matriz_pixeles j = usuario.capas.recorrido_capas(id);
                         Creador_img m = new Creador_img(j,1);
                         JOptionPane.showMessageDialog(this, "Se generó la imagen");
-                        Actualizar_img(Label_img,"src/imagenes/0.jpg");
+                        Actualizar_img(Label_img,"C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\0.jpg");
                     }else{
                         JOptionPane.showMessageDialog(this, "Ingrese las capas a graficar");
                     }
@@ -329,7 +329,7 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
                             //String dto = usuario.capas.crear_grafo(usuario.capas.raiz);
                             //Creador_img cre = new Creador_img(dto);
                             JOptionPane.showMessageDialog(this, "Se generó la imagen");
-                            Actualizar_img(Label_img,"src/imagenes/1.jpg");
+                            Actualizar_img(Label_img,"C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\1.jpg");
                             //Actualizar_img(Label_img,"src/imagenes/0.png");
                     }else{
                         JOptionPane.showMessageDialog(this, "Ingrese la imagen a graficar");
@@ -342,7 +342,7 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
                     Creador_img w = new Creador_img(usuario.albumes);
                     
                     JOptionPane.showMessageDialog(this, "Se generó la imagen");
-                            Actualizar_img(Label_img,"src/imagenes/0.jpg");
+                            Actualizar_img(Label_img,"C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\0.jpg");
                     
                     
                     break;

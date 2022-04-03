@@ -124,7 +124,7 @@ public class Creador_img {
         try {
             // creamos un nuevo archivo txt
             String contenido = txtDTO;
-            File file = new File("src/imagenes/0.txt");
+            File file = new File("C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\0.txt");
 
             if (!file.exists()) {
                 file.createNewFile();
@@ -165,7 +165,7 @@ public class Creador_img {
         try {
             // creamos un nuevo archivo txt
             String contenido = txtDTO;
-            File file = new File("src/imagenes/1.txt");
+            File file = new File("C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\1.txt");
 
             if (!file.exists()) {
                 file.createNewFile();

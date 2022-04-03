@@ -461,7 +461,8 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                             break;
                         }
                         JOptionPane.showMessageDialog(this, "Se generó la imagen");
-                        Actualizar_img(Label_img,"src/imagenes/0.jpg");
+                        
+                        Actualizar_img(Label_img,"C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\0.jpg");
                         //Actualizar_img(Label_img,"src/imagenes/0.png");
 
                     
@@ -482,7 +483,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                         Matriz_pixeles p = arbol.recorrido_Amplitud();
                         Creador_img q = new Creador_img(p);
                         JOptionPane.showMessageDialog(this, "Se generó la imagen");
-                        Actualizar_img(Label_img,"src/imagenes/0.jpg");
+                        Actualizar_img(Label_img,"C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\0.jpg");
                         
                         
                         
@@ -501,7 +502,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                         Matriz_pixeles j = usuario.capas.recorrido_capas(conjunto);
                         Creador_img m = new Creador_img(j);
                         JOptionPane.showMessageDialog(this, "Se generó la imagen");
-                        Actualizar_img(Label_img,"src/imagenes/0.jpg");
+                        Actualizar_img(Label_img,"C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\0.jpg");
                     }else{
                         JOptionPane.showMessageDialog(this, "Ingrese las capas a graficar");
                     }
@@ -520,7 +521,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
 
     private void RepoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RepoActionPerformed
             try {
-                File objetofile = new File ("src/Reportes/Reporte_.html");
+                File objetofile = new File ("C:\\Users\\usuario\\Desktop\\provisional\\Reportes\\Reporte_.html");
                 Desktop.getDesktop().open(objetofile);
 
             }catch (IOException ex) {
@@ -560,7 +561,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
 
     private void Boton_ActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_ActualizarActionPerformed
         // TODO add your handling code here:
-        Actualizar_img(Label_img,"src/imagenes/0.jpg");
+        Actualizar_img(Label_img,"C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\0.jpg");
     }//GEN-LAST:event_Boton_ActualizarActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -608,7 +609,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
     public void reporte(){
         
         try{
-            String ruta = "src/Reportes/Reporte_.html";
+            String ruta = "C:\\Users\\usuario\\Desktop\\provisional\\Reportes\\Reporte_.html";
             PrintWriter writer = new PrintWriter(ruta, "UTF-8");
             
             
