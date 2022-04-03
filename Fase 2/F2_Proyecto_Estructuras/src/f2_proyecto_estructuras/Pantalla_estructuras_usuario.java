@@ -57,8 +57,6 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
         Panel_imagen = new javax.swing.JPanel();
         Label_img = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
         Grupo_botones.add(RB_imagenes);
         RB_imagenes.setText("Árbol de imágenes");
         RB_imagenes.addActionListener(new java.awt.event.ActionListener() {

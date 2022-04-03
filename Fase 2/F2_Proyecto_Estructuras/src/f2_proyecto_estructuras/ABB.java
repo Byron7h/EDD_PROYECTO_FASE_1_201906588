@@ -13,6 +13,9 @@ public class ABB {
     Matriz_pixeles matri_auxiliar = new Matriz_pixeles();
     Matriz_pixeles matri_aux = new Matriz_pixeles();
     
+    
+    String str_aux = "";
+    
     // Lista_cola auxiliar para el recorrido en amplitud
     LinkedList<Nodo_ABB> cola = new LinkedList<>();
     
@@ -509,6 +512,103 @@ public class ABB {
     }
     
     */
+    
+    // nodos que son hoja
+    
+    
+    
+    public String krecorrido_Inorden(){
+        
+        krecorrido_Inorden(raiz);
+        String y = str_aux;
+        str_aux="";
+        return y;
+    }
+    
+    public void krecorrido_Inorden(Nodo_ABB nodo){
+        if (nodo == null){
+            return;
+        }
+        krecorrido_Inorden(nodo.hijo_izquierda);
+        
+        //str_aux += nodo.valor+" ";
+        //System.out.print(nodo.valor+" ");
+        
+        if(nodo.hijo_izquierda == null && nodo.hijo_derecha == null){
+            str_aux += nodo.id+", ";
+        }
+        krecorrido_Inorden(nodo.hijo_derecha);
+    }
+    
+    
+    // LISTA DE CAPAS SEGÚN RECORRIDO
+    
+    
+     public String recorrido_Preorden(){
+        recorrido_Preorden(raiz);
+        
+        String y = str_aux;
+        str_aux="";
+        return y;
+        
+        
+        
+        //System.out.println("");
+    }
+    
+    public void recorrido_Preorden(Nodo_ABB nodo){
+        if (nodo == null){
+            return;
+        }
+        str_aux += nodo.id+", ";
+        recorrido_Preorden(nodo.hijo_izquierda);
+        recorrido_Preorden(nodo.hijo_derecha);
+
+    }
+    
+    
+    public String recorrido_Inorden(){
+        
+        recorrido_Inorden(raiz);
+        String y = str_aux;
+        str_aux="";
+        return y;
+    }
+    
+    public void recorrido_Inorden(Nodo_ABB nodo){
+        if (nodo == null){
+            return;
+        }
+        recorrido_Inorden(nodo.hijo_izquierda);
+        str_aux += nodo.id+", ";
+        recorrido_Inorden(nodo.hijo_derecha);
+
+    }
+    
+    
+    
+    public String recorrido_Postorden(){
+        recorrido_Postorden(raiz);
+        String y = str_aux;
+        str_aux="";
+        return y;
+        
+    }
+    
+    public void recorrido_Postorden(Nodo_ABB nodo){
+        if (nodo == null){
+            return;
+        }     
+        recorrido_Postorden(nodo.hijo_izquierda);
+        recorrido_Postorden(nodo.hijo_derecha);
+        str_aux += nodo.id+", ";
+    }
+    
+    
+    
+    
+    
+    
     
     
 }

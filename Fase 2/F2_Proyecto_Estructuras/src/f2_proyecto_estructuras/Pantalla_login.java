@@ -181,7 +181,7 @@ public class Pantalla_login extends javax.swing.JFrame {
             
             if ("admin".equals(Nombre) && "EDD2022".equals(PASSWORD)){
                 JOptionPane.showMessageDialog(this, "Bienvenido ADMIN");
-                this.dispose();
+                //this.dispose();
             
             }else{
 
@@ -189,7 +189,7 @@ public class Pantalla_login extends javax.swing.JFrame {
                     if ( actual.contrasena.equals(PASSWORD)){
                         JOptionPane.showMessageDialog(this, "Bienvenido " + actual.get_nombre());
                         Pantalla_Cliente pantalla = new Pantalla_Cliente(actual);
-                        this.dispose();
+                        //this.dispose();
                         pantalla.setVisible(true);
                         pantalla.setLocationRelativeTo(null); // Acá le decimos que nos la coloque en el centro
                         

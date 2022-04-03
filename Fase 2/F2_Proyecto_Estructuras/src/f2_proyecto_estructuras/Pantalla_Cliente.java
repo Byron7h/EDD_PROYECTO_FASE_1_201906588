@@ -9,6 +9,7 @@ import java.awt.Image;
 import javax.swing.ButtonGroup;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -70,8 +71,6 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         Boton_Actualizar = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
         jLabel1.setText("Carga Masiva");
@@ -352,9 +351,44 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
 
     private void Boton_capasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_capasActionPerformed
         // CARGA MASIVA CAPAS
-        Lector_capas lector = new Lector_capas("C:\\Users\\usuario\\Documents\\Byron\\7mo semestre\\Estructuras\\Lab\\Ejemplos aux\\EDD_1S_2022-main\\EntradasFase2\\Ejemplo 1\\Cliente-Aux EDD\\Capas-AuxEDD.json");
-        lector.Lectura(usuario);
-        JOptionPane.showMessageDialog(this, "Se ha finalizado la carga masiva de capas");
+        
+        
+        
+        //creando un nuevo objeto de tipo FileChooser
+        JFileChooser fc = new JFileChooser();
+        //el op guardará la seleccion del filechooser, si acepta o cancela
+        int op = fc.showOpenDialog(this); 
+        // Si el usuario acepta, entonces...
+        if(op == JFileChooser.APPROVE_OPTION){
+            try {
+                String direccion = fc.getSelectedFile().toString();
+                System.out.println(direccion);
+                //ruta_chooser = true;
+                
+                Lector_capas lector = new Lector_capas(direccion);
+                lector.Lectura(usuario);
+                System.out.println("hojas"+usuario.capas.krecorrido_Inorden());
+                System.out.println("profundidad "+usuario.capas.altura);
+                System.out.println("Pre "+usuario.capas.recorrido_Preorden());
+                System.out.println("In "+usuario.capas.recorrido_Inorden());
+                System.out.println("Pos "+usuario.capas.recorrido_Postorden());               
+                JOptionPane.showMessageDialog(this, "Se ha finalizado la carga masiva de capas"); 
+                
+            }catch(NumberFormatException e){
+                e.printStackTrace();
+            }
+        }
+        
+        
+        
+        
+
+        
+        
+        
+        
+        
+        
 
         //usuario.capas.crear_grafo(usuario.capas.raiz);
         //usuario.capas.imprimir();
@@ -489,9 +523,39 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
 
     private void Boton_imgsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_imgsActionPerformed
         // CARGA MASIVA IMAGENES
-        Lector_capas lector = new Lector_capas("C:\\Users\\usuario\\Documents\\Byron\\7mo semestre\\Estructuras\\Lab\\Ejemplos aux\\EDD_1S_2022-main\\EntradasFase2\\Ejemplo 1\\Cliente-Aux EDD\\Imagenes-AuxEDD.json");
-        lector.Lectura_2(usuario);
-        JOptionPane.showMessageDialog(this, "Se ha finalizado la carga masiva de imágenes");
+        
+        
+        
+        
+                //creando un nuevo objeto de tipo FileChooser
+        JFileChooser fc = new JFileChooser();
+        //el op guardará la seleccion del filechooser, si acepta o cancela
+        int op = fc.showOpenDialog(this); 
+        // Si el usuario acepta, entonces...
+        if(op == JFileChooser.APPROVE_OPTION){
+            try {
+                String direccion = fc.getSelectedFile().toString();
+                System.out.println(direccion);
+                //ruta_chooser = true;
+                
+                Lector_capas lector = new Lector_capas(direccion);
+                lector.Lectura_2(usuario);
+                JOptionPane.showMessageDialog(this, "Se ha finalizado la carga masiva de imágenes");
+                
+                
+            }catch(NumberFormatException e){
+                e.printStackTrace();
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+
 
     }//GEN-LAST:event_Boton_imgsActionPerformed
 
@@ -503,17 +567,53 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // botón que nos lleva alas estructuras
         Pantalla_estructuras_usuario pantalla_e = new Pantalla_estructuras_usuario(this.usuario);
-        this.dispose();
+        //this.dispose();
         pantalla_e.setVisible(true);
         pantalla_e.setLocationRelativeTo(null); // Acá le decimos que nos la coloque en el centro
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void Boton_albumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_albumActionPerformed
         
-        Lector_albumes l = new Lector_albumes("C:\\Users\\usuario\\Documents\\Byron\\7mo semestre\\Estructuras\\Lab\\Ejemplos aux\\EDD_1S_2022-main\\EntradasFase2\\Albumes\\album.txt");
-        l.Lectura(usuario);
+                //creando un nuevo objeto de tipo FileChooser
+        JFileChooser fc = new JFileChooser();
+        //el op guardará la seleccion del filechooser, si acepta o cancela
+        int op = fc.showOpenDialog(this); 
+        // Si el usuario acepta, entonces...
+        if(op == JFileChooser.APPROVE_OPTION){
+            try {
+                String direccion = fc.getSelectedFile().toString();
+                System.out.println(direccion);
+                //ruta_chooser = true;
+                
+                Lector_albumes l = new Lector_albumes(direccion);
+                l.Lectura(usuario);
 
-        JOptionPane.showMessageDialog(this, "Se ha finalizado la carga masiva de albumes");
+                JOptionPane.showMessageDialog(this, "Se ha finalizado la carga masiva de albumes");
+                
+            }catch(NumberFormatException e){
+                e.printStackTrace();
+            }
+        }
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+
         
         
         
