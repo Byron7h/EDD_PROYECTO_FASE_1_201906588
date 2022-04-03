@@ -5,7 +5,11 @@
  */
 package f2_proyecto_estructuras;
 
+import java.awt.Desktop;
 import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import java.io.PrintWriter;
 import javax.swing.ButtonGroup;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -47,7 +51,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         Panel_superior = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         Boton_capas = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        Repo = new javax.swing.JButton();
         Boton_imgs = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         Boton_album = new javax.swing.JButton();
@@ -82,10 +86,10 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Cerrar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Repo.setText("Reporte");
+        Repo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                RepoActionPerformed(evt);
             }
         });
 
@@ -133,7 +137,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                     .addGroup(Panel_superiorLayout.createSequentialGroup()
                         .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(Repo, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(29, Short.MAX_VALUE))
         );
         Panel_superiorLayout.setVerticalGroup(
@@ -148,7 +152,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                     .addComponent(Boton_capas)
                     .addComponent(Boton_imgs, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Boton_album, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2)
+                    .addComponent(Repo)
                     .addComponent(jButton3))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
@@ -367,11 +371,8 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                 
                 Lector_capas lector = new Lector_capas(direccion);
                 lector.Lectura(usuario);
-                System.out.println("hojas"+usuario.capas.krecorrido_Inorden());
-                System.out.println("profundidad "+usuario.capas.altura);
-                System.out.println("Pre "+usuario.capas.recorrido_Preorden());
-                System.out.println("In "+usuario.capas.recorrido_Inorden());
-                System.out.println("Pos "+usuario.capas.recorrido_Postorden());               
+                reporte();
+            
                 JOptionPane.showMessageDialog(this, "Se ha finalizado la carga masiva de capas"); 
                 
             }catch(NumberFormatException e){
@@ -517,9 +518,16 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         //System.out.println(tipo_recorrido);
     }//GEN-LAST:event_Tipo_recorridoActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void RepoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RepoActionPerformed
+            try {
+                File objetofile = new File ("src/Reportes/Reporte_.html");
+                Desktop.getDesktop().open(objetofile);
+
+            }catch (IOException ex) {
+                JOptionPane.showMessageDialog(null, "Archivo no válido");
+                System.out.println(ex);
+            }
+    }//GEN-LAST:event_RepoActionPerformed
 
     private void Boton_imgsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_imgsActionPerformed
         // CARGA MASIVA IMAGENES
@@ -547,15 +555,6 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                 e.printStackTrace();
             }
         }
-        
-        
-        
-        
-        
-        
-        
-        
-
 
     }//GEN-LAST:event_Boton_imgsActionPerformed
 
@@ -594,29 +593,6 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                 e.printStackTrace();
             }
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-
-        
-        
-        
     }//GEN-LAST:event_Boton_albumActionPerformed
 
     public void Actualizar_img(JLabel Label_img, String ruta){
@@ -626,6 +602,65 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         Label_img.setIcon(this.icono);
         this.repaint();
     }
+    
+    
+    
+    public void reporte(){
+        
+        try{
+            String ruta = "src/Reportes/Reporte_.html";
+            PrintWriter writer = new PrintWriter(ruta, "UTF-8");
+            
+            
+            //empezamos a escribir nuestro html
+            writer.println("<link href=\"Reporte_muestra.css\" rel=\"stylesheet\">");
+            writer.println("<body>");
+            writer.println("    <div id=\"wrapper\">");
+            writer.println("    <h1>"+usuario.nombre+"</h1>");
+            writer.println("    <br>");
+            writer.println("    <br>");
+            
+            writer.println("    <h2>• Capas hoja</h2>");
+            writer.println("    <h3> "+usuario.capas.krecorrido_Inorden()+"</h3>");
+            writer.println("    <h2>• Profundidad Arbol</h2>");
+            writer.println("    <h3>"+usuario.capas.altura+"</h3>");
+            writer.println("    <br>");
+            writer.println("    <h2>• Recorridos</h2>");
+            writer.println("    <table id=\"keywords\" cellspacing=\"0\" cellpadding=\"0\">");
+            writer.println("        <thead>");
+            writer.println("        <tr>");
+            writer.println("            <th><span>Tipo</span></th>");
+            writer.println("            <th><span>Recorrido</span></th>");
+            writer.println("        </tr>");
+            writer.println("        </thead>");
+            writer.println("        <tbody>");
+            writer.println("        <tr>");
+            writer.println("            <td>PreOrden</td>");
+            writer.println("            <td>"+usuario.capas.recorrido_Preorden()+"</td>");
+            writer.println("        </tr>");
+            writer.println("        <tr>");
+            writer.println("            <td>InOrden</td>");
+            writer.println("            <td>"+usuario.capas.recorrido_Inorden()+"</td>");
+            writer.println("        </tr>");
+            writer.println("        <tr>");
+            writer.println("            <td>PostOrden</td>");
+            writer.println("            <td>"+usuario.capas.recorrido_Postorden()+"</td>");
+            writer.println("        </tr>");
+            writer.println("        </tbody>");
+            writer.println("    </table>");
+            writer.println("</BODY>");
+            writer.println("</HTML>");
+            writer.close();
+            
+    
+            }catch (Exception e) {
+            e.printStackTrace();
+            }
+    
+    }
+    
+    
+    
    
     /**
      * @param args the command line arguments
@@ -646,13 +681,13 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
     private javax.swing.JPanel Panel_generar_img;
     private javax.swing.JPanel Panel_superior;
     private javax.swing.JPanel Panel_visualizacion;
+    private javax.swing.JButton Repo;
     private javax.swing.JComboBox<String> Tipo_recorrido;
     private javax.swing.JRadioButton boton_ecorrido;
     private javax.swing.JRadioButton boton_por_imagen;
     private javax.swing.JTextField cantidad_text;
     private javax.swing.JTextField capas_text;
     private javax.swing.JTextField imagen_id_text;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
