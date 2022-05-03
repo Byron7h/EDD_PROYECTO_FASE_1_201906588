@@ -1,0 +1,24 @@
+digraph L{
+    node[shape=box  style= filled]
+        18749768[label="Album 1"];
+        edge[dir="left" color="red"]
+        18749768 -> 20759872
+        24060459[label=1];
+        edge[dir="left" color="black"]
+        18749768 -> 24060459;
+24060459->25147815;
+        25147815[label=3];
+25147815->1195481;
+        1195481[label=5];
+        20759872[label="Album 2"];
+        edge[dir="rigth" color="blue"]
+        20759872 -> 18749768
+        edge[dir="left" color="red"]
+        20759872 -> 26341406
+        28571837[label=2];
+        edge[dir="left" color="black"]
+        20759872 -> 28571837;
+        26341406[label="Album 3"];
+        edge[dir="rigth" color="blue"]
+        26341406 -> 20759872
+        {rank = same;18749768;20759872;26341406}}
