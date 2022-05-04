@@ -19,7 +19,31 @@ public class F2_Proyecto_Estructuras {
     /**
      * @param args the command line arguments
      */
+    
+    public static int cantidad_ceros = 4;
     public static void main(String[] args) {
+
+        Busca_caminos graph = new Busca_caminos(5);
+        graph.addVertax("A");
+        graph.addVertax("B");
+        graph.addVertax("C");
+        graph.addVertax("D");
+        graph.addVertax("E");
+
+
+        graph.addEdges(0,1,1);
+        graph.addEdges(0,2,5);
+        graph.addEdges(1,2,2);
+        graph.addEdges(1,3,8);
+        graph.addEdges(1,4,12);
+        graph.addEdges(2,3,10);
+        graph.addEdges(3,4,2);
+
+        graph.showEdges();
+        graph.dijkStra(0);
+
+
+
         
         
         /*
@@ -168,6 +192,9 @@ public class F2_Proyecto_Estructuras {
          
          //probando operaciones 
          
+         
+         
+         /*
          ArrayList<Operacion> operaciones = new ArrayList<>();
          
          Usuario n = new Usuario("DPI","nombre","user","correo","password",2222,2);
@@ -194,7 +221,7 @@ public class F2_Proyecto_Estructuras {
          arbol.imprimir();
          
          
-         
+         */
          
          
          
