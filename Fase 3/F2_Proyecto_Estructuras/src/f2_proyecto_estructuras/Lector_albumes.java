@@ -77,12 +77,4 @@ public class Lector_albumes {
         catch (ParseException e){e.printStackTrace();}
     }
     
-    
-    
-    
-    
-    
-    
-    
-    
 }

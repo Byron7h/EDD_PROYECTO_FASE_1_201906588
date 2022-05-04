@@ -5,8 +5,8 @@ public class Usuario {
     
     // nombre -> nombre completo
     
-    
-      String nombre, contrasena, username, correo, DPI;
+      long DPI;
+      String nombre, contrasena, username, correo, direccion;
       int tel, id_municipio;
       ABB capas;
       AVL imagenes = new AVL();
@@ -14,8 +14,8 @@ public class Usuario {
       
       
       // nombre, username, dpi, contraseña, correo, tel, id_municipio
-      public Usuario(String nombre, String username, String DPI, String contrasena, 
-              String correo, int tel, int id_municipio ){
+      public Usuario(String nombre, String username, long DPI, String contrasena, 
+              String correo, int tel, String direccion ,int id_municipio ){
             
           this.DPI = DPI;
           this.nombre = nombre;
@@ -24,11 +24,12 @@ public class Usuario {
           this.correo = correo;
           this.tel = tel;
           this.id_municipio  = id_municipio ;
+          this.direccion = direccion;
 
       }
       
       
-      public String get_DPI(){
+      public long get_DPI(){
           return this.DPI;
       }
       

@@ -7,19 +7,20 @@ package f2_proyecto_estructuras;
 
 public class Mensajero {
     
-    String nombres, apellidos, DPI, tipo_licencia, correo, direccion;
-    int tel;
+    long DPI;
+    String nombres, apellidos, tipo_licencia, direccion, genero;
     
-    public Mensajero(String nombres, String apellidos, String DPI, 
-            String tipo_licencia ,String correo, String direccion, int tel){
+    
+    
+    public Mensajero(String nombres, String apellidos, long DPI, 
+            String tipo_licencia, String direccion, String genero){
         
         this.nombres  = nombres;
         this.apellidos = apellidos;
         this.DPI = DPI;
         this.tipo_licencia = tipo_licencia;
-        this.correo = correo;
         this.direccion = direccion;
-        this.tel = tel;
+        this.genero = genero;
     }
     
     
