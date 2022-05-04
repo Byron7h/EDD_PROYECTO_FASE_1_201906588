@@ -23,6 +23,25 @@ public class F2_Proyecto_Estructuras {
     public static int cantidad_ceros = 4;
     public static void main(String[] args) {
 
+        
+        
+        Lugar uno = new Lugar(1, "Guatemala", "nombre", true);
+        Lugar dos = new Lugar(2, "Guatemala", "nombre", true);
+        Lugar tres = new Lugar(3, "Guatemala", "nombre", true);
+        Ruta  ru = new Ruta(1,2,3);
+        Ruta  r = new Ruta(3,2,8);
+        
+        Lista_Ad lista = new Lista_Ad();
+        lista.insertarLugar(uno);
+        lista.insertarLugar(dos);
+        lista.insertarLugar(tres);
+        lista.insertarRuta(ru);
+        lista.insertarRuta(r);
+        lista.imprimir();
+        
+        
+       
+        /*
         Busca_caminos graph = new Busca_caminos(5);
         graph.addVertax("A");
         graph.addVertax("B");
@@ -42,7 +61,7 @@ public class F2_Proyecto_Estructuras {
         graph.showEdges();
         graph.dijkStra(0);
 
-
+*/
 
         
         
