@@ -6,6 +6,9 @@
 package f2_proyecto_estructuras;
 
 import java.util.LinkedList;
+import java.security.MessageDigest;
+import java.util.ArrayList;
+import javax.xml.bind.DatatypeConverter;
 
 /**
  *
@@ -19,7 +22,7 @@ public class F2_Proyecto_Estructuras {
     public static void main(String[] args) {
         
         
-        
+        /*
         
         // lISTA DE USUARIOS
         LinkedList<Usuario> usuarios = new LinkedList<>();
@@ -38,7 +41,7 @@ public class F2_Proyecto_Estructuras {
         login.setLocationRelativeTo(null); // Acá le decimos que nos la coloque en el centro
         
         
-        
+        */
 
         
         
@@ -154,8 +157,82 @@ public class F2_Proyecto_Estructuras {
     
         */
         
-        
+         /*
+        String dato = "cadena cadenita";
+        System.out.println(getHASH(dato.getBytes()));
+        dato = "cadena cadenite";
+        System.out.println(getHASH(dato.getBytes()));
+         */
+         
+         
+         
+         //probando operaciones 
+         
+         ArrayList<Operacion> operaciones = new ArrayList<>();
+         
+         Usuario n = new Usuario("DPI","nombre","user","correo","password",2222,2);
+         Mensajero b = new Mensajero("nombre", "apellido","DPI","A","Correo", "dir",2);
+         Lista_simple w = new Lista_simple();
+         w.insertar(2);
+         w.insertar(2);
+         w.insertar(2);
+         w.insertar(2);
+         w.insertar(2);
+         
+         Operacion nueva = new Operacion("direccion","03/05/2022",1,n,b,w);
+         operaciones.add(nueva);
+         nueva = new Operacion("direccion","04/05/2022",1,n,b,w);
+         operaciones.add(nueva);
+
+         
+
+         
+         
+         
+         
+         Arbol_Merkle arbol = new Arbol_Merkle(operaciones);
+         arbol.imprimir();
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
         
     }
     
+    /*
+    public static String getHASH( byte[] imput){
+        
+        String hash = "";
+        
+        try{
+            MessageDigest mensaje = MessageDigest.getInstance("SHA-256");
+            mensaje.update(imput);
+            byte[] bytes = mensaje.digest();
+            hash = DatatypeConverter.printHexBinary(bytes).toLowerCase();
+        
+        }catch( Exception e){
+            System.out.println(e);
+        }
+        return hash;
+    
+    }
+*/
+    
+    
 }
+ 

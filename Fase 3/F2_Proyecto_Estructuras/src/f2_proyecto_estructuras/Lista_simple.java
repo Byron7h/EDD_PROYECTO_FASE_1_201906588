@@ -26,4 +26,18 @@ public class Lista_simple {
         return cabecera;
     }
     
+    
+    public String cadena(){
+        
+        String result = "";
+        Nodo_Lista  actual = cabecera;
+        while (actual.siguiente != null){
+            result += Integer.toString(actual.id);
+            actual = actual.siguiente;
+        }
+
+        return result;
+    }
+    
+    
 }

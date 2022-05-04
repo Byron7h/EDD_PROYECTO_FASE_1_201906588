@@ -131,21 +131,7 @@ public class Pantalla_registrarse extends javax.swing.JFrame {
         
 
         
-        
-        if( !"".equals(Nombre) && !"".equals(PASSWORD) && !"".equals(DPI)){ 
-            Usuario actual = existe(Nombre);
-            if (actual != null){ //quiere decir que ya se ha registrado ese usuario
-                JOptionPane.showMessageDialog(this, "El nombre de usuario ya está en uso");
-            }else{              
-                Usuario nuevo = new Usuario(Nombre, PASSWORD, DPI);
-                usuarios.add(nuevo);
-                JOptionPane.showMessageDialog(this, "Se ha creado el usuario");
-                this.dispose();
-            }
-            
-        }else{
-            JOptionPane.showMessageDialog(this, "Por favor llene todos los campos");
-        }
+       
         
         
     
