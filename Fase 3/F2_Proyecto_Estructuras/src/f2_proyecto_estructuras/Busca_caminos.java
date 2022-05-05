@@ -19,12 +19,14 @@ public class Busca_caminos {
     private ArrayList<String> Vertax;
     private static int[][] edges;
     private boolean[] isVisited;
+    private Lista_Ad lista;
     
     
     
     // recibimos el id del municipio que buscamos
-    public  Busca_caminos(int n){
-        this.n = n;
+    public  Busca_caminos(int f, Lista_Ad lista){
+        this.lista = lista;
+        this.n = Tamano();
         numberOfEdges=0;
         Vertax = new ArrayList<>(n);
         edges  = new int[n][n];
@@ -38,6 +40,9 @@ public class Busca_caminos {
         for (int i = 0; i <n ; i++) {
             path[i] = "";
         }
+        llenar_matriz();
+        showEdges();
+        dijkStra(f);
     }
 
     // Imprimir lista de adyacencia
@@ -154,6 +159,37 @@ public class Busca_caminos {
             }
         }
         return j;
+    }
+    
+    public int Tamano(){
+        
+        int contador = 0;
+        Nodo_lugar actual = lista.cabecera;
+        
+        while(actual != null){
+            contador++;
+            actual = actual.siguiente;
+        }
+        
+        return contador;
+    }
+    
+    
+    public void llenar_matriz(){
+        
+        
+        Nodo_lugar actual = lista.cabecera;
+        while(actual != null){
+            addVertax(""+actual.id);
+            Nodo_ruta aux = actual.cabecera;
+            while(aux!= null){
+                Ruta r = aux.ruta;
+                addEdges(r.inicio,r.fin,r.peso);  
+                aux = aux.siguiente;
+            }
+           actual = actual.siguiente;
+        }
+
     }
 }
 

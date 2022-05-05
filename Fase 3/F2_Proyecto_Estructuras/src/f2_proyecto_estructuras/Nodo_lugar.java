@@ -14,7 +14,11 @@ public class Nodo_lugar {
     Lugar valor;
     Nodo_lugar siguiente = null;//nodo siguiete en la sublista
     Nodo_ruta cabecera = null; //cabecera de la lista de rutas
-
+    
+    Nodo_lugar anterior = null;
+    int distancia = Integer.MAX_VALUE;
+    boolean etiquetado = false;
+    
     //constructor de la clase
     public Nodo_lugar(Lugar lug) {
         this.valor = lug;

@@ -25,43 +25,52 @@ public class F2_Proyecto_Estructuras {
 
         
         
-        Lugar uno = new Lugar(1, "Guatemala", "nombre", true);
-        Lugar dos = new Lugar(2, "Guatemala", "nombre", true);
-        Lugar tres = new Lugar(3, "Guatemala", "nombre", true);
-        Ruta  ru = new Ruta(1,2,3);
-        Ruta  r = new Ruta(3,2,8);
+        Lugar uno = new Lugar(0, "Guatemala", "A", true);
+        Lugar dos = new Lugar(1, "Guatemala", "B", true);
+        Lugar tres = new Lugar(2, "Guatemala", "C", true);
+        Lugar cuatro = new Lugar(3, "Guatemala", "D", true);
+        Lugar cinco = new Lugar(4, "Guatemala", "E", true);
+     
+        
+        
+        Ruta  A = new Ruta(0,1,1);
+        Ruta  B = new Ruta(0,2,5);
+        Ruta  C = new Ruta(1,2,2);
+        Ruta  D = new Ruta(1,3,8);
+        Ruta  E = new Ruta(1,4,12);
+        Ruta  F = new Ruta(2,3,10);
+        Ruta  G = new Ruta(3,4,2);
+
         
         Lista_Ad lista = new Lista_Ad();
+        
         lista.insertarLugar(uno);
         lista.insertarLugar(dos);
         lista.insertarLugar(tres);
-        lista.insertarRuta(ru);
-        lista.insertarRuta(r);
+        lista.insertarLugar(cuatro);
+        lista.insertarLugar(cinco);
+        
+        lista.insertarRuta(A);
+        lista.insertarRuta(B);
+        lista.insertarRuta(C);
+        lista.insertarRuta(D);
+        lista.insertarRuta(E);
+        lista.insertarRuta(F);
+        lista.insertarRuta(G);
+
+        
+
         lista.imprimir();
         
         
-       
-        /*
-        Busca_caminos graph = new Busca_caminos(5);
-        graph.addVertax("A");
-        graph.addVertax("B");
-        graph.addVertax("C");
-        graph.addVertax("D");
-        graph.addVertax("E");
+        //Camino cam = new Camino(0,4,lista);
+
+      
+        // ide del vertice origen y la lista
+        Busca_caminos graph = new Busca_caminos(4,lista);
 
 
-        graph.addEdges(0,1,1);
-        graph.addEdges(0,2,5);
-        graph.addEdges(1,2,2);
-        graph.addEdges(1,3,8);
-        graph.addEdges(1,4,12);
-        graph.addEdges(2,3,10);
-        graph.addEdges(3,4,2);
 
-        graph.showEdges();
-        graph.dijkStra(0);
-
-*/
 
         
         
