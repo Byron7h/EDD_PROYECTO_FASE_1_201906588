@@ -1,0 +1,20 @@
+
+{
+    "Grafo" : [
+      {
+          "inicio":3,
+          "final" : 9,
+          "peso" : 10
+      },
+      {
+          "inicio":8,
+          "final" : 9,
+          "peso" : 1
+      },
+      {
+          "inicio":1,
+          "final" : 9,
+          "peso" : 19
+      }
+    ]
+  }

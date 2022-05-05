@@ -1,16 +1,58 @@
 
-{
-  "Grafo" : [
+[
     {
-        "inicio":0,
-        "final" : 1,
-        "peso" : 10
+        "dpi":3048067140116,
+        "nombre" : "Byron Solis",
+        "usuario" : "byron7h",
+        "correo" : "ggg@gmail.com",
+        "contrasena" : "fgbdfb",
+        "telefono" : 1111111,
+        "direcion" : "aquí",
+        "id_municipio" : 2
     },
     {
-        "inicio":1,
-        "final" : 2,
-        "peso" : 1
-    }
-
-  ]
+      "dpi":3048067140116,
+      "nombre" : "Byron Solis",
+      "usuario" : "byronh",
+      "correo" : "ggg@gmail.com",
+      "contrasena" : "fgbdfb",
+      "telefono" : 1111111,
+      "direcion" : "aquí",
+      "id_municipio" : 2
+  },
+  {
+    "dpi":3048067140116,
+    "nombre" : "Byron Solis",
+    "usuario" : "byron7",
+    "correo" : "ggg@gmail.com",
+    "contrasena" : "fgbdfb",
+    "telefono" : 1111111,
+    "direcion" : "aquí",
+    "id_municipio" : 2
+},
+{
+  "dpi":3048067140116,
+  "nombre" : "Byron Sois",
+  "usuario" : "byr7h",
+  "correo" : "ggg@gmail.com",
+  "contrasena" : "fgbdfb",
+  "telefono" : 1111111,
+  "direcion" : "aquí",
+  "id_municipio" : 2
+},
+{
+  "dpi":3048067140116,
+  "nombre" : "Byron Solis",
+  "usuario" : "byrh",
+  "correo" : "ggg@gmail.com",
+  "contrasena" : "fgbdfb",
+  "telefono" : 1111111,
+  "direcion" : "aquí",
+  "id_municipio" : 2
 }
+]
+
+
+
+
+

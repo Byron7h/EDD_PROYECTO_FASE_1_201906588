@@ -1,0 +1,22 @@
+{
+    "Lugares" : [
+      {
+          "id":0,
+          "departamento" : "Peten",
+          "nombre" : "A",
+          "sn_sucursal" : "si"
+      },
+      {
+        "id":1,
+        "departamento" : "Peten",
+        "nombre" : "B",
+        "sn_sucursal" : "si"
+    },
+    {
+      "id":2,
+      "departamento" : "Peten",
+      "nombre" : "C",
+      "sn_sucursal" : "si"
+    }
+    ]
+  }

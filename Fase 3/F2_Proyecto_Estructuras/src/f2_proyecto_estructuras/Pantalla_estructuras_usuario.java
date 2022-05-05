@@ -41,172 +41,89 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
     private void initComponents() {
 
         Grupo_botones = new javax.swing.ButtonGroup();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         Panel_menu = new javax.swing.JPanel();
-        RB_imagenes = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        RB_capas = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
-        Boton_visualizar = new javax.swing.JButton();
-        capa_id_text = new javax.swing.JTextField();
-        jLabel6 = new javax.swing.JLabel();
-        imagen_id_text = new javax.swing.JTextField();
+        Boton_enviar = new javax.swing.JButton();
         jLabel7 = new javax.swing.JLabel();
-        Boton_actualizar = new javax.swing.JButton();
-        Panel_imagen = new javax.swing.JPanel();
-        Label_img = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        Cedes = new javax.swing.JComboBox<>();
+        Mensajeros = new javax.swing.JComboBox<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea2 = new javax.swing.JTextArea();
 
-        Grupo_botones.add(RB_imagenes);
-        RB_imagenes.setText("Árbol de imágenes");
-        RB_imagenes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RB_imagenesActionPerformed(evt);
-            }
-        });
-
-        Grupo_botones.add(jRadioButton2);
-        jRadioButton2.setText("Listado de álbumes");
-        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton2ActionPerformed(evt);
-            }
-        });
-
-        Grupo_botones.add(RB_capas);
-        RB_capas.setText("Árbol de capas");
-        RB_capas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RB_capasActionPerformed(evt);
-            }
-        });
-
-        Grupo_botones.add(jRadioButton4);
-        jRadioButton4.setText("Imagen cómo estructura");
-        jRadioButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton4ActionPerformed(evt);
-            }
-        });
-
-        Grupo_botones.add(jRadioButton5);
-        jRadioButton5.setText("Capa como estructura");
-        jRadioButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButton5ActionPerformed(evt);
-            }
-        });
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
 
         jLabel1.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
-        jLabel1.setText("Estructuras disconibles");
+        jLabel1.setText("Enviar imágenes");
 
-        Boton_visualizar.setText("Visualizar");
-        Boton_visualizar.addActionListener(new java.awt.event.ActionListener() {
+        Boton_enviar.setText("Enviar");
+        Boton_enviar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Boton_visualizarActionPerformed(evt);
+                Boton_enviarActionPerformed(evt);
             }
         });
 
-        jLabel6.setText("Capa a graficar");
+        jLabel7.setText("Cede");
 
-        imagen_id_text.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                imagen_id_textActionPerformed(evt);
-            }
-        });
+        jLabel8.setText("Mensajero");
 
-        jLabel7.setText("Imagen a graficar");
+        Cedes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        Boton_actualizar.setText("Actualizar");
-        Boton_actualizar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Boton_actualizarActionPerformed(evt);
-            }
-        });
+        Mensajeros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jTextArea2.setColumns(20);
+        jTextArea2.setRows(5);
+        jScrollPane2.setViewportView(jTextArea2);
 
         javax.swing.GroupLayout Panel_menuLayout = new javax.swing.GroupLayout(Panel_menu);
         Panel_menu.setLayout(Panel_menuLayout);
         Panel_menuLayout.setHorizontalGroup(
             Panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_menuLayout.createSequentialGroup()
-                .addGroup(Panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_menuLayout.createSequentialGroup()
+                .addGroup(Panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(Panel_menuLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Boton_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(Panel_menuLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
                         .addGroup(Panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
                             .addGroup(Panel_menuLayout.createSequentialGroup()
-                                .addGap(16, 16, 16)
-                                .addComponent(jLabel1))
-                            .addGroup(Panel_menuLayout.createSequentialGroup()
-                                .addGap(31, 31, 31)
+                                .addGap(46, 46, 46)
                                 .addGroup(Panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(RB_imagenes)
-                                    .addComponent(RB_capas)
-                                    .addComponent(jRadioButton2)
-                                    .addComponent(jRadioButton4)
-                                    .addGroup(Panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(Panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(capa_id_text, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel6))
-                                        .addComponent(jRadioButton5))
                                     .addGroup(Panel_menuLayout.createSequentialGroup()
-                                        .addGap(52, 52, 52)
-                                        .addGroup(Panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(imagen_id_text, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel7))))))
-                        .addGap(0, 52, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_menuLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(Boton_actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(Boton_visualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                                        .addComponent(jLabel8)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(Mensajeros, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(Panel_menuLayout.createSequentialGroup()
+                                        .addComponent(jLabel7)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                                        .addComponent(Cedes, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING))))))
+                .addGap(97, 97, 97))
         );
         Panel_menuLayout.setVerticalGroup(
             Panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_menuLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addComponent(jLabel1)
-                .addGap(32, 32, 32)
-                .addComponent(RB_capas)
-                .addGap(18, 18, 18)
-                .addComponent(RB_imagenes)
-                .addGap(18, 18, 18)
-                .addComponent(jRadioButton2)
-                .addGap(18, 18, 18)
-                .addComponent(jRadioButton5)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(capa_id_text, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jRadioButton4)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(imagen_id_text, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 182, Short.MAX_VALUE)
+                .addGap(43, 43, 43)
                 .addGroup(Panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Boton_visualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Boton_actualizar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32))
-        );
-
-        Label_img.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        javax.swing.GroupLayout Panel_imagenLayout = new javax.swing.GroupLayout(Panel_imagen);
-        Panel_imagen.setLayout(Panel_imagenLayout);
-        Panel_imagenLayout.setHorizontalGroup(
-            Panel_imagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Panel_imagenLayout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
-                .addComponent(Label_img, javax.swing.GroupLayout.DEFAULT_SIZE, 515, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        Panel_imagenLayout.setVerticalGroup(
-            Panel_imagenLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Panel_imagenLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Label_img, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel7)
+                    .addComponent(Cedes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(17, 17, 17)
+                .addGroup(Panel_menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(Mensajeros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
+                .addComponent(Boton_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(62, 62, 62)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(122, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -214,48 +131,22 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(32, 32, 32)
+                .addGap(38, 38, 38)
                 .addComponent(Panel_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(73, 73, 73)
-                .addComponent(Panel_imagen, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(29, 29, 29)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(32, Short.MAX_VALUE)
                 .addComponent(Panel_menu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(Panel_imagen, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(21, 21, 21))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void RB_imagenesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RB_imagenesActionPerformed
-        opcion = 2;
-    }//GEN-LAST:event_RB_imagenesActionPerformed
-
-    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
-        opcion = 5;
-    }//GEN-LAST:event_jRadioButton2ActionPerformed
-
-    private void RB_capasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RB_capasActionPerformed
-        opcion = 1;
-    }//GEN-LAST:event_RB_capasActionPerformed
-
-    private void jRadioButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
-        opcion = 4;
-    }//GEN-LAST:event_jRadioButton4ActionPerformed
-
-    private void jRadioButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton5ActionPerformed
-        opcion = 3;
-    }//GEN-LAST:event_jRadioButton5ActionPerformed
-
-    private void Boton_visualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_visualizarActionPerformed
+    private void Boton_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_enviarActionPerformed
        
         if ( opcion != -1){
  
@@ -359,16 +250,7 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
         
         
         
-    }//GEN-LAST:event_Boton_visualizarActionPerformed
-
-    private void imagen_id_textActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imagen_id_textActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_imagen_id_textActionPerformed
-
-    private void Boton_actualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_actualizarActionPerformed
-        Actualizar_img(Label_img,"src/imagenes/1.jpg");
-
-    }//GEN-LAST:event_Boton_actualizarActionPerformed
+    }//GEN-LAST:event_Boton_enviarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -385,21 +267,17 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Boton_actualizar;
-    private javax.swing.JButton Boton_visualizar;
+    private javax.swing.JButton Boton_enviar;
+    private javax.swing.JComboBox<String> Cedes;
     private javax.swing.ButtonGroup Grupo_botones;
-    private javax.swing.JLabel Label_img;
-    private javax.swing.JPanel Panel_imagen;
+    private javax.swing.JComboBox<String> Mensajeros;
     private javax.swing.JPanel Panel_menu;
-    private javax.swing.JRadioButton RB_capas;
-    private javax.swing.JRadioButton RB_imagenes;
-    private javax.swing.JTextField capa_id_text;
-    private javax.swing.JTextField imagen_id_text;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 }
