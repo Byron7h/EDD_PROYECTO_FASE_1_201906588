@@ -11,7 +11,7 @@ import org.json.simple.parser.ParseException;
  
 public class Lector_lugares {
     String ruta;
-    
+    Lista_Ad lista;
     
     public Lector_lugares(String ruta){
         this.ruta = ruta;
@@ -21,8 +21,8 @@ public class Lector_lugares {
     
     //LinkedList<Usuario> usuarios
     
-    public void Lectura(Usuario usuario){
-       
+    public void Lectura(Lista_Ad lista){
+       this.lista = lista;
 
         
         JSONParser parser = new JSONParser();
@@ -60,6 +60,8 @@ public class Lector_lugares {
                 
 
                 Lugar nuevo = new Lugar(id, departamento, nombre, sucursal);
+                System.out.println("Lugar "+nombre);
+                lista.insertarLugar(nuevo);
        
             }
             //usuario.albumes = albumes;

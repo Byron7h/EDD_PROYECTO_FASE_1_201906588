@@ -22,7 +22,7 @@ public class F2_Proyecto_Estructuras {
     
     public static int cantidad_ceros = 4;
     public static void main(String[] args) {
-
+/*
         
         
         Lugar uno = new Lugar(0, "Guatemala", "A", true);
@@ -68,17 +68,21 @@ public class F2_Proyecto_Estructuras {
       
         // ide del vertice origen y la lista
         Busca_caminos graph = new Busca_caminos(4,lista);
-
+*/
 
 
 
         
         
-        /*
+        
         
         // lISTA DE USUARIOS
         LinkedList<Usuario> usuarios = new LinkedList<>();
-        Usuario provisional = new Usuario("x", "x", "x");
+        LinkedList<Mensajero> mensajeros = new LinkedList<>();
+        Lista_Ad lista = new Lista_Ad();
+        
+        long x = 6;
+        Usuario provisional = new Usuario("x", "x", x,"x","x",1,"x",1);
         usuarios.add(provisional);
         
         
@@ -88,12 +92,12 @@ public class F2_Proyecto_Estructuras {
         
         // interfaz grafica
         
-        Pantalla_login login = new Pantalla_login(usuarios);
+        Pantalla_login login = new Pantalla_login(usuarios, lista);
         login.setVisible(true);
         login.setLocationRelativeTo(null); // Acá le decimos que nos la coloque en el centro
         
         
-        */
+        
 
         
         

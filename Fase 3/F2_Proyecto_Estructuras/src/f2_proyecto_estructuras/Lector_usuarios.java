@@ -3,6 +3,7 @@ package f2_proyecto_estructuras;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.LinkedList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -11,7 +12,7 @@ import org.json.simple.parser.ParseException;
  
 public class Lector_usuarios {
     String ruta;
-    
+    LinkedList<Usuario> usuarios;
     
     public Lector_usuarios(String ruta){
         this.ruta = ruta;
@@ -19,11 +20,13 @@ public class Lector_usuarios {
     
     
     
-    //LinkedList<Usuario> usuarios
     
-    public void Lectura(Usuario usuario){
-       
-        AVL arbol = usuario.imagenes;
+
+    
+    public void Lectura(LinkedList<Usuario> usuarios){
+        this.usuarios = usuarios;
+        
+
         
         JSONParser parser = new JSONParser();
         try {
@@ -53,9 +56,10 @@ public class Lector_usuarios {
                 int id_municipio = Integer.parseInt(""+objectx.get("id_municipio"));
                 
                 Usuario nuevo = new Usuario(nombre, user, dpi, contrasena, correo, telefono, direccion, id_municipio);
-       
+                System.out.println("SE AGREGÓ "+ nombre +" "+ dpi);
+                usuarios.add(nuevo);
             }
-            //usuario.albumes = albumes;
+            //this.usuarios  = usuarios;
         }
         catch(FileNotFoundException e){e.printStackTrace();}
         catch (IOException e){e.printStackTrace();}

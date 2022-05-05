@@ -11,7 +11,7 @@ import org.json.simple.parser.ParseException;
  
 public class Lector_rutas {
     String ruta;
-    
+    Lista_Ad lista;
     
     public Lector_rutas(String ruta){
         this.ruta = ruta;
@@ -21,9 +21,9 @@ public class Lector_rutas {
     
     //LinkedList<Usuario> usuarios
     
-    public void Lectura(Usuario usuario){
+    public void Lectura(Lista_Ad lista){
        
-        AVL arbol = usuario.imagenes;
+
         
         JSONParser parser = new JSONParser();
         try {
@@ -51,6 +51,8 @@ public class Lector_rutas {
                 
 
                 Ruta nueva = new Ruta(inicio, fin, peso);
+                System.out.println("Ruta "+inicio +" "+ fin);
+                lista.insertarRuta(nueva);
        
             }
             //usuario.albumes = albumes;

@@ -1,63 +1,16 @@
-// usuario
-[
-    {
-        "dpi":3048067140116,
-        "nombre" : "Byron Solis",
-        "usuario" : "byron7h",
-        "correo" : "ggg@gmail.com";
-        "contrasena" : "fgbdfb";
-        "telefono" : 1111111,
-        "direcion" : "aquí",
-        "id_municipio" : 2
-    }
-]
 
-
-// mensajeros
-[
-    {
-        "dpi":3048067140116,
-        "nombres" : "Byron",
-        "apellidos" : "Solis",
-        "tipo_licencia" : "A";
-        "genero" : "N";
-        "direccion" : "Guatemala"
-    }
-]
-
-
-// Lugares
 {
-  "Lugares" = [
+  "Grafo" : [
     {
-        "id":3,
-        "departamento" : "Peten",
-        "nombre" : "Solis",
-        "sn_sucursal" : "si";
-    }
-  ]
-}
-
-
-// Rutas
-{
-  "Grafo" = [
-    {
-        "inicio":3,
-        "final" : 9,
-        "peso" : 10,
+        "inicio":0,
+        "final" : 1,
+        "peso" : 10
     },
-
-    {
-        "inicio":8,
-        "final" : 9,
-        "peso" : 1,
-    },
-
     {
         "inicio":1,
-        "final" : 9,
-        "peso" : 19,
+        "final" : 2,
+        "peso" : 1
     }
+
   ]
 }
