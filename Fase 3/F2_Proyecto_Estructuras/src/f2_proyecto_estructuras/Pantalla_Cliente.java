@@ -62,7 +62,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         Label_img = new javax.swing.JLabel();
         Panel_generar_img = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        grafo = new javax.swing.JRadioButton();
+        Grafo = new javax.swing.JRadioButton();
         Boton_merkle = new javax.swing.JRadioButton();
         Hash = new javax.swing.JRadioButton();
         Boton_generar = new javax.swing.JButton();
@@ -72,6 +72,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         Boton_Actualizar = new javax.swing.JButton();
         jComboBox1 = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
+        Lista_A = new javax.swing.JRadioButton();
 
         jLabel1.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
         jLabel1.setText("Carga Masiva");
@@ -176,12 +177,12 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
         jLabel3.setText("Estructuras ");
 
-        Botones_grupo.add(grafo);
-        grafo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
-        grafo.setText("Grafo");
-        grafo.addMouseListener(new java.awt.event.MouseAdapter() {
+        Botones_grupo.add(Grafo);
+        Grafo.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Grafo.setText("Grafo");
+        Grafo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                grafoMouseClicked(evt);
+                GrafoMouseClicked(evt);
             }
         });
 
@@ -229,6 +230,20 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Montserrat", 1, 16)); // NOI18N
         jLabel8.setText("Modificaciones");
 
+        Botones_grupo.add(Lista_A);
+        Lista_A.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        Lista_A.setText("Lista de Adyacencia ");
+        Lista_A.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Lista_AMouseClicked(evt);
+            }
+        });
+        Lista_A.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Lista_AActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Panel_generar_imgLayout = new javax.swing.GroupLayout(Panel_generar_img);
         Panel_generar_img.setLayout(Panel_generar_imgLayout);
         Panel_generar_imgLayout.setHorizontalGroup(
@@ -243,16 +258,11 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                         .addGroup(Panel_generar_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(Hash)
                             .addGroup(Panel_generar_imgLayout.createSequentialGroup()
-                                .addGroup(Panel_generar_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(Boton_merkle)
-                                    .addGroup(Panel_generar_imgLayout.createSequentialGroup()
-                                        .addGap(45, 45, 45)
-                                        .addComponent(jLabel7)
-                                        .addGap(23, 23, 23)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(grafo))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(Boton_merkle)
+                                .addGap(166, 166, 166)
+                                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(Grafo)
+                            .addComponent(Lista_A)))
                     .addGroup(Panel_generar_imgLayout.createSequentialGroup()
                         .addGap(21, 21, 21)
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -263,27 +273,33 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                         .addComponent(Boton_generar, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(Panel_generar_imgLayout.createSequentialGroup()
                         .addGap(29, 29, 29)
-                        .addComponent(jLabel8)))
+                        .addComponent(jLabel8))
+                    .addGroup(Panel_generar_imgLayout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(jLabel7)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Panel_generar_imgLayout.setVerticalGroup(
             Panel_generar_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Panel_generar_imgLayout.createSequentialGroup()
                 .addComponent(jLabel3)
-                .addGap(36, 36, 36)
+                .addGap(30, 30, 30)
                 .addComponent(Hash)
-                .addGap(39, 39, 39)
-                .addComponent(grafo)
-                .addGap(36, 36, 36)
+                .addGap(18, 18, 18)
+                .addComponent(Grafo)
+                .addGap(18, 18, 18)
+                .addComponent(Lista_A)
+                .addGap(17, 17, 17)
                 .addGroup(Panel_generar_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(Panel_generar_imgLayout.createSequentialGroup()
-                        .addComponent(Boton_merkle)
-                        .addGap(7, 7, 7)
-                        .addGroup(Panel_generar_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel7)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(52, 52, 52)
+                    .addComponent(Boton_merkle))
+                .addGap(32, 32, 32)
+                .addGroup(Panel_generar_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addGap(27, 27, 27)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Panel_generar_imgLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -386,16 +402,16 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         opcion = 1;
     }//GEN-LAST:event_HashMouseClicked
 
-    private void grafoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_grafoMouseClicked
+    private void GrafoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GrafoMouseClicked
         // TODO del por imagen
         opcion = 2;
-    }//GEN-LAST:event_grafoMouseClicked
+    }//GEN-LAST:event_GrafoMouseClicked
 
     private void Boton_merkleMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Boton_merkleMouseClicked
         // TODO add your handling code here:
         opcion = 3;
     }//GEN-LAST:event_Boton_merkleMouseClicked
-/*
+
     private void Boton_generarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_generarActionPerformed
     
         System.out.println(tipo_recorrido);
@@ -409,6 +425,8 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                 
                 
                 case 1: // Recorrido por límite
+                    
+                    /*
                     int cantidad = Integer.parseInt(cantidad_text.getText());
                     System.out.println("vvv"+cantidad);
                     System.out.println(usuario.capas.num_nodos);
@@ -448,30 +466,17 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                     }
                     
                     
-                    break;
+                    break;*/
                 case 2:
                     
-                    
-                    int id = Integer.parseInt(imagen_id_text.getText());
-                    
-                    Nodo_AVL nuevo = usuario.imagenes.buscar(id);
-                    if (nuevo != null){
-                        ABB arbol = nuevo.imagen.capas;
-                        Matriz_pixeles p = arbol.recorrido_Amplitud();
-                        Creador_img q = new Creador_img(p);
-                        JOptionPane.showMessageDialog(this, "Se generó la imagen");
-                        Actualizar_img(Label_img,"C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\0.jpg");
-                        
-                        
-                        
-                        
-                        //JOptionPane.showMessageDialog(this, "El número de capas excede a las capas registradas");
-                    }else{
-                        JOptionPane.showMessageDialog(this, "No se encontró la imagen");
-                    }
-                    
+                    String graf = lista.Grafo();
+                    Creador_img q = new Creador_img(graf);
+                    JOptionPane.showMessageDialog(this, "Se generó la imagen");
+                    Actualizar_img(Label_img,"C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\0.jpg");
+
                     break;
                 case 3:
+                    /*
                     String conjunto = capas_text.getText();
                     
                     
@@ -483,15 +488,23 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                     }else{
                         JOptionPane.showMessageDialog(this, "Ingrese las capas a graficar");
                     }
+                    */
                     
+                    break;   
+                case 4:
                     
-                    break;                   
+                    String gra = lista.Grafo_2();
+                    Creador_img qw = new Creador_img(gra);
+                    JOptionPane.showMessageDialog(this, "Se generó la imagen");
+                    Actualizar_img(Label_img,"C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\0.jpg");
+
+                    break;
             }        
         }
     }//GEN-LAST:event_Boton_generarActionPerformed
 
     
-    */
+    
     private void RepoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RepoActionPerformed
             try {
                 File objetofile = new File ("C:\\Users\\usuario\\Desktop\\provisional\\Reportes\\Reporte_.html");
@@ -583,6 +596,16 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         
     }//GEN-LAST:event_Boton_rutasActionPerformed
 
+    private void Lista_AMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Lista_AMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Lista_AMouseClicked
+
+    private void Lista_AActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Lista_AActionPerformed
+            
+        // TODO add your handling code here:
+        opcion = 4;
+    }//GEN-LAST:event_Lista_AActionPerformed
+
     public void Actualizar_img(JLabel Label_img, String ruta){
         this.imagen = new ImageIcon(ruta);
         this.icono = new ImageIcon(this.imagen.getImage().getScaledInstance(Label_img.getWidth(),Label_img.getHeight(),Image.SCALE_DEFAULT));//Convirtiendo la imagen a un icóno para poder ponerlo en el label
@@ -666,13 +689,14 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
     private javax.swing.JRadioButton Boton_merkle;
     private javax.swing.JButton Boton_rutas;
     public javax.swing.ButtonGroup Botones_grupo;
+    private javax.swing.JRadioButton Grafo;
     private javax.swing.JRadioButton Hash;
     private javax.swing.JLabel Label_img;
+    private javax.swing.JRadioButton Lista_A;
     private javax.swing.JPanel Panel_generar_img;
     private javax.swing.JPanel Panel_superior;
     private javax.swing.JPanel Panel_visualizacion;
     private javax.swing.JButton Repo;
-    private javax.swing.JRadioButton grafo;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

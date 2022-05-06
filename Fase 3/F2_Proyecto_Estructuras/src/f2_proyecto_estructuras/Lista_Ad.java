@@ -82,20 +82,21 @@ public class Lista_Ad {
         }
     }
     
-    public void Grafo(){
+    public String Grafo(){
         
         String resultante = "digraph finite_state_machine {\n" +
 "	fontname=\"Helvetica,Arial,sans-serif\"\n" +
 "	node [fontname=\"Helvetica,Arial,sans-serif\"]\n" +
 "	edge [fontname=\"Helvetica,Arial,sans-serif\", dir = none]\n" 
         +this.nodos + this.enlaces +"}";
-        System.out.println(resultante);
+        
+        return resultante;
     
     
     }
     
     
-    public void Grafo_2(){
+    public String Grafo_2(){
         
         String resultante = "digraph L{\n" +
 "    node[shape=box  style= filled]\n" +
@@ -163,7 +164,8 @@ public class Lista_Ad {
             aux = aux.siguiente;
         }
         resultante += "}";
-        System.out.println(resultante);
+
+        return resultante;
     }
     
     
