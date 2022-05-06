@@ -173,14 +173,14 @@ public class Pantalla_login extends javax.swing.JFrame {
 
     private void Boton_ingresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_ingresarActionPerformed
        
-        String Nombre = Entrada_DPI.getText();
+        String user = Entrada_DPI.getText();
         String PASSWORD = Entrada_password.getText();
-        Usuario actual = existe(Nombre);
+        Usuario actual = existe(user);
         
         
-        if( !"".equals(Nombre) && !"".equals(PASSWORD)){ 
+        if( !"".equals(user) && !"".equals(PASSWORD)){ 
             
-            if ("admin".equals(Nombre) && "EDD2022".equals(PASSWORD)){
+            if ("admin".equals(user) && "EDD2022".equals(PASSWORD)){
                 JOptionPane.showMessageDialog(this, "Bienvenido ADMIN");
                 Pantalla_Cliente pantalla = new Pantalla_Cliente( usuarios, lista);
                 //this.dispose();
@@ -193,7 +193,11 @@ public class Pantalla_login extends javax.swing.JFrame {
                 if (actual != null){ //quiere decir que existe
                     if ( actual.contrasena.equals(PASSWORD)){
                         JOptionPane.showMessageDialog(this, "Bienvenido " + actual.get_nombre());
-                        Pantalla_Cliente pantalla = new Pantalla_Cliente(actual);
+                        
+                        //
+                        
+                        
+                        Pantalla_estructuras_usuario pantalla = new Pantalla_estructuras_usuario(actual, lista);
                         //this.dispose();
                         pantalla.setVisible(true);
                         pantalla.setLocationRelativeTo(null); // Acá le decimos que nos la coloque en el centro
@@ -221,10 +225,10 @@ public class Pantalla_login extends javax.swing.JFrame {
     // Busca el usuario con el dpi que recibe en el linked list, si lo encuentra lo devuelse
     // si no devuelve null
     
-    private Usuario existe(String Nombre){
+    private Usuario existe(String user){
         
         for (Usuario actual : usuarios){
-            if (actual.nombre.equals(Nombre)){
+            if (actual.username.equals(user)){
                 return actual;
             }
         }

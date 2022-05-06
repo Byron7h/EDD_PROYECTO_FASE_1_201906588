@@ -5,6 +5,7 @@ package f2_proyecto_estructuras;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Calendar;
 
 
 public class Busca_caminos {
@@ -20,11 +21,15 @@ public class Busca_caminos {
     private static int[][] edges;
     private boolean[] isVisited;
     private Lista_Ad lista;
+    private String contenido = "";
+    private int fin;
+    Calendar reloj = Calendar.getInstance();
     
     
     
     // recibimos el id del municipio que buscamos
-    public  Busca_caminos(int f, Lista_Ad lista){
+    public  Busca_caminos(int f, Lista_Ad lista, int fin){
+        this.fin = fin;
         this.lista = lista;
         this.n = Tamano();
         numberOfEdges=0;
@@ -136,12 +141,54 @@ public class Busca_caminos {
 
 
         }
+        
+       String list = "";
+       String retorno = "";
+  
+
         for (int i = 0; i <n ; i++) {
-            path[i] = path[i]+" "+Vertax.get(i);
+            path[i] = path[i]+" "+Vertax.get(i);   
+            if( Integer. parseInt(Vertax.get(i))  == fin){             
+                list = path[i];
+            } 
         }
+        
+        
+        int hora = reloj.get(Calendar.HOUR_OF_DAY);
+        int minutos = reloj.get(Calendar.MINUTE);
+        String[] r = list.split(" ", 0);      
+        int contado = 0;
+        
+        for(String h :r){  
+            contado++;
+            if(!"".equals(h) && !" ".equals(h)){
+                Nodo_lugar nodo = lista.buscar_lugar(Integer.parseInt(h));
+                String nombre = nodo.valor.nombre;
+                
+                // encontramos la posicion en los arreglos de distancia
+                int a = 0;
+                for (int i = 0; i <n ; i++) { 
+                    if( Vertax.get(i).equals(h)){   
+                        a = (int)distance[i];
+                        break;
+                    } 
+                }
+                
+                double distancia = a+minutos;
+                
+                retorno += "   " +contado + " " +hora+":"+distancia+ " "+nombre+"\n" ;                
+            }
+        }
+        
+        
         System.out.println("Iniciar nodo:"+Vertax.get(index));
         for (int i = 0; i <n ; i++) {
+            if( Integer.parseInt(Vertax.get(i))  == fin){
+                contenido = Vertax.get(i)+"   "+distance[i]+"   "+path[i];
+                System.out.println(retorno);
+            }
             System.out.println(Vertax.get(i)+"   "+distance[i]+"   "+path[i]);
+            
         }
 
 
@@ -191,5 +238,13 @@ public class Busca_caminos {
         }
 
     }
+    
+    public String get_contenido(){
+        String aux = contenido;
+        contenido ="";
+        return aux;
+        
+    }
+    
 }
 

@@ -5,7 +5,11 @@
  */
 package f2_proyecto_estructuras;
 
+import java.awt.Desktop;
 import java.awt.Image;
+import java.io.File;
+import java.io.IOException;
+import java.util.ArrayList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -24,10 +28,12 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
     private ImageIcon imagen;
     private Icon icono;
     int opcion = -1;
+    Lista_Ad lista;
     
     
-    public Pantalla_estructuras_usuario(Usuario usuario) {
+    public Pantalla_estructuras_usuario(Usuario usuario, Lista_Ad lista) {
         this.usuario = usuario;
+        this.lista = lista;
         initComponents();
     }
 
@@ -51,7 +57,9 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
         Cedes = new javax.swing.JComboBox<>();
         Mensajeros = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        Text_area = new javax.swing.JTextArea();
+        jLabel2 = new javax.swing.JLabel();
+        Consola = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -71,13 +79,24 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
 
         jLabel8.setText("Mensajero");
 
-        Cedes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Cedes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CedesActionPerformed(evt);
+            }
+        });
 
         Mensajeros.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        Mensajeros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MensajerosActionPerformed(evt);
+            }
+        });
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        Text_area.setColumns(20);
+        Text_area.setRows(5);
+        jScrollPane2.setViewportView(Text_area);
+
+        jLabel2.setText("Operaciones");
 
         javax.swing.GroupLayout Panel_menuLayout = new javax.swing.GroupLayout(Panel_menu);
         Panel_menu.setLayout(Panel_menuLayout);
@@ -103,7 +122,11 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
                                         .addComponent(jLabel7)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                                         .addComponent(Cedes, javax.swing.GroupLayout.PREFERRED_SIZE, 510, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING))))))
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(Panel_menuLayout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(Consola, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
                 .addGap(97, 97, 97))
         );
         Panel_menuLayout.setVerticalGroup(
@@ -121,10 +144,24 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
                     .addComponent(Mensajeros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(29, 29, 29)
                 .addComponent(Boton_enviar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(62, 62, 62)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(122, Short.MAX_VALUE))
+                .addGap(28, 28, 28)
+                .addComponent(jLabel2)
+                .addGap(18, 18, 18)
+                .addComponent(Consola, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(38, 38, 38))
         );
+
+        Nodo_lugar lugar = lista.cabecera;
+
+        while(lugar != null){
+
+            if(lugar.valor.sn_sucursal){
+                Cedes.addItem(lugar.valor.nombre);
+            }
+            lugar = lugar.siguiente;
+        }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -147,110 +184,43 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Boton_enviarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Boton_enviarActionPerformed
-       
-        if ( opcion != -1){
- 
-            switch (opcion) {
-                case 1:
-                    
-                    
-                    usuario.capas.crear_grafo(usuario.capas.raiz);
-                    String dto = usuario.capas.imprimir();
-                    Creador_img gen = new Creador_img(dto);
-                    //String dto = usuario.capas.crear_grafo(usuario.capas.raiz);
-                    //Creador_img cre = new Creador_img(dto);
-                    JOptionPane.showMessageDialog(this, "Se generó la imagen");
-                    Actualizar_img(Label_img,"C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\1.jpg");
-                    //Actualizar_img(Label_img,"src/imagenes/0.png");
-//
-                    break;
-                case 2:
-                    
-                    usuario.imagenes.crear_grafo(usuario.imagenes.raiz);
-                    String dt = usuario.imagenes.imprimir();
-                    Creador_img gend = new Creador_img(dt);
-                    //String dto = usuario.capas.crear_grafo(usuario.capas.raiz);
-                    //Creador_img cre = new Creador_img(dto);
-                    JOptionPane.showMessageDialog(this, "Se generó la imagen");
-                    Actualizar_img(Label_img,"C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\1.jpg");
-                    //Actualizar_img(Label_img,"src/imagenes/0.png");
-
-                        
-                    break;
-                    
-                case 3:
-                    
-                    
-                    String id = capa_id_text.getText();
-                    if(!"".equals(id)){
-                        
-                        Matriz_pixeles j = usuario.capas.recorrido_capas(id);
-                        Creador_img m = new Creador_img(j,1);
-                        JOptionPane.showMessageDialog(this, "Se generó la imagen");
-                        Actualizar_img(Label_img,"C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\0.jpg");
-                    }else{
-                        JOptionPane.showMessageDialog(this, "Ingrese las capas a graficar");
-                    }
-                    break;
-
-                case 4:
-                    
-                    
-                    //int ide = Integer.parseInt(imagen_id_text.getText());
-                    //int ide = Integer.parseInt(imagen_id_text.getText());
-                    
-                    if(!"".equals(imagen_id_text.getText())){
-                        
-                        
-                        int ide = Integer.parseInt(imagen_id_text.getText());
-                    
-                        Nodo_AVL nuevo = usuario.imagenes.buscar(ide);
-                        if (nuevo != null){
-                            ABB arbol = nuevo.imagen.capas;
-                            //Matriz_pixeles p = arbol.recorrido_Amplitud();
-                            //Creador_img q = new Creador_img(p);
-
-                            
-                            
-                            
-                        
-                            arbol.crear_grafo(arbol.raiz);
-                            String dtox = arbol.imprimir();
-                            Creador_img genx = new Creador_img(dtox);
-                            //String dto = usuario.capas.crear_grafo(usuario.capas.raiz);
-                            //Creador_img cre = new Creador_img(dto);
-                            JOptionPane.showMessageDialog(this, "Se generó la imagen");
-                            Actualizar_img(Label_img,"C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\1.jpg");
-                            //Actualizar_img(Label_img,"src/imagenes/0.png");
-                    }else{
-                        JOptionPane.showMessageDialog(this, "Ingrese la imagen a graficar");
-                        }
-                    
-                    }  break;
-                    
-                case 5:
-                    
-                    Creador_img w = new Creador_img(usuario.albumes);
-                    
-                    JOptionPane.showMessageDialog(this, "Se generó la imagen");
-                            Actualizar_img(Label_img,"C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\0.jpg");
-                    
-                    
-                    break;
-                    
-                    
-            }
-            
-            
+        String nombre= (String)Cedes.getSelectedItem();
+        // necesitamos el id de ese nombre
         
+        Nodo_lugar lugar = lista.cabecera;
+        int inicio;
+        int fin = usuario.id_municipio;
         
-        }else{
-            JOptionPane.showMessageDialog(this, "Seleccione una opción");
+        while(true){
+            
+            if(nombre.equals(lugar.valor.nombre)){
+                inicio = lugar.id;
+                break;
+            }        
+            lugar = lugar.siguiente;
         }
         
+        Busca_caminos camino = new Busca_caminos(inicio,lista,fin);
+        String retu = camino.get_contenido();
+        Consola.setText(retu);
         
         
     }//GEN-LAST:event_Boton_enviarActionPerformed
+
+    private void CedesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CedesActionPerformed
+        // TODO add your handling code here:
+
+        
+    }//GEN-LAST:event_CedesActionPerformed
+
+    private void MensajerosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MensajerosActionPerformed
+
+        
+        
+        
+        
+        
+    }//GEN-LAST:event_MensajerosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -269,15 +239,17 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Boton_enviar;
     private javax.swing.JComboBox<String> Cedes;
+    private javax.swing.JLabel Consola;
     private javax.swing.ButtonGroup Grupo_botones;
     private javax.swing.JComboBox<String> Mensajeros;
     private javax.swing.JPanel Panel_menu;
+    private javax.swing.JTextArea Text_area;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
     // End of variables declaration//GEN-END:variables
 }
