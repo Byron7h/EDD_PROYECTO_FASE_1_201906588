@@ -12,6 +12,7 @@ import org.json.simple.parser.ParseException;
 public class Lector_rutas {
     String ruta;
     Lista_Ad lista;
+    String enlaces;
     
     public Lector_rutas(String ruta){
         this.ruta = ruta;
@@ -49,6 +50,9 @@ public class Lector_rutas {
                 int fin = Integer.parseInt(""+objectx.get("final"));
                 int peso = Integer.parseInt(""+objectx.get("peso"));    
                 
+                //	0 -> 2 [label = "SS(B)"];
+                enlaces += "	"+inicio+ " -> " + fin +" [label = \""+peso+"\"];\n";
+                
 
                 Ruta nueva = new Ruta(inicio, fin, peso);
                 System.out.println("Ruta "+inicio +" "+ fin);
@@ -56,6 +60,8 @@ public class Lector_rutas {
        
             }
             //usuario.albumes = albumes;
+            lista.enlaces = enlaces;
+            lista.Grafo();
         }
         catch(FileNotFoundException e){e.printStackTrace();}
         catch (IOException e){e.printStackTrace();}

@@ -12,6 +12,8 @@ package f2_proyecto_estructuras;
 public class Lista_Ad {
     
     Nodo_lugar cabecera = null;
+    String nodos = "";
+    String enlaces = "";
     
     
     public Lista_Ad(){
@@ -76,4 +78,19 @@ public class Lista_Ad {
             aux = aux.siguiente;
         }
     }
+    
+    public void Grafo(){
+        
+        String resultante = "digraph finite_state_machine {\n" +
+"	fontname=\"Helvetica,Arial,sans-serif\"\n" +
+"	node [fontname=\"Helvetica,Arial,sans-serif\"]\n" +
+"	edge [fontname=\"Helvetica,Arial,sans-serif\", dir = none]\n" 
+        +this.nodos + this.enlaces +"}";
+        System.out.println(resultante);
+    
+    
+    }
+    
+    
+    
 }

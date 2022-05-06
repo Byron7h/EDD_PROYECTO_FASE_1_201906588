@@ -62,7 +62,7 @@ public class F2_Proyecto_Estructuras {
 
         lista.imprimir();
         
-        
+  /*      
         //Camino cam = new Camino(0,4,lista);
 
       

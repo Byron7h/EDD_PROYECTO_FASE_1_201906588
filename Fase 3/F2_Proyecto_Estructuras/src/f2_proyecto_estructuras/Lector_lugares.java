@@ -12,6 +12,7 @@ import org.json.simple.parser.ParseException;
 public class Lector_lugares {
     String ruta;
     Lista_Ad lista;
+    String nodos = "node[]; \n";
     
     public Lector_lugares(String ruta){
         this.ruta = ruta;
@@ -57,14 +58,13 @@ public class Lector_lugares {
                 
                 }
                 
-                
-
+                nodos += id + "  [label=\""+nombre+"\"]; \n";
                 Lugar nuevo = new Lugar(id, departamento, nombre, sucursal);
                 System.out.println("Lugar "+nombre);
                 lista.insertarLugar(nuevo);
        
             }
-            //usuario.albumes = albumes;
+            lista.nodos = nodos;
         }
         catch(FileNotFoundException e){e.printStackTrace();}
         catch (IOException e){e.printStackTrace();}
