@@ -16,6 +16,9 @@ public class Lista_Ad {
     String enlaces = "";
     
     
+    String nodos_2 = "";
+    String enlaces_2 = "";
+    
     public Lista_Ad(){
     }
     
@@ -91,6 +94,77 @@ public class Lista_Ad {
     
     }
     
+    
+    public void Grafo_2(){
+        
+        String resultante = "digraph L{\n" +
+"    node[shape=box  style= filled]\n" +
+"    edge[dir=\"left\" ]\n";
+ 
+    
+        
+        
+        
+        Nodo_lugar aux = this.cabecera;
+        
+        while(aux != null){ // recorriendo todos los lugares
+            
+            
+            // agregando lugar actual         1[label="Album 1"];
+            resultante += "    "+ aux.id +"[label=\""+aux.id+" "+aux.valor.nombre+"\"];\n" ;
+            System.out.print("["+aux.id+"] ::: "); 
+            
+            // enlace de lugares
+            if(aux.siguiente!=null){
+                //1->2;
+                resultante +=  "    " + aux.id + "->" +aux.siguiente.id+";\n";
+            
+            }
+            
+            
+            Nodo_ruta actual = aux.cabecera;
+            
+            // enlace a la primera ruta
+            
+            String reg = "";
+            String reg_2 = "";
+            if(actual != null){
+                
+                reg += aux.id; 
+                reg_2 += aux.id; 
+                //resultante +=  "    " + aux.id + "->" +actual.hashCode()+";\n";
+            }
+            
+            
+            while(actual != null){
+                // agregando los nodos
+                resultante += "    "+ actual.hashCode()+"[label=\""+actual.ruta.fin+"\"];\n" ;
+                
+                
+                //haciendo enlace
+                reg += "->"+actual.hashCode();
+                reg_2 += ";"+actual.hashCode();
+                System.out.print(" ->["+actual.ruta.fin+"] ");
+                
+                
+                actual = actual.siguiente;
+            
+           
+           }
+            
+           if (!reg.equals("")){
+                //1->a->b->c;
+                resultante +=  "    " + reg +";\n";
+                //{rank = same;2;d;e;f}
+                resultante +=  "    {rank = same;" + reg_2 +"}\n";
+            }
+           
+            System.out.println("");
+            aux = aux.siguiente;
+        }
+        resultante += "}";
+        System.out.println(resultante);
+    }
     
     
 }

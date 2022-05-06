@@ -61,7 +61,8 @@ public class Lector_rutas {
             }
             //usuario.albumes = albumes;
             lista.enlaces = enlaces;
-            lista.Grafo();
+            //lista.Grafo();
+            lista.Grafo_2();
         }
         catch(FileNotFoundException e){e.printStackTrace();}
         catch (IOException e){e.printStackTrace();}

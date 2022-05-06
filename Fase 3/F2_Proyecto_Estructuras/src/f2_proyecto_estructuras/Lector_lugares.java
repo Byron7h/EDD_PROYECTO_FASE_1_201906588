@@ -12,7 +12,8 @@ import org.json.simple.parser.ParseException;
 public class Lector_lugares {
     String ruta;
     Lista_Ad lista;
-    String nodos = "node[]; \n";
+    String nodos = "";
+    
     
     public Lector_lugares(String ruta){
         this.ruta = ruta;
