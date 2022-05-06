@@ -90,7 +90,6 @@
                                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <Component id="Consola" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
@@ -120,9 +119,7 @@
                   <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
                   <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="Consola" min="-2" pref="165" max="-2" attributes="0"/>
-                  <EmptySpace pref="36" max="32767" attributes="0"/>
-                  <Component id="jScrollPane2" min="-2" pref="177" max="-2" attributes="0"/>
+                  <Component id="jScrollPane2" pref="378" max="32767" attributes="0"/>
                   <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -206,8 +203,6 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Operaciones"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="Consola">
         </Component>
       </SubComponents>
     </Container>

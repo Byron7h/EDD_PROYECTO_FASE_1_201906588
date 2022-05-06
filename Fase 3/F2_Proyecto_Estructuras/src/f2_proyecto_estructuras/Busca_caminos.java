@@ -143,7 +143,7 @@ public class Busca_caminos {
         }
         
        String list = "";
-       String retorno = "";
+       String retorno = "\n Escalas       Hora de llegada       Ubicación \n";
   
 
         for (int i = 0; i <n ; i++) {
@@ -157,7 +157,7 @@ public class Busca_caminos {
         int hora = reloj.get(Calendar.HOUR_OF_DAY);
         int minutos = reloj.get(Calendar.MINUTE);
         String[] r = list.split(" ", 0);      
-        int contado = 0;
+        int contado = -1;
         
         for(String h :r){  
             contado++;
@@ -174,9 +174,9 @@ public class Busca_caminos {
                     } 
                 }
                 
-                double distancia = a+minutos;
+                int distancia = a+minutos;
                 
-                retorno += "   " +contado + " " +hora+":"+distancia+ " "+nombre+"\n" ;                
+                retorno += "      " +contado + "             " +hora+":"+distancia+ "                         "+nombre+"\n" ;                
             }
         }
         
@@ -184,14 +184,12 @@ public class Busca_caminos {
         System.out.println("Iniciar nodo:"+Vertax.get(index));
         for (int i = 0; i <n ; i++) {
             if( Integer.parseInt(Vertax.get(i))  == fin){
-                contenido = Vertax.get(i)+"   "+distance[i]+"   "+path[i];
-                System.out.println(retorno);
+                
+                String au = "Ruta mas eficiente: " + path[i]+"     Tiempo estimado: "+distance[i] +" minutos";
+                contenido = au +"\n"+ retorno;
             }
             System.out.println(Vertax.get(i)+"   "+distance[i]+"   "+path[i]);
-            
         }
-
-
     }
     // Devuelve el siguiente vértice requerido a través de la matriz de distancia y la matriz de acceso dadas
     public int indexGet(double[] distance, boolean[] isVisited){

@@ -59,7 +59,6 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         Text_area = new javax.swing.JTextArea();
         jLabel2 = new javax.swing.JLabel();
-        Consola = new javax.swing.JLabel();
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -125,8 +124,7 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(Panel_menuLayout.createSequentialGroup()
                                         .addComponent(jLabel2)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(Consola, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
+                                        .addGap(0, 0, Short.MAX_VALUE)))))))
                 .addGap(97, 97, 97))
         );
         Panel_menuLayout.setVerticalGroup(
@@ -147,9 +145,7 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
-                .addComponent(Consola, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
                 .addGap(38, 38, 38))
         );
 
@@ -202,7 +198,7 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
         
         Busca_caminos camino = new Busca_caminos(inicio,lista,fin);
         String retu = camino.get_contenido();
-        Consola.setText(retu);
+        Text_area.setText(retu);
         
         
     }//GEN-LAST:event_Boton_enviarActionPerformed
@@ -239,7 +235,6 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Boton_enviar;
     private javax.swing.JComboBox<String> Cedes;
-    private javax.swing.JLabel Consola;
     private javax.swing.ButtonGroup Grupo_botones;
     private javax.swing.JComboBox<String> Mensajeros;
     private javax.swing.JPanel Panel_menu;
