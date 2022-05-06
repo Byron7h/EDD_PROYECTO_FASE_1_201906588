@@ -13,6 +13,8 @@ public class Operacion {
 ● Ruta seleccionada (Lista simplemente enlazada) //lista_simple
     
     */
+    
+    /*
     String dir_sucursal, fecha;
     int municipio;
     Usuario cliente;
@@ -30,7 +32,12 @@ public class Operacion {
         this.ruta = ruta;
          
     }
+    */
     
+    String datos ="";
+    public Operacion(String dir){
+       this.datos = dir;
+    }
     
     
 }

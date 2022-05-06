@@ -114,7 +114,7 @@ public class F2_Proyecto_Estructuras {
         
         // lISTA DE USUARIOS
         LinkedList<Usuario> usuarios = new LinkedList<>();
-        LinkedList<Mensajero> mensajeros = new LinkedList<>();
+        ArrayList<Operacion> operaciones = new ArrayList<>();
         Lista_Ad lista = new Lista_Ad();
         TablaHash tabla = new TablaHash();
         
@@ -129,7 +129,7 @@ public class F2_Proyecto_Estructuras {
         
         // interfaz grafica
         
-        Pantalla_login login = new Pantalla_login(usuarios, lista, tabla);
+        Pantalla_login login = new Pantalla_login(usuarios, lista, tabla, operaciones);
         login.setVisible(true);
         login.setLocationRelativeTo(null); // Acá le decimos que nos la coloque en el centro
         

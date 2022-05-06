@@ -46,11 +46,11 @@ public class Arbol_Merkle {
         
         for (int i = 0; i<this.operaciones.size(); i++){
             Operacion actual = operaciones.get(i);
-            String cadenita = actual.dir_sucursal + actual.fecha + Integer.toString(actual.municipio) 
-                            + actual.cliente.nombre + actual.mens.nombres + actual.ruta.cadena() ;
+            String cadenita = actual.datos ;
             
             String hash_actual = calc.Hash(cadenita);
-            hashes.get(i).hash = hash_actual;   
+            hashes.get(i).hash = hash_actual;
+            hashes.get(i).descripcion = actual.datos;
         }
 
         // Ya tenemos creado nuestros nodos hojas
@@ -85,12 +85,12 @@ public class Arbol_Merkle {
         
         if (actual.derecha != null){ 
             //creamos el nodo derecha enlazamos e implementamos recursividada
-            grafo +=  "     "+ actual.derecha.hashCode()+"[label=\""+actual.derecha.hash+"\"];\n";
+            grafo +=  "     "+ actual.derecha.hashCode()+"[label=\""+actual.derecha.hash+actual.derecha.descripcion+"\"];\n";
             grafo +=  "     "+ actual.hashCode()+ "->"+ actual.derecha.hashCode()+";\n";
             crear_grafo(actual.derecha);
         }
         if (actual.izquierda != null){ 
-            grafo +=  "     "+ actual.izquierda.hashCode()+"[label=\""+actual.izquierda.hash+"\"];\n";
+            grafo +=  "     "+ actual.izquierda.hashCode()+"[label=\""+actual.izquierda.hash+actual.izquierda.descripcion+"\"];\n";
             grafo +=  "     "+ actual.hashCode()+ "->"+ actual.izquierda.hashCode()+";\n";
             crear_grafo(actual.izquierda);
         } 

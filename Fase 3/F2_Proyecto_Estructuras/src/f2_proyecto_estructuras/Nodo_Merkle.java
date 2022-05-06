@@ -13,6 +13,7 @@ public class Nodo_Merkle {
     
     Nodo_Merkle izquierda, derecha, padre;
     String hash;
+    String descripcion = "";
     
     
     public Nodo_Merkle(String hash){

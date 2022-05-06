@@ -5,6 +5,7 @@
  */
 package f2_proyecto_estructuras;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import javax.swing.JOptionPane;
 
@@ -18,11 +19,13 @@ public class Pantalla_login extends javax.swing.JFrame {
     LinkedList<Usuario> usuarios ;
     Lista_Ad lista;
     TablaHash tabla;
+    ArrayList<Operacion> operaciones;
     
-    public Pantalla_login(LinkedList<Usuario> usuarios ,Lista_Ad lista, TablaHash tabla ) {
+    public Pantalla_login(LinkedList<Usuario> usuarios ,Lista_Ad lista, TablaHash tabla,  ArrayList<Operacion> operaciones ) {
         this.usuarios = usuarios;
         this.lista = lista;
         this.tabla = tabla;
+        this.operaciones = operaciones;
         
         initComponents();
     }
@@ -184,7 +187,7 @@ public class Pantalla_login extends javax.swing.JFrame {
             
             if ("admin".equals(user) && "EDD2022".equals(PASSWORD)){
                 JOptionPane.showMessageDialog(this, "Bienvenido ADMIN");
-                Pantalla_Cliente pantalla = new Pantalla_Cliente( usuarios, lista, tabla);
+                Pantalla_Cliente pantalla = new Pantalla_Cliente( usuarios, lista, tabla, operaciones);
                 //this.dispose();
                 pantalla.setVisible(true);
                 pantalla.setLocationRelativeTo(null); // Acá le decimos que nos la coloque en el centro
@@ -199,7 +202,7 @@ public class Pantalla_login extends javax.swing.JFrame {
                         //
                         
                         
-                        Pantalla_estructuras_usuario pantalla = new Pantalla_estructuras_usuario(actual, lista);
+                        Pantalla_estructuras_usuario pantalla = new Pantalla_estructuras_usuario(actual, lista, operaciones);
                         //this.dispose();
                         pantalla.setVisible(true);
                         pantalla.setLocationRelativeTo(null); // Acá le decimos que nos la coloque en el centro

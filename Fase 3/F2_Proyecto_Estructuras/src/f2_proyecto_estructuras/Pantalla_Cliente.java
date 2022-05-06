@@ -10,6 +10,7 @@ import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import javax.swing.ButtonGroup;
 import javax.swing.Icon;
@@ -31,12 +32,14 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
     String tipo_recorrido = "";
     LinkedList<Usuario> usuarios;
     TablaHash tabla;
+    ArrayList<Operacion> operaciones;
     
     
-    public Pantalla_Cliente(LinkedList<Usuario> usuarios, Lista_Ad lista, TablaHash tabla) {
+    public Pantalla_Cliente(LinkedList<Usuario> usuarios, Lista_Ad lista, TablaHash tabla,  ArrayList<Operacion> operaciones) {
         this.usuarios = usuarios;
         this.lista = lista;
         this.tabla = tabla;
+        this.operaciones = operaciones;
         initComponents();
     }
 
@@ -447,19 +450,13 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
 
                     break;
                 case 3:
-                    /*
-                    String conjunto = capas_text.getText();
                     
-                    
-                    if(!"".equals(conjunto)){
-                        Matriz_pixeles j = usuario.capas.recorrido_capas(conjunto);
-                        Creador_img m = new Creador_img(j);
-                        JOptionPane.showMessageDialog(this, "Se generó la imagen");
-                        Actualizar_img(Label_img,"C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\0.jpg");
-                    }else{
-                        JOptionPane.showMessageDialog(this, "Ingrese las capas a graficar");
-                    }
-                    */
+                    Arbol_Merkle mer = new Arbol_Merkle(operaciones);
+                    String recibido = mer.imprimir();
+                    Creador_img xqw = new Creador_img(recibido);
+                    JOptionPane.showMessageDialog(this, "Se generó la imagen");
+                    Actualizar_img(Label_img,"C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\0.jpg");
+
                     
                     break;   
                 case 4:

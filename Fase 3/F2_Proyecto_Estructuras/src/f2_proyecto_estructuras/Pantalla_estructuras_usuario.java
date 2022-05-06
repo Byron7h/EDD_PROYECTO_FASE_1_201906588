@@ -10,6 +10,7 @@ import java.awt.Image;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
@@ -29,12 +30,14 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
     private Icon icono;
     int opcion = -1;
     Lista_Ad lista;
+    ArrayList<Operacion> operaciones;
     
     
-    public Pantalla_estructuras_usuario(Usuario usuario, Lista_Ad lista) {
+    public Pantalla_estructuras_usuario(Usuario usuario, Lista_Ad lista, ArrayList<Operacion> operaciones) {
         this.usuario = usuario;
         this.lista = lista;
         initComponents();
+        this.operaciones = operaciones;
     }
 
     /**
@@ -199,6 +202,17 @@ public class Pantalla_estructuras_usuario extends javax.swing.JFrame {
         Busca_caminos camino = new Busca_caminos(inicio,lista,fin);
         String retu = camino.get_contenido();
         Text_area.setText(retu);
+        
+        Nodo_lugar w = lista.buscar_lugar(fin);
+        
+        
+        
+        String op = "\n\nSede: "+ lugar.valor.nombre +"\n"+
+                "  Destino: "+ w.valor.departamento +", "+ w.valor.nombre + "\n"+
+                "   Cliente: "+ usuario.nombre +"\n"+
+                "   Mensajero: "+ "nombre_mensajero" +"\n"+ retu;
+        Operacion nueva = new Operacion(op);
+        operaciones.add(nueva);
         
         
     }//GEN-LAST:event_Boton_enviarActionPerformed
