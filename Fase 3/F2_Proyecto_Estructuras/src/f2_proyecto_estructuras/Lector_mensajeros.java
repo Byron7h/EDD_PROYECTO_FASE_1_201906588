@@ -11,7 +11,7 @@ import org.json.simple.parser.ParseException;
  
 public class Lector_mensajeros{
     String ruta;
-    
+    TablaHash tabla;
     
     public Lector_mensajeros(String ruta){
         this.ruta = ruta;
@@ -21,10 +21,9 @@ public class Lector_mensajeros{
     
     //LinkedList<Usuario> usuarios
     
-    public void Lectura(Usuario usuario){
-       
-        AVL arbol = usuario.imagenes;
-        Lista_doble albumes = usuario.albumes;
+    public void Lectura(TablaHash tabla){
+       this.tabla = tabla;
+
         
         JSONParser parser = new JSONParser();
         try {
@@ -51,11 +50,11 @@ public class Lector_mensajeros{
                 String genero = ""+objectx.get("genero");
                 String direccion = ""+objectx.get("direccion");
 
-                
+                System.out.println(dpi);
                 Mensajero m = new Mensajero(nombres, apellidos, dpi, tipo_licencia, direccion, genero);
-       
+                tabla.insertar(m);
             }
-            usuario.albumes = albumes;
+            //tabla.imprimir();
         }
         catch(FileNotFoundException e){e.printStackTrace();}
         catch (IOException e){e.printStackTrace();}

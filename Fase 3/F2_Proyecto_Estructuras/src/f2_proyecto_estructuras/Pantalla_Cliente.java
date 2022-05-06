@@ -29,14 +29,14 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
     Lista_Ad lista;
     int opcion = -1;
     String tipo_recorrido = "";
-
-    /**
-     * Creates new form Pantalla_Cliente
-     */
     LinkedList<Usuario> usuarios;
-    public Pantalla_Cliente(LinkedList<Usuario> usuarios, Lista_Ad lista) {
+    TablaHash tabla;
+    
+    
+    public Pantalla_Cliente(LinkedList<Usuario> usuarios, Lista_Ad lista, TablaHash tabla) {
         this.usuarios = usuarios;
         this.lista = lista;
+        this.tabla = tabla;
         initComponents();
     }
 
@@ -529,8 +529,9 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                 System.out.println(direccion);
                 //ruta_chooser = true;
                 
-                Lector_usuarios lector = new Lector_usuarios(direccion);
-                lector.Lectura(usuario);
+                Lector_mensajeros lector = new Lector_mensajeros(direccion);
+                lector.Lectura(tabla);
+                tabla.imprimir();
                 JOptionPane.showMessageDialog(this, "Se ha finalizado la carga masiva de imágenes");
                 
                 

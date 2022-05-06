@@ -17,10 +17,12 @@ public class Pantalla_login extends javax.swing.JFrame {
     // Traemos nuestros usuarios, de momento vamos a usar una lista de java, luego la sustituiremos
     LinkedList<Usuario> usuarios ;
     Lista_Ad lista;
+    TablaHash tabla;
     
-    public Pantalla_login(LinkedList<Usuario> usuarios ,Lista_Ad lista) {
+    public Pantalla_login(LinkedList<Usuario> usuarios ,Lista_Ad lista, TablaHash tabla ) {
         this.usuarios = usuarios;
         this.lista = lista;
+        this.tabla = tabla;
         
         initComponents();
     }
@@ -182,7 +184,7 @@ public class Pantalla_login extends javax.swing.JFrame {
             
             if ("admin".equals(user) && "EDD2022".equals(PASSWORD)){
                 JOptionPane.showMessageDialog(this, "Bienvenido ADMIN");
-                Pantalla_Cliente pantalla = new Pantalla_Cliente( usuarios, lista);
+                Pantalla_Cliente pantalla = new Pantalla_Cliente( usuarios, lista, tabla);
                 //this.dispose();
                 pantalla.setVisible(true);
                 pantalla.setLocationRelativeTo(null); // Acá le decimos que nos la coloque en el centro

@@ -22,6 +22,42 @@ public class F2_Proyecto_Estructuras {
     
     public static int cantidad_ceros = 4;
     public static void main(String[] args) {
+        
+        
+        
+        /*
+        long dpi = Long.parseLong("1048067140116");
+        Mensajero cero = new Mensajero("Byron","Solis", dpi ,"A","Guatemala","N" );
+        
+        dpi = Long.parseLong("2048067140117");
+        Mensajero uno = new Mensajero("Byron","Solis", dpi ,"A","Guatemala","N" );
+        
+        dpi = Long.parseLong("3048067190116");
+        Mensajero dos = new Mensajero("Byron","Solis", dpi ,"A","Guatemala","N" );
+        
+        
+        TablaHash tabla = new TablaHash();
+        tabla.insertar(cero);
+        tabla.insertar(uno);
+        tabla.insertar(dos);
+        tabla.imprimir();
+        */
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
 /*
         
         
@@ -72,7 +108,7 @@ public class F2_Proyecto_Estructuras {
 
 
 
-        
+  //--------------------------------------------------------------------------------------
         
         
         
@@ -80,6 +116,7 @@ public class F2_Proyecto_Estructuras {
         LinkedList<Usuario> usuarios = new LinkedList<>();
         LinkedList<Mensajero> mensajeros = new LinkedList<>();
         Lista_Ad lista = new Lista_Ad();
+        TablaHash tabla = new TablaHash();
         
         long x = 6;
         Usuario provisional = new Usuario("x", "x", x,"x","x",1,"x",1);
@@ -92,14 +129,15 @@ public class F2_Proyecto_Estructuras {
         
         // interfaz grafica
         
-        Pantalla_login login = new Pantalla_login(usuarios, lista);
+        Pantalla_login login = new Pantalla_login(usuarios, lista, tabla);
         login.setVisible(true);
         login.setLocationRelativeTo(null); // Acá le decimos que nos la coloque en el centro
         
-        
+   //--------------------------------------------------------------------------------------
+       
         
 
-        
+       
         
         
         
