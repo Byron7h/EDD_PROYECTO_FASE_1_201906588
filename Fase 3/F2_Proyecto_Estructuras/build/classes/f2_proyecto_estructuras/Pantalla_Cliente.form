@@ -309,6 +309,7 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="GrafoMouseClicked"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GrafoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JRadioButton" name="Boton_merkle">

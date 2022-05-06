@@ -185,6 +185,11 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                 GrafoMouseClicked(evt);
             }
         });
+        Grafo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GrafoActionPerformed(evt);
+            }
+        });
 
         Botones_grupo.add(Boton_merkle);
         Boton_merkle.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
@@ -426,47 +431,13 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                 
                 case 1: // Recorrido por límite
                     
-                    /*
-                    int cantidad = Integer.parseInt(cantidad_text.getText());
-                    System.out.println("vvv"+cantidad);
-                    System.out.println(usuario.capas.num_nodos);
-                    if (cantidad <= usuario.capas.num_nodos){ 
-                        
-                    switch (tipo_recorrido) {
-                        case "PreOrden":
-                            Matriz_pixeles d = usuario.capas.recorrido_Preorden(cantidad);
-                            Creador_img f = new Creador_img(d);
-                            break;
-                        case "InOrden":
-                        
-                            Matriz_pixeles e = usuario.capas.recorrido_Inorden(cantidad);
-                            Creador_img g = new Creador_img(e);
-                        
-                        
-                            break;
-                        case "PostOrden":
-                            Matriz_pixeles l = usuario.capas.recorrido_Postorden(cantidad);
-                            Creador_img h = new Creador_img(l);
-                        
-                        
-                            break;
-                        
-                        
-                        default:
-                            break;
-                        }
-                        JOptionPane.showMessageDialog(this, "Se generó la imagen");
-                        
-                        Actualizar_img(Label_img,"C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\0.jpg");
-                        //Actualizar_img(Label_img,"src/imagenes/0.png");
+                    String g = tabla.grafo();
+                    Creador_img y = new Creador_img(g);
+                    JOptionPane.showMessageDialog(this, "Se generó la imagen");
+                    Actualizar_img(Label_img,"C:\\Users\\usuario\\Desktop\\provisional\\imagenes\\0.jpg");
 
                     
-                    }else{
-                       JOptionPane.showMessageDialog(this, "El número de capas excede a las capas registradas");      
-                    }
-                    
-                    
-                    break;*/
+                    break;
                 case 2:
                     
                     String graf = lista.Grafo();
@@ -532,6 +503,7 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
                 Lector_mensajeros lector = new Lector_mensajeros(direccion);
                 lector.Lectura(tabla);
                 tabla.imprimir();
+                tabla.grafo();
                 JOptionPane.showMessageDialog(this, "Se ha finalizado la carga masiva de imágenes");
                 
                 
@@ -606,6 +578,10 @@ public class Pantalla_Cliente extends javax.swing.JFrame {
         // TODO add your handling code here:
         opcion = 4;
     }//GEN-LAST:event_Lista_AActionPerformed
+
+    private void GrafoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GrafoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_GrafoActionPerformed
 
     public void Actualizar_img(JLabel Label_img, String ruta){
         this.imagen = new ImageIcon(ruta);

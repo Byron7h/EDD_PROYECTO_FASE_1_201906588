@@ -179,6 +179,38 @@ public class TablaHash {
         }
     
     }
+    public String grafo(){
+        
+        String grafo = "digraph G {\n" +
+        "node [shape=plaintext];\n" +
+        "some_node [\n" +
+        "label=<\n" +
+        "<table border=\"0\" cellborder=\"1\" cellspacing=\"0\">\n";
+        for ( int i = 0; i<tablita.length; i++){
+            if(tablita[i]!=null){
+                System.out.println("    "+i+" "+tablita[i].valor.DPI); 
+                
+                grafo += "<tr>\n" +
+                "   <td bgcolor=\"white\">"+i+"</td>\n" +
+                "   <td bgcolor=\"white\">"+tablita[i].valor.DPI+"</td>\n" +
+                "</tr>\n";
+                
+            }
+            else{
+                System.out.println("null");
+                
+                grafo += "<tr>\n" +
+                "   <td bgcolor=\"white\">"+i+"</td>\n" +
+                "   <td bgcolor=\"white\">null</td>\n" +
+                "</tr>\n";
+                
+            }
+        }
+        grafo += "</table>>\n" +
+"];\n" +
+"}";
+        return grafo;
+    }
     
     
     
